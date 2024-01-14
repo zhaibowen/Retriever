@@ -1,0 +1,834 @@
+@dataclass
+class RerieverConfig_small:
+    batch_size = 32
+    gradient_accumulation_steps = 8
+    sequence_length = 1024
+    learning_rate = 6e-4
+    min_lr = 6e-5
+    vocab_size = 32000
+    num_layers = 6
+    hidden_size = 512
+    num_heads = 8
+    beta1 = 0.9
+    beta2 = 0.95
+    weight_decay = 1e-1
+    warmup_iters = 2000
+    max_iters = 80000
+    lr_decay_iters = 80000
+    grad_clip = 1.0
+
+num decayed parameter tensors: 38, with 29,491,200 parameters
+num non-decayed parameter tensors: 13, with 6,656 parameters
+number of total parameters: 28.97M
+all train file nums: 1024
+preparing first dataset file english_c4/c4-train.00000-of-01024.txt
+finished, consume: 117s
+processing 0: english_c4/c4-train.00000-of-01024.txt, origin: 355732, samples: 173721, accum_tokens: 177M, iter_num: 0
+step 100, loss 9.54, lr 0.000030, consume 193.99s
+step 200, loss 7.81, lr 0.000060, consume 146.09s
+step 300, loss 6.76, lr 0.000090, consume 148.11s
+step 400, loss 6.32, lr 0.000120, consume 147.12s
+step 500, loss 6.10, lr 0.000150, consume 147.31s
+step 600, loss 5.93, lr 0.000180, consume 146.87s
+processing 1: english_c4/c4-train.00001-of-01024.txt, origin: 355708, samples: 173229, accum_tokens: 355M, iter_num: 678
+step 700, loss 5.76, lr 0.000210, consume 168.23s
+step 800, loss 5.61, lr 0.000240, consume 166.39s
+step 900, loss 5.47, lr 0.000270, consume 145.88s
+step 1000, loss 5.33, lr 0.000300, consume 145.55s
+step 1100, loss 5.20, lr 0.000330, consume 146.52s
+step 1200, loss 5.08, lr 0.000360, consume 145.95s
+step 1300, loss 4.97, lr 0.000390, consume 145.98s
+processing 2: english_c4/c4-train.00002-of-01024.txt, origin: 355718, samples: 173903, accum_tokens: 533M, iter_num: 1355
+step 1400, loss 4.84, lr 0.000420, consume 169.06s
+step 1500, loss 4.72, lr 0.000450, consume 168.97s
+step 1600, loss 4.61, lr 0.000480, consume 145.86s
+step 1700, loss 4.52, lr 0.000510, consume 146.52s
+step 1800, loss 4.45, lr 0.000540, consume 146.22s
+step 1900, loss 4.39, lr 0.000570, consume 146.19s
+step 2000, loss 4.34, lr 0.000600, consume 146.20s
+processing 3: english_c4/c4-train.00003-of-01024.txt, origin: 355753, samples: 173350, accum_tokens: 710M, iter_num: 2034
+step 2100, loss 4.30, lr 0.000600, consume 169.68s
+step 2200, loss 4.25, lr 0.000600, consume 167.66s
+step 2300, loss 4.22, lr 0.000600, consume 146.66s
+step 2400, loss 4.18, lr 0.000600, consume 146.60s
+step 2500, loss 4.14, lr 0.000600, consume 146.21s
+step 2600, loss 4.12, lr 0.000600, consume 146.26s
+step 2700, loss 4.10, lr 0.000600, consume 146.04s
+processing 4: english_c4/c4-train.00004-of-01024.txt, origin: 355691, samples: 173171, accum_tokens: 888M, iter_num: 2711
+step 2800, loss 4.09, lr 0.000600, consume 171.42s
+step 2900, loss 4.07, lr 0.000600, consume 167.18s
+step 3000, loss 4.05, lr 0.000600, consume 145.95s
+step 3100, loss 4.03, lr 0.000600, consume 146.41s
+step 3200, loss 4.02, lr 0.000600, consume 146.51s
+step 3300, loss 4.00, lr 0.000600, consume 146.04s
+processing 5: english_c4/c4-train.00005-of-01024.txt, origin: 355717, samples: 172927, accum_tokens: 1065M, iter_num: 3387
+step 3400, loss 3.99, lr 0.000600, consume 169.07s
+step 3500, loss 3.98, lr 0.000600, consume 167.87s
+step 3600, loss 3.96, lr 0.000599, consume 146.49s
+step 3700, loss 3.95, lr 0.000599, consume 146.42s
+step 3800, loss 3.94, lr 0.000599, consume 146.55s
+step 3900, loss 3.94, lr 0.000599, consume 145.79s
+step 4000, loss 3.93, lr 0.000599, consume 145.90s
+processing 6: english_c4/c4-train.00006-of-01024.txt, origin: 355747, samples: 173252, accum_tokens: 1242M, iter_num: 4063
+step 4100, loss 3.92, lr 0.000599, consume 168.20s
+step 4200, loss 3.90, lr 0.000599, consume 168.33s
+step 4300, loss 3.90, lr 0.000599, consume 145.74s
+step 4400, loss 3.89, lr 0.000599, consume 146.59s
+step 4500, loss 3.88, lr 0.000599, consume 146.57s
+step 4600, loss 3.88, lr 0.000599, consume 146.58s
+step 4700, loss 3.87, lr 0.000598, consume 146.40s
+processing 7: english_c4/c4-train.00007-of-01024.txt, origin: 355719, samples: 173288, accum_tokens: 1420M, iter_num: 4740
+step 4800, loss 3.87, lr 0.000598, consume 169.51s
+step 4900, loss 3.86, lr 0.000598, consume 166.16s
+step 5000, loss 3.86, lr 0.000598, consume 145.89s
+step 5100, loss 3.85, lr 0.000598, consume 145.76s
+step 5200, loss 3.84, lr 0.000598, consume 145.99s
+step 5300, loss 3.84, lr 0.000598, consume 146.17s
+step 5400, loss 3.84, lr 0.000597, consume 146.31s
+processing 8: english_c4/c4-train.00008-of-01024.txt, origin: 355746, samples: 173024, accum_tokens: 1597M, iter_num: 5416
+step 5500, loss 3.84, lr 0.000597, consume 170.01s
+step 5600, loss 3.83, lr 0.000597, consume 164.33s
+step 5700, loss 3.82, lr 0.000597, consume 145.72s
+step 5800, loss 3.82, lr 0.000597, consume 145.68s
+step 5900, loss 3.82, lr 0.000597, consume 145.68s
+step 6000, loss 3.81, lr 0.000597, consume 145.63s
+processing 9: english_c4/c4-train.00009-of-01024.txt, origin: 355708, samples: 172984, accum_tokens: 1774M, iter_num: 6092
+step 6100, loss 3.81, lr 0.000596, consume 169.16s
+step 6200, loss 3.81, lr 0.000596, consume 168.00s
+step 6300, loss 3.80, lr 0.000596, consume 145.39s
+step 6400, loss 3.80, lr 0.000596, consume 145.65s
+step 6500, loss 3.79, lr 0.000596, consume 145.65s
+step 6600, loss 3.79, lr 0.000595, consume 145.62s
+step 6700, loss 3.78, lr 0.000595, consume 145.64s
+processing 10: english_c4/c4-train.00010-of-01024.txt, origin: 355702, samples: 173710, accum_tokens: 1952M, iter_num: 6768
+step 6800, loss 3.78, lr 0.000595, consume 168.55s
+step 6900, loss 3.78, lr 0.000595, consume 166.73s
+step 7000, loss 3.78, lr 0.000595, consume 145.47s
+step 7100, loss 3.77, lr 0.000594, consume 145.56s
+step 7200, loss 3.77, lr 0.000594, consume 145.57s
+step 7300, loss 3.77, lr 0.000594, consume 145.56s
+step 7400, loss 3.77, lr 0.000594, consume 145.53s
+processing 11: english_c4/c4-train.00011-of-01024.txt, origin: 355701, samples: 173885, accum_tokens: 2130M, iter_num: 7446
+step 7500, loss 3.76, lr 0.000593, consume 168.91s
+step 7600, loss 3.77, lr 0.000593, consume 165.68s
+step 7700, loss 3.76, lr 0.000593, consume 145.57s
+step 7800, loss 3.76, lr 0.000593, consume 145.56s
+step 7900, loss 3.76, lr 0.000592, consume 145.50s
+step 8000, loss 3.75, lr 0.000592, consume 145.51s
+step 8100, loss 3.76, lr 0.000592, consume 145.52s
+processing 12: english_c4/c4-train.00012-of-01024.txt, origin: 355710, samples: 174423, accum_tokens: 2308M, iter_num: 8126
+step 8200, loss 3.76, lr 0.000592, consume 167.21s
+step 8300, loss 3.74, lr 0.000591, consume 165.79s
+step 8400, loss 3.75, lr 0.000591, consume 145.53s
+step 8500, loss 3.74, lr 0.000591, consume 145.54s
+step 8600, loss 3.73, lr 0.000591, consume 145.51s
+step 8700, loss 3.74, lr 0.000590, consume 145.48s
+step 8800, loss 3.73, lr 0.000590, consume 145.48s
+processing 13: english_c4/c4-train.00013-of-01024.txt, origin: 355723, samples: 173966, accum_tokens: 2487M, iter_num: 8807
+step 8900, loss 3.74, lr 0.000590, consume 168.90s
+step 9000, loss 3.73, lr 0.000589, consume 164.38s
+step 9100, loss 3.73, lr 0.000589, consume 145.52s
+step 9200, loss 3.73, lr 0.000589, consume 145.51s
+step 9300, loss 3.73, lr 0.000588, consume 145.14s
+step 9400, loss 3.73, lr 0.000588, consume 145.06s
+processing 14: english_c4/c4-train.00014-of-01024.txt, origin: 355708, samples: 174115, accum_tokens: 2665M, iter_num: 9486
+step 9500, loss 3.72, lr 0.000588, consume 164.53s
+step 9600, loss 3.72, lr 0.000587, consume 166.97s
+step 9700, loss 3.72, lr 0.000587, consume 144.87s
+step 9800, loss 3.72, lr 0.000587, consume 145.08s
+step 9900, loss 3.72, lr 0.000586, consume 145.08s
+step 10000, loss 3.71, lr 0.000586, consume 145.05s
+step 10100, loss 3.71, lr 0.000586, consume 145.04s
+processing 15: english_c4/c4-train.00015-of-01024.txt, origin: 355698, samples: 173319, accum_tokens: 2842M, iter_num: 10166
+step 10200, loss 3.72, lr 0.000585, consume 164.99s
+step 10300, loss 3.71, lr 0.000585, consume 167.89s
+step 10400, loss 3.71, lr 0.000585, consume 144.98s
+step 10500, loss 3.71, lr 0.000584, consume 145.05s
+step 10600, loss 3.71, lr 0.000584, consume 145.06s
+step 10700, loss 3.70, lr 0.000584, consume 145.04s
+step 10800, loss 3.71, lr 0.000583, consume 145.04s
+processing 16: english_c4/c4-train.00016-of-01024.txt, origin: 355697, samples: 173354, accum_tokens: 3020M, iter_num: 10843
+step 10900, loss 3.71, lr 0.000583, consume 165.70s
+step 11000, loss 3.71, lr 0.000582, consume 165.04s
+step 11100, loss 3.70, lr 0.000582, consume 145.02s
+step 11200, loss 3.70, lr 0.000582, consume 145.05s
+step 11300, loss 3.70, lr 0.000581, consume 145.02s
+step 11400, loss 3.69, lr 0.000581, consume 144.96s
+step 11500, loss 3.69, lr 0.000580, consume 145.00s
+processing 17: english_c4/c4-train.00017-of-01024.txt, origin: 355726, samples: 174259, accum_tokens: 3198M, iter_num: 11521
+step 11600, loss 3.70, lr 0.000580, consume 167.91s
+step 11700, loss 3.69, lr 0.000580, consume 166.96s
+step 11800, loss 3.70, lr 0.000579, consume 145.08s
+step 11900, loss 3.69, lr 0.000579, consume 145.11s
+step 12000, loss 3.69, lr 0.000578, consume 145.04s
+step 12100, loss 3.69, lr 0.000578, consume 145.06s
+step 12200, loss 3.69, lr 0.000578, consume 145.07s
+processing 18: english_c4/c4-train.00018-of-01024.txt, origin: 355709, samples: 173222, accum_tokens: 3376M, iter_num: 12201
+step 12300, loss 3.69, lr 0.000577, consume 167.36s
+step 12400, loss 3.69, lr 0.000577, consume 164.11s
+step 12500, loss 3.69, lr 0.000576, consume 145.22s
+step 12600, loss 3.69, lr 0.000576, consume 145.22s
+step 12700, loss 3.69, lr 0.000575, consume 145.20s
+step 12800, loss 3.69, lr 0.000575, consume 145.17s
+processing 19: english_c4/c4-train.00019-of-01024.txt, origin: 355697, samples: 173993, accum_tokens: 3554M, iter_num: 12878
+step 12900, loss 3.68, lr 0.000574, consume 164.62s
+step 13000, loss 3.68, lr 0.000574, consume 168.18s
+step 13100, loss 3.69, lr 0.000573, consume 144.90s
+step 13200, loss 3.67, lr 0.000573, consume 145.10s
+step 13300, loss 3.68, lr 0.000573, consume 145.06s
+step 13400, loss 3.68, lr 0.000572, consume 145.04s
+step 13500, loss 3.67, lr 0.000572, consume 145.06s
+processing 20: english_c4/c4-train.00020-of-01024.txt, origin: 355687, samples: 173497, accum_tokens: 3732M, iter_num: 13557
+step 13600, loss 3.68, lr 0.000571, consume 164.88s
+step 13700, loss 3.68, lr 0.000571, consume 166.34s
+step 13800, loss 3.68, lr 0.000570, consume 145.03s
+step 13900, loss 3.68, lr 0.000570, consume 145.07s
+step 14000, loss 3.67, lr 0.000569, consume 145.06s
+step 14100, loss 3.68, lr 0.000569, consume 145.06s
+step 14200, loss 3.66, lr 0.000568, consume 145.03s
+processing 21: english_c4/c4-train.00021-of-01024.txt, origin: 355709, samples: 173358, accum_tokens: 3909M, iter_num: 14235
+step 14300, loss 3.67, lr 0.000568, consume 167.31s
+step 14400, loss 3.67, lr 0.000567, consume 166.41s
+step 14500, loss 3.67, lr 0.000567, consume 145.09s
+step 14600, loss 3.67, lr 0.000566, consume 145.07s
+step 14700, loss 3.67, lr 0.000565, consume 145.09s
+step 14800, loss 3.66, lr 0.000565, consume 145.05s
+step 14900, loss 3.66, lr 0.000564, consume 145.04s
+processing 22: english_c4/c4-train.00022-of-01024.txt, origin: 355742, samples: 173215, accum_tokens: 4086M, iter_num: 14912
+step 15000, loss 3.67, lr 0.000564, consume 166.98s
+step 15100, loss 3.67, lr 0.000563, consume 164.19s
+step 15200, loss 3.66, lr 0.000563, consume 145.08s
+step 15300, loss 3.67, lr 0.000562, consume 145.19s
+step 15400, loss 3.66, lr 0.000562, consume 145.09s
+step 15500, loss 3.67, lr 0.000561, consume 145.70s
+processing 23: english_c4/c4-train.00023-of-01024.txt, origin: 355714, samples: 173979, accum_tokens: 4265M, iter_num: 15589
+step 15600, loss 3.66, lr 0.000561, consume 165.65s
+step 15700, loss 3.66, lr 0.000560, consume 167.76s
+step 15800, loss 3.66, lr 0.000559, consume 144.95s
+step 15900, loss 3.66, lr 0.000559, consume 145.24s
+step 16000, loss 3.66, lr 0.000558, consume 146.93s
+step 16100, loss 3.66, lr 0.000558, consume 146.72s
+step 16200, loss 3.66, lr 0.000557, consume 148.20s
+processing 24: english_c4/c4-train.00024-of-01024.txt, origin: 355728, samples: 172879, accum_tokens: 4442M, iter_num: 16268
+step 16300, loss 3.66, lr 0.000556, consume 165.03s
+step 16400, loss 3.66, lr 0.000556, consume 168.83s
+step 16500, loss 3.66, lr 0.000555, consume 145.79s
+step 16600, loss 3.66, lr 0.000555, consume 147.25s
+step 16700, loss 3.66, lr 0.000554, consume 146.24s
+step 16800, loss 3.65, lr 0.000553, consume 147.25s
+step 16900, loss 3.65, lr 0.000553, consume 147.46s
+processing 25: english_c4/c4-train.00025-of-01024.txt, origin: 355713, samples: 173638, accum_tokens: 4619M, iter_num: 16943
+step 17000, loss 3.65, lr 0.000552, consume 168.52s
+step 17100, loss 3.65, lr 0.000552, consume 169.53s
+step 17200, loss 3.65, lr 0.000551, consume 147.21s
+step 17300, loss 3.64, lr 0.000550, consume 147.79s
+step 17400, loss 3.65, lr 0.000550, consume 147.05s
+step 17500, loss 3.64, lr 0.000549, consume 147.14s
+step 17600, loss 3.64, lr 0.000548, consume 147.83s
+processing 26: english_c4/c4-train.00026-of-01024.txt, origin: 355688, samples: 173072, accum_tokens: 4797M, iter_num: 17622
+step 17700, loss 3.64, lr 0.000548, consume 169.26s
+step 17800, loss 3.64, lr 0.000547, consume 168.49s
+step 17900, loss 3.64, lr 0.000547, consume 147.55s
+step 18000, loss 3.64, lr 0.000546, consume 146.72s
+step 18100, loss 3.64, lr 0.000545, consume 146.42s
+step 18200, loss 3.64, lr 0.000545, consume 147.23s
+processing 27: english_c4/c4-train.00027-of-01024.txt, origin: 355713, samples: 174471, accum_tokens: 4975M, iter_num: 18298
+step 18300, loss 3.64, lr 0.000544, consume 167.59s
+step 18400, loss 3.64, lr 0.000543, consume 171.65s
+step 18500, loss 3.65, lr 0.000543, consume 147.85s
+step 18600, loss 3.64, lr 0.000542, consume 148.19s
+step 18700, loss 3.64, lr 0.000541, consume 146.81s
+step 18800, loss 3.64, lr 0.000541, consume 148.28s
+step 18900, loss 3.64, lr 0.000540, consume 146.82s
+processing 28: english_c4/c4-train.00028-of-01024.txt, origin: 355701, samples: 173576, accum_tokens: 5153M, iter_num: 18979
+step 19000, loss 3.63, lr 0.000539, consume 168.59s
+step 19100, loss 3.64, lr 0.000538, consume 170.64s
+step 19200, loss 3.64, lr 0.000538, consume 149.00s
+step 19300, loss 3.63, lr 0.000537, consume 147.61s
+step 19400, loss 3.64, lr 0.000536, consume 146.50s
+step 19500, loss 3.64, lr 0.000536, consume 147.20s
+step 19600, loss 3.63, lr 0.000535, consume 146.97s
+processing 29: english_c4/c4-train.00029-of-01024.txt, origin: 355707, samples: 173593, accum_tokens: 5331M, iter_num: 19657
+step 19700, loss 3.63, lr 0.000534, consume 170.66s
+step 19800, loss 3.63, lr 0.000534, consume 169.81s
+step 19900, loss 3.63, lr 0.000533, consume 146.69s
+step 20000, loss 3.63, lr 0.000532, consume 147.29s
+step 20100, loss 3.62, lr 0.000531, consume 145.69s
+step 20200, loss 3.63, lr 0.000531, consume 147.00s
+step 20300, loss 3.63, lr 0.000530, consume 146.61s
+processing 30: english_c4/c4-train.00030-of-01024.txt, origin: 355751, samples: 173202, accum_tokens: 5508M, iter_num: 20335
+step 20400, loss 3.63, lr 0.000529, consume 170.80s
+step 20500, loss 3.63, lr 0.000528, consume 166.96s
+step 20600, loss 3.63, lr 0.000528, consume 145.26s
+step 20700, loss 3.62, lr 0.000527, consume 145.26s
+step 20800, loss 3.63, lr 0.000526, consume 145.30s
+step 20900, loss 3.62, lr 0.000525, consume 145.29s
+step 21000, loss 3.62, lr 0.000525, consume 145.28s
+processing 31: english_c4/c4-train.00031-of-01024.txt, origin: 355742, samples: 173547, accum_tokens: 5686M, iter_num: 21012
+step 21100, loss 3.63, lr 0.000524, consume 169.93s
+step 21200, loss 3.63, lr 0.000523, consume 166.33s
+step 21300, loss 3.63, lr 0.000522, consume 147.36s
+step 21400, loss 3.62, lr 0.000522, consume 145.89s
+step 21500, loss 3.63, lr 0.000521, consume 147.05s
+step 21600, loss 3.62, lr 0.000520, consume 147.04s
+processing 32: english_c4/c4-train.00032-of-01024.txt, origin: 355738, samples: 174581, accum_tokens: 5865M, iter_num: 21690
+step 21700, loss 3.62, lr 0.000519, consume 168.29s
+step 21800, loss 3.63, lr 0.000519, consume 169.55s
+step 21900, loss 3.62, lr 0.000518, consume 147.94s
+step 22000, loss 3.62, lr 0.000517, consume 147.57s
+step 22100, loss 3.62, lr 0.000516, consume 147.68s
+step 22200, loss 3.61, lr 0.000515, consume 147.37s
+step 22300, loss 3.62, lr 0.000515, consume 148.75s
+processing 33: english_c4/c4-train.00033-of-01024.txt, origin: 355671, samples: 174239, accum_tokens: 6043M, iter_num: 22371
+step 22400, loss 3.62, lr 0.000514, consume 170.62s
+step 22500, loss 3.62, lr 0.000513, consume 168.99s
+step 22600, loss 3.61, lr 0.000512, consume 147.34s
+step 22700, loss 3.62, lr 0.000511, consume 149.04s
+step 22800, loss 3.62, lr 0.000511, consume 147.22s
+step 22900, loss 3.62, lr 0.000510, consume 147.01s
+step 23000, loss 3.62, lr 0.000509, consume 146.86s
+processing 34: english_c4/c4-train.00034-of-01024.txt, origin: 355742, samples: 173538, accum_tokens: 6221M, iter_num: 23052
+step 23100, loss 3.61, lr 0.000508, consume 170.57s
+step 23200, loss 3.62, lr 0.000507, consume 167.31s
+step 23300, loss 3.61, lr 0.000507, consume 148.12s
+step 23400, loss 3.62, lr 0.000506, consume 146.29s
+step 23500, loss 3.61, lr 0.000505, consume 147.29s
+step 23600, loss 3.61, lr 0.000504, consume 146.86s
+step 23700, loss 3.61, lr 0.000503, consume 147.17s
+processing 35: english_c4/c4-train.00035-of-01024.txt, origin: 355715, samples: 173348, accum_tokens: 6398M, iter_num: 23730
+step 23800, loss 3.61, lr 0.000502, consume 170.59s
+step 23900, loss 3.61, lr 0.000502, consume 169.00s
+step 24000, loss 3.61, lr 0.000501, consume 147.67s
+step 24100, loss 3.61, lr 0.000500, consume 146.18s
+step 24200, loss 3.61, lr 0.000499, consume 147.69s
+step 24300, loss 3.62, lr 0.000498, consume 147.01s
+step 24400, loss 3.62, lr 0.000497, consume 148.47s
+processing 36: english_c4/c4-train.00036-of-01024.txt, origin: 355725, samples: 173573, accum_tokens: 6576M, iter_num: 24407
+step 24500, loss 3.61, lr 0.000497, consume 172.27s
+step 24600, loss 3.61, lr 0.000496, consume 167.96s
+step 24700, loss 3.61, lr 0.000495, consume 147.68s
+step 24800, loss 3.60, lr 0.000494, consume 147.30s
+step 24900, loss 3.61, lr 0.000493, consume 148.08s
+step 25000, loss 3.61, lr 0.000492, consume 146.50s
+processing 37: english_c4/c4-train.00037-of-01024.txt, origin: 355760, samples: 174025, accum_tokens: 6754M, iter_num: 25085
+step 25100, loss 3.61, lr 0.000491, consume 169.17s
+step 25200, loss 3.61, lr 0.000490, consume 167.98s
+step 25300, loss 3.61, lr 0.000490, consume 148.30s
+step 25400, loss 3.61, lr 0.000489, consume 149.76s
+step 25500, loss 3.61, lr 0.000488, consume 148.09s
+step 25600, loss 3.61, lr 0.000487, consume 150.68s
+step 25700, loss 3.61, lr 0.000486, consume 147.86s
+processing 38: english_c4/c4-train.00038-of-01024.txt, origin: 355686, samples: 173172, accum_tokens: 6932M, iter_num: 25765
+step 25800, loss 3.61, lr 0.000485, consume 169.81s
+step 25900, loss 3.61, lr 0.000484, consume 172.36s
+step 26000, loss 3.60, lr 0.000483, consume 147.14s
+step 26100, loss 3.60, lr 0.000482, consume 153.52s
+step 26200, loss 3.60, lr 0.000482, consume 147.04s
+step 26300, loss 3.60, lr 0.000481, consume 152.60s
+step 26400, loss 3.59, lr 0.000480, consume 145.20s
+processing 39: english_c4/c4-train.00039-of-01024.txt, origin: 355723, samples: 174130, accum_tokens: 7110M, iter_num: 26441
+step 26500, loss 3.60, lr 0.000479, consume 169.82s
+step 26600, loss 3.60, lr 0.000478, consume 166.16s
+step 26700, loss 3.61, lr 0.000477, consume 146.80s
+step 26800, loss 3.60, lr 0.000476, consume 147.80s
+step 26900, loss 3.60, lr 0.000475, consume 150.87s
+step 27000, loss 3.60, lr 0.000474, consume 148.26s
+step 27100, loss 3.60, lr 0.000473, consume 146.66s
+processing 40: english_c4/c4-train.00040-of-01024.txt, origin: 355743, samples: 174205, accum_tokens: 7288M, iter_num: 27121
+step 27200, loss 3.61, lr 0.000472, consume 173.42s
+step 27300, loss 3.59, lr 0.000472, consume 165.73s
+step 27400, loss 3.60, lr 0.000471, consume 148.35s
+step 27500, loss 3.60, lr 0.000470, consume 146.34s
+step 27600, loss 3.60, lr 0.000469, consume 146.64s
+step 27700, loss 3.60, lr 0.000468, consume 146.18s
+step 27800, loss 3.60, lr 0.000467, consume 145.87s
+processing 41: english_c4/c4-train.00041-of-01024.txt, origin: 355732, samples: 173841, accum_tokens: 7466M, iter_num: 27802
+step 27900, loss 3.60, lr 0.000466, consume 189.80s
+step 28000, loss 3.60, lr 0.000465, consume 148.88s
+step 28100, loss 3.60, lr 0.000464, consume 148.51s
+step 28200, loss 3.60, lr 0.000463, consume 149.25s
+step 28300, loss 3.60, lr 0.000462, consume 148.70s
+step 28400, loss 3.59, lr 0.000461, consume 149.11s
+processing 42: english_c4/c4-train.00042-of-01024.txt, origin: 355693, samples: 172927, accum_tokens: 7643M, iter_num: 28481
+step 28500, loss 3.60, lr 0.000460, consume 170.00s
+step 28600, loss 3.60, lr 0.000459, consume 170.77s
+step 28700, loss 3.59, lr 0.000458, consume 146.92s
+step 28800, loss 3.60, lr 0.000457, consume 147.52s
+step 28900, loss 3.60, lr 0.000456, consume 149.84s
+step 29000, loss 3.59, lr 0.000455, consume 148.80s
+step 29100, loss 3.60, lr 0.000455, consume 148.11s
+processing 43: english_c4/c4-train.00043-of-01024.txt, origin: 355728, samples: 172642, accum_tokens: 7820M, iter_num: 29156
+step 29200, loss 3.59, lr 0.000454, consume 170.87s
+step 29300, loss 3.60, lr 0.000453, consume 168.75s
+step 29400, loss 3.60, lr 0.000452, consume 148.48s
+step 29500, loss 3.59, lr 0.000451, consume 149.22s
+step 29600, loss 3.59, lr 0.000450, consume 146.84s
+step 29700, loss 3.59, lr 0.000449, consume 147.68s
+step 29800, loss 3.59, lr 0.000448, consume 146.61s
+processing 44: english_c4/c4-train.00044-of-01024.txt, origin: 355718, samples: 173521, accum_tokens: 7998M, iter_num: 29830
+step 29900, loss 3.59, lr 0.000447, consume 171.75s
+step 30000, loss 3.59, lr 0.000446, consume 168.66s
+step 30100, loss 3.60, lr 0.000445, consume 149.02s
+step 30200, loss 3.58, lr 0.000444, consume 147.22s
+step 30300, loss 3.59, lr 0.000443, consume 151.42s
+step 30400, loss 3.59, lr 0.000442, consume 149.32s
+step 30500, loss 3.58, lr 0.000441, consume 146.24s
+processing 45: english_c4/c4-train.00045-of-01024.txt, origin: 355708, samples: 173877, accum_tokens: 8176M, iter_num: 30508
+step 30600, loss 3.59, lr 0.000440, consume 173.13s
+step 30700, loss 3.59, lr 0.000439, consume 166.46s
+step 30800, loss 3.59, lr 0.000438, consume 148.61s
+step 30900, loss 3.59, lr 0.000437, consume 145.76s
+step 31000, loss 3.59, lr 0.000436, consume 149.39s
+step 31100, loss 3.59, lr 0.000435, consume 146.80s
+processing 46: english_c4/c4-train.00046-of-01024.txt, origin: 355711, samples: 173463, accum_tokens: 8354M, iter_num: 31187
+step 31200, loss 3.59, lr 0.000434, consume 166.52s
+step 31300, loss 3.59, lr 0.000433, consume 166.17s
+step 31400, loss 3.59, lr 0.000432, consume 144.97s
+step 31500, loss 3.59, lr 0.000431, consume 145.09s
+step 31600, loss 3.59, lr 0.000430, consume 145.05s
+step 31700, loss 3.59, lr 0.000429, consume 145.09s
+step 31800, loss 3.58, lr 0.000428, consume 145.12s
+processing 47: english_c4/c4-train.00047-of-01024.txt, origin: 355731, samples: 172936, accum_tokens: 8531M, iter_num: 31865
+step 31900, loss 3.58, lr 0.000427, consume 167.14s
+step 32000, loss 3.59, lr 0.000426, consume 166.10s
+step 32100, loss 3.58, lr 0.000425, consume 145.10s
+step 32200, loss 3.58, lr 0.000424, consume 145.10s
+step 32300, loss 3.58, lr 0.000423, consume 145.10s
+step 32400, loss 3.58, lr 0.000422, consume 145.09s
+step 32500, loss 3.58, lr 0.000421, consume 145.08s
+processing 48: english_c4/c4-train.00048-of-01024.txt, origin: 355721, samples: 172684, accum_tokens: 8707M, iter_num: 32540
+step 32600, loss 3.59, lr 0.000420, consume 169.19s
+step 32700, loss 3.58, lr 0.000419, consume 165.17s
+step 32800, loss 3.58, lr 0.000418, consume 145.13s
+step 32900, loss 3.58, lr 0.000417, consume 145.15s
+step 33000, loss 3.58, lr 0.000416, consume 145.15s
+step 33100, loss 3.58, lr 0.000414, consume 145.12s
+step 33200, loss 3.58, lr 0.000413, consume 145.15s
+processing 49: english_c4/c4-train.00049-of-01024.txt, origin: 355716, samples: 173827, accum_tokens: 8885M, iter_num: 33215
+step 33300, loss 3.58, lr 0.000412, consume 170.39s
+step 33400, loss 3.57, lr 0.000411, consume 163.64s
+step 33500, loss 3.57, lr 0.000410, consume 145.31s
+step 33600, loss 3.58, lr 0.000409, consume 145.30s
+step 33700, loss 3.57, lr 0.000408, consume 145.28s
+step 33800, loss 3.58, lr 0.000407, consume 145.26s
+processing 50: english_c4/c4-train.00050-of-01024.txt, origin: 355718, samples: 172909, accum_tokens: 9062M, iter_num: 33894
+step 33900, loss 3.58, lr 0.000406, consume 167.24s
+step 34000, loss 3.58, lr 0.000405, consume 167.98s
+step 34100, loss 3.58, lr 0.000404, consume 145.08s
+step 34200, loss 3.58, lr 0.000403, consume 145.33s
+step 34300, loss 3.58, lr 0.000402, consume 145.30s
+step 34400, loss 3.58, lr 0.000401, consume 145.28s
+step 34500, loss 3.58, lr 0.000400, consume 145.29s
+processing 51: english_c4/c4-train.00051-of-01024.txt, origin: 355672, samples: 173579, accum_tokens: 9240M, iter_num: 34569
+step 34600, loss 3.57, lr 0.000399, consume 166.99s
+step 34700, loss 3.58, lr 0.000398, consume 167.24s
+step 34800, loss 3.57, lr 0.000397, consume 145.23s
+step 34900, loss 3.57, lr 0.000396, consume 145.26s
+step 35000, loss 3.57, lr 0.000395, consume 145.25s
+step 35100, loss 3.57, lr 0.000394, consume 145.26s
+step 35200, loss 3.57, lr 0.000393, consume 145.24s
+processing 52: english_c4/c4-train.00052-of-01024.txt, origin: 355741, samples: 174645, accum_tokens: 9419M, iter_num: 35247
+step 35300, loss 3.58, lr 0.000391, consume 168.27s
+step 35400, loss 3.57, lr 0.000390, consume 167.52s
+step 35500, loss 3.57, lr 0.000389, consume 145.26s
+step 35600, loss 3.57, lr 0.000388, consume 145.28s
+step 35700, loss 3.57, lr 0.000387, consume 145.27s
+step 35800, loss 3.57, lr 0.000386, consume 145.27s
+step 35900, loss 3.57, lr 0.000385, consume 145.26s
+processing 53: english_c4/c4-train.00053-of-01024.txt, origin: 355705, samples: 174657, accum_tokens: 9598M, iter_num: 35929
+step 36000, loss 3.57, lr 0.000384, consume 166.93s
+step 36100, loss 3.57, lr 0.000383, consume 166.00s
+step 36200, loss 3.57, lr 0.000382, consume 145.34s
+step 36300, loss 3.57, lr 0.000381, consume 145.33s
+step 36400, loss 3.57, lr 0.000380, consume 145.29s
+step 36500, loss 3.56, lr 0.000379, consume 145.26s
+step 36600, loss 3.57, lr 0.000378, consume 145.27s
+processing 54: english_c4/c4-train.00054-of-01024.txt, origin: 355738, samples: 174513, accum_tokens: 9777M, iter_num: 36611
+step 36700, loss 3.57, lr 0.000377, consume 168.10s
+step 36800, loss 3.57, lr 0.000375, consume 164.57s
+step 36900, loss 3.57, lr 0.000374, consume 145.31s
+step 37000, loss 3.57, lr 0.000373, consume 145.29s
+step 37100, loss 3.57, lr 0.000372, consume 145.26s
+step 37200, loss 3.57, lr 0.000371, consume 145.25s
+processing 55: english_c4/c4-train.00055-of-01024.txt, origin: 355762, samples: 173354, accum_tokens: 9954M, iter_num: 37293
+step 37300, loss 3.57, lr 0.000370, consume 164.28s
+step 37400, loss 3.57, lr 0.000369, consume 166.90s
+step 37500, loss 3.57, lr 0.000368, consume 145.02s
+step 37600, loss 3.57, lr 0.000367, consume 145.30s
+step 37700, loss 3.57, lr 0.000366, consume 145.28s
+step 37800, loss 3.57, lr 0.000365, consume 145.28s
+step 37900, loss 3.57, lr 0.000364, consume 145.30s
+processing 56: english_c4/c4-train.00056-of-01024.txt, origin: 355728, samples: 173929, accum_tokens: 10132M, iter_num: 37970
+step 38000, loss 3.57, lr 0.000363, consume 164.73s
+step 38100, loss 3.56, lr 0.000361, consume 167.86s
+step 38200, loss 3.56, lr 0.000360, consume 145.22s
+step 38300, loss 3.56, lr 0.000359, consume 145.31s
+step 38400, loss 3.57, lr 0.000358, consume 145.29s
+step 38500, loss 3.56, lr 0.000357, consume 145.24s
+step 38600, loss 3.56, lr 0.000356, consume 145.27s
+processing 57: english_c4/c4-train.00057-of-01024.txt, origin: 355709, samples: 174072, accum_tokens: 10310M, iter_num: 38650
+step 38700, loss 3.56, lr 0.000355, consume 164.92s
+step 38800, loss 3.56, lr 0.000354, consume 166.17s
+step 38900, loss 3.56, lr 0.000353, consume 145.18s
+step 39000, loss 3.57, lr 0.000352, consume 145.18s
+step 39100, loss 3.56, lr 0.000351, consume 145.15s
+step 39200, loss 3.56, lr 0.000350, consume 145.13s
+step 39300, loss 3.56, lr 0.000348, consume 145.15s
+processing 58: english_c4/c4-train.00058-of-01024.txt, origin: 355737, samples: 173163, accum_tokens: 10488M, iter_num: 39329
+step 39400, loss 3.56, lr 0.000347, consume 167.24s
+step 39500, loss 3.56, lr 0.000346, consume 165.98s
+step 39600, loss 3.56, lr 0.000345, consume 145.29s
+step 39700, loss 3.56, lr 0.000344, consume 145.26s
+step 39800, loss 3.56, lr 0.000343, consume 145.28s
+step 39900, loss 3.56, lr 0.000342, consume 145.29s
+step 40000, loss 3.56, lr 0.000341, consume 145.30s
+processing 59: english_c4/c4-train.00059-of-01024.txt, origin: 355712, samples: 173027, accum_tokens: 10665M, iter_num: 40006
+step 40100, loss 3.56, lr 0.000340, consume 168.15s
+step 40200, loss 3.56, lr 0.000339, consume 164.14s
+step 40300, loss 3.56, lr 0.000338, consume 145.29s
+step 40400, loss 3.55, lr 0.000337, consume 145.28s
+step 40500, loss 3.56, lr 0.000335, consume 145.27s
+step 40600, loss 3.55, lr 0.000334, consume 145.26s
+processing 60: english_c4/c4-train.00060-of-01024.txt, origin: 355761, samples: 172895, accum_tokens: 10842M, iter_num: 40682
+step 40700, loss 3.55, lr 0.000333, consume 164.22s
+step 40800, loss 3.56, lr 0.000332, consume 166.37s
+step 40900, loss 3.56, lr 0.000331, consume 145.15s
+step 41000, loss 3.56, lr 0.000330, consume 145.28s
+step 41100, loss 3.56, lr 0.000329, consume 145.27s
+step 41200, loss 3.55, lr 0.000328, consume 145.25s
+step 41300, loss 3.56, lr 0.000327, consume 145.24s
+processing 61: english_c4/c4-train.00061-of-01024.txt, origin: 355653, samples: 173587, accum_tokens: 11020M, iter_num: 41357
+step 41400, loss 3.55, lr 0.000326, consume 165.00s
+step 41500, loss 3.56, lr 0.000325, consume 166.44s
+step 41600, loss 3.56, lr 0.000323, consume 145.23s
+step 41700, loss 3.55, lr 0.000322, consume 145.25s
+step 41800, loss 3.55, lr 0.000321, consume 145.22s
+step 41900, loss 3.55, lr 0.000320, consume 145.21s
+step 42000, loss 3.55, lr 0.000319, consume 145.17s
+processing 62: english_c4/c4-train.00062-of-01024.txt, origin: 355695, samples: 173559, accum_tokens: 11197M, iter_num: 42035
+step 42100, loss 3.55, lr 0.000318, consume 165.95s
+step 42200, loss 3.56, lr 0.000317, consume 165.47s
+step 42300, loss 3.55, lr 0.000316, consume 145.30s
+step 42400, loss 3.56, lr 0.000315, consume 145.29s
+step 42500, loss 3.55, lr 0.000314, consume 145.26s
+step 42600, loss 3.55, lr 0.000313, consume 145.27s
+step 42700, loss 3.55, lr 0.000312, consume 145.28s
+processing 63: english_c4/c4-train.00063-of-01024.txt, origin: 355702, samples: 173212, accum_tokens: 11375M, iter_num: 42713
+step 42800, loss 3.56, lr 0.000310, consume 167.24s
+step 42900, loss 3.55, lr 0.000309, consume 164.29s
+step 43000, loss 3.55, lr 0.000308, consume 145.31s
+step 43100, loss 3.56, lr 0.000307, consume 145.31s
+step 43200, loss 3.55, lr 0.000306, consume 145.30s
+step 43300, loss 3.55, lr 0.000305, consume 145.29s
+processing 64: english_c4/c4-train.00064-of-01024.txt, origin: 355669, samples: 173600, accum_tokens: 11553M, iter_num: 43389
+step 43400, loss 3.55, lr 0.000304, consume 165.17s
+step 43500, loss 3.55, lr 0.000303, consume 166.36s
+step 43600, loss 3.55, lr 0.000302, consume 145.04s
+step 43700, loss 3.54, lr 0.000301, consume 145.29s
+step 43800, loss 3.54, lr 0.000300, consume 145.26s
+step 43900, loss 3.55, lr 0.000299, consume 145.25s
+step 44000, loss 3.55, lr 0.000297, consume 145.25s
+processing 65: english_c4/c4-train.00065-of-01024.txt, origin: 355739, samples: 174137, accum_tokens: 11731M, iter_num: 44067
+step 44100, loss 3.55, lr 0.000296, consume 164.71s
+step 44200, loss 3.55, lr 0.000295, consume 166.90s
+step 44300, loss 3.55, lr 0.000294, consume 145.18s
+step 44400, loss 3.54, lr 0.000293, consume 145.29s
+step 44500, loss 3.55, lr 0.000292, consume 145.26s
+step 44600, loss 3.54, lr 0.000291, consume 145.25s
+step 44700, loss 3.54, lr 0.000290, consume 145.23s
+processing 66: english_c4/c4-train.00066-of-01024.txt, origin: 355688, samples: 174665, accum_tokens: 11910M, iter_num: 44748
+step 44800, loss 3.54, lr 0.000289, consume 165.19s
+step 44900, loss 3.54, lr 0.000288, consume 167.51s
+step 45000, loss 3.54, lr 0.000287, consume 145.31s
+step 45100, loss 3.54, lr 0.000286, consume 145.32s
+step 45200, loss 3.53, lr 0.000285, consume 145.29s
+step 45300, loss 3.54, lr 0.000283, consume 145.27s
+step 45400, loss 3.53, lr 0.000282, consume 145.26s
+processing 67: english_c4/c4-train.00067-of-01024.txt, origin: 355732, samples: 173614, accum_tokens: 12088M, iter_num: 45430
+step 45500, loss 3.54, lr 0.000281, consume 166.56s
+step 45600, loss 3.55, lr 0.000280, consume 164.19s
+step 45700, loss 3.55, lr 0.000279, consume 145.27s
+step 45800, loss 3.54, lr 0.000278, consume 145.26s
+step 45900, loss 3.54, lr 0.000277, consume 145.25s
+step 46000, loss 3.55, lr 0.000276, consume 145.26s
+step 46100, loss 3.54, lr 0.000275, consume 145.27s
+processing 68: english_c4/c4-train.00068-of-01024.txt, origin: 355711, samples: 173483, accum_tokens: 12265M, iter_num: 46108
+step 46200, loss 3.54, lr 0.000274, consume 167.03s
+step 46300, loss 3.54, lr 0.000273, consume 164.26s
+step 46400, loss 3.54, lr 0.000272, consume 145.29s
+step 46500, loss 3.54, lr 0.000271, consume 145.28s
+step 46600, loss 3.54, lr 0.000270, consume 145.26s
+step 46700, loss 3.53, lr 0.000269, consume 145.25s
+processing 69: english_c4/c4-train.00069-of-01024.txt, origin: 355698, samples: 173842, accum_tokens: 12443M, iter_num: 46786
+step 46800, loss 3.54, lr 0.000268, consume 165.30s
+step 46900, loss 3.54, lr 0.000266, consume 167.45s
+step 47000, loss 3.54, lr 0.000265, consume 145.05s
+step 47100, loss 3.54, lr 0.000264, consume 145.32s
+step 47200, loss 3.54, lr 0.000263, consume 145.26s
+step 47300, loss 3.53, lr 0.000262, consume 145.28s
+step 47400, loss 3.54, lr 0.000261, consume 145.27s
+processing 70: english_c4/c4-train.00070-of-01024.txt, origin: 355769, samples: 173545, accum_tokens: 12621M, iter_num: 47465
+step 47500, loss 3.54, lr 0.000260, consume 164.87s
+step 47600, loss 3.54, lr 0.000259, consume 166.00s
+step 47700, loss 3.54, lr 0.000258, consume 145.22s
+step 47800, loss 3.54, lr 0.000257, consume 145.31s
+step 47900, loss 3.54, lr 0.000256, consume 145.31s
+step 48000, loss 3.53, lr 0.000255, consume 145.29s
+step 48100, loss 3.53, lr 0.000254, consume 145.25s
+processing 71: english_c4/c4-train.00071-of-01024.txt, origin: 355701, samples: 173316, accum_tokens: 12798M, iter_num: 48142
+step 48200, loss 3.53, lr 0.000253, consume 165.52s
+step 48300, loss 3.53, lr 0.000252, consume 167.14s
+step 48400, loss 3.53, lr 0.000251, consume 145.31s
+step 48500, loss 3.53, lr 0.000250, consume 145.28s
+step 48600, loss 3.53, lr 0.000249, consume 145.29s
+step 48700, loss 3.52, lr 0.000248, consume 145.28s
+step 48800, loss 3.53, lr 0.000247, consume 145.29s
+processing 72: english_c4/c4-train.00072-of-01024.txt, origin: 355730, samples: 173441, accum_tokens: 12976M, iter_num: 48819
+step 48900, loss 3.53, lr 0.000246, consume 166.61s
+step 49000, loss 3.54, lr 0.000245, consume 163.86s
+step 49100, loss 3.53, lr 0.000243, consume 145.28s
+step 49200, loss 3.54, lr 0.000242, consume 145.27s
+step 49300, loss 3.53, lr 0.000241, consume 145.25s
+step 49400, loss 3.53, lr 0.000240, consume 145.26s
+processing 73: english_c4/c4-train.00073-of-01024.txt, origin: 355659, samples: 173063, accum_tokens: 13153M, iter_num: 49497
+step 49500, loss 3.53, lr 0.000239, consume 161.59s
+step 49600, loss 3.53, lr 0.000238, consume 171.67s
+step 49700, loss 3.53, lr 0.000237, consume 144.93s
+step 49800, loss 3.53, lr 0.000236, consume 145.17s
+step 49900, loss 3.52, lr 0.000235, consume 145.17s
+step 50000, loss 3.53, lr 0.000234, consume 145.19s
+step 50100, loss 3.53, lr 0.000233, consume 145.17s
+processing 74: english_c4/c4-train.00074-of-01024.txt, origin: 355720, samples: 173769, accum_tokens: 13331M, iter_num: 50173
+step 50200, loss 3.52, lr 0.000232, consume 165.29s
+step 50300, loss 3.53, lr 0.000231, consume 167.65s
+step 50400, loss 3.53, lr 0.000230, consume 145.19s
+step 50500, loss 3.52, lr 0.000229, consume 145.30s
+step 50600, loss 3.52, lr 0.000228, consume 145.28s
+step 50700, loss 3.53, lr 0.000227, consume 145.25s
+step 50800, loss 3.53, lr 0.000226, consume 145.24s
+processing 75: english_c4/c4-train.00075-of-01024.txt, origin: 355726, samples: 174522, accum_tokens: 13510M, iter_num: 50852
+step 50900, loss 3.52, lr 0.000225, consume 165.64s
+step 51000, loss 3.53, lr 0.000224, consume 167.49s
+step 51100, loss 3.53, lr 0.000223, consume 145.28s
+step 51200, loss 3.53, lr 0.000222, consume 145.31s
+step 51300, loss 3.53, lr 0.000221, consume 145.28s
+step 51400, loss 3.53, lr 0.000220, consume 145.29s
+step 51500, loss 3.53, lr 0.000219, consume 145.28s
+processing 76: english_c4/c4-train.00076-of-01024.txt, origin: 355712, samples: 174378, accum_tokens: 13688M, iter_num: 51533
+step 51600, loss 3.53, lr 0.000218, consume 165.03s
+step 51700, loss 3.52, lr 0.000217, consume 167.10s
+step 51800, loss 3.53, lr 0.000216, consume 145.30s
+step 51900, loss 3.53, lr 0.000215, consume 145.30s
+step 52000, loss 3.52, lr 0.000214, consume 145.28s
+step 52100, loss 3.52, lr 0.000213, consume 145.27s
+step 52200, loss 3.52, lr 0.000212, consume 145.28s
+processing 77: english_c4/c4-train.00077-of-01024.txt, origin: 355692, samples: 173612, accum_tokens: 13866M, iter_num: 52214
+step 52300, loss 3.53, lr 0.000211, consume 166.08s
+step 52400, loss 3.53, lr 0.000210, consume 166.86s
+step 52500, loss 3.52, lr 0.000209, consume 145.31s
+step 52600, loss 3.52, lr 0.000208, consume 145.27s
+step 52700, loss 3.52, lr 0.000207, consume 145.26s
+step 52800, loss 3.53, lr 0.000206, consume 145.28s
+processing 78: english_c4/c4-train.00078-of-01024.txt, origin: 355623, samples: 174399, accum_tokens: 14045M, iter_num: 52893
+step 52900, loss 3.52, lr 0.000205, consume 164.28s
+step 53000, loss 3.52, lr 0.000205, consume 168.06s
+step 53100, loss 3.52, lr 0.000204, consume 145.01s
+step 53200, loss 3.52, lr 0.000203, consume 145.31s
+step 53300, loss 3.52, lr 0.000202, consume 145.30s
+step 53400, loss 3.52, lr 0.000201, consume 145.25s
+step 53500, loss 3.51, lr 0.000200, consume 145.25s
+processing 79: english_c4/c4-train.00079-of-01024.txt, origin: 355719, samples: 174829, accum_tokens: 14224M, iter_num: 53574
+step 53600, loss 3.52, lr 0.000199, consume 165.75s
+step 53700, loss 3.51, lr 0.000198, consume 166.30s
+step 53800, loss 3.51, lr 0.000197, consume 145.21s
+step 53900, loss 3.51, lr 0.000196, consume 145.32s
+step 54000, loss 3.51, lr 0.000195, consume 145.45s
+step 54100, loss 3.51, lr 0.000194, consume 145.30s
+step 54200, loss 3.51, lr 0.000193, consume 145.26s
+processing 80: english_c4/c4-train.00080-of-01024.txt, origin: 355717, samples: 174189, accum_tokens: 14402M, iter_num: 54257
+step 54300, loss 3.52, lr 0.000192, consume 165.36s
+step 54400, loss 3.52, lr 0.000191, consume 167.54s
+step 54500, loss 3.52, lr 0.000190, consume 145.28s
+step 54600, loss 3.52, lr 0.000189, consume 145.30s
+step 54700, loss 3.52, lr 0.000188, consume 145.29s
+step 54800, loss 3.52, lr 0.000188, consume 145.27s
+step 54900, loss 3.51, lr 0.000187, consume 145.26s
+processing 81: english_c4/c4-train.00081-of-01024.txt, origin: 355718, samples: 172889, accum_tokens: 14579M, iter_num: 54937
+step 55000, loss 3.52, lr 0.000186, consume 166.14s
+step 55100, loss 3.52, lr 0.000185, consume 166.48s
+step 55200, loss 3.52, lr 0.000184, consume 145.30s
+step 55300, loss 3.51, lr 0.000183, consume 145.32s
+step 55400, loss 3.51, lr 0.000182, consume 145.29s
+step 55500, loss 3.52, lr 0.000181, consume 145.28s
+step 55600, loss 3.51, lr 0.000180, consume 145.26s
+processing 82: english_c4/c4-train.00082-of-01024.txt, origin: 355740, samples: 172818, accum_tokens: 14756M, iter_num: 55612
+step 55700, loss 3.52, lr 0.000179, consume 166.68s
+step 55800, loss 3.51, lr 0.000178, consume 166.74s
+step 55900, loss 3.51, lr 0.000178, consume 145.27s
+step 56000, loss 3.51, lr 0.000177, consume 145.22s
+step 56100, loss 3.51, lr 0.000176, consume 145.22s
+step 56200, loss 3.51, lr 0.000175, consume 145.26s
+processing 83: english_c4/c4-train.00083-of-01024.txt, origin: 355720, samples: 173793, accum_tokens: 14934M, iter_num: 56287
+step 56300, loss 3.51, lr 0.000174, consume 164.31s
+step 56400, loss 3.52, lr 0.000173, consume 168.36s
+step 56500, loss 3.51, lr 0.000172, consume 145.03s
+step 56600, loss 3.51, lr 0.000171, consume 145.26s
+step 56700, loss 3.51, lr 0.000170, consume 145.23s
+step 56800, loss 3.51, lr 0.000170, consume 145.20s
+step 56900, loss 3.50, lr 0.000169, consume 145.21s
+processing 84: english_c4/c4-train.00084-of-01024.txt, origin: 355711, samples: 173849, accum_tokens: 15112M, iter_num: 56966
+step 57000, loss 3.51, lr 0.000168, consume 165.41s
+step 57100, loss 3.51, lr 0.000167, consume 168.81s
+step 57200, loss 3.51, lr 0.000166, consume 145.08s
+step 57300, loss 3.51, lr 0.000165, consume 145.12s
+step 57400, loss 3.51, lr 0.000164, consume 145.10s
+step 57500, loss 3.51, lr 0.000163, consume 145.11s
+step 57600, loss 3.51, lr 0.000163, consume 145.07s
+processing 85: english_c4/c4-train.00085-of-01024.txt, origin: 355761, samples: 174551, accum_tokens: 15291M, iter_num: 57645
+step 57700, loss 3.51, lr 0.000162, consume 164.88s
+step 57800, loss 3.51, lr 0.000161, consume 167.11s
+step 57900, loss 3.51, lr 0.000160, consume 145.11s
+step 58000, loss 3.51, lr 0.000159, consume 145.11s
+step 58100, loss 3.51, lr 0.000158, consume 145.10s
+step 58200, loss 3.50, lr 0.000158, consume 145.09s
+step 58300, loss 3.50, lr 0.000157, consume 145.11s
+processing 86: english_c4/c4-train.00086-of-01024.txt, origin: 355755, samples: 173919, accum_tokens: 15469M, iter_num: 58327
+step 58400, loss 3.50, lr 0.000156, consume 165.93s
+step 58500, loss 3.50, lr 0.000155, consume 165.54s
+step 58600, loss 3.51, lr 0.000154, consume 145.10s
+step 58700, loss 3.50, lr 0.000153, consume 145.11s
+step 58800, loss 3.50, lr 0.000153, consume 145.08s
+step 58900, loss 3.50, lr 0.000152, consume 145.07s
+step 59000, loss 3.50, lr 0.000151, consume 145.07s
+processing 87: english_c4/c4-train.00087-of-01024.txt, origin: 355681, samples: 173693, accum_tokens: 15647M, iter_num: 59006
+step 59100, loss 3.51, lr 0.000150, consume 167.27s
+step 59200, loss 3.50, lr 0.000149, consume 164.59s
+step 59300, loss 3.51, lr 0.000149, consume 145.26s
+step 59400, loss 3.50, lr 0.000148, consume 145.21s
+step 59500, loss 3.50, lr 0.000147, consume 145.17s
+step 59600, loss 3.50, lr 0.000146, consume 145.20s
+processing 88: english_c4/c4-train.00088-of-01024.txt, origin: 355669, samples: 173422, accum_tokens: 15824M, iter_num: 59684
+step 59700, loss 3.50, lr 0.000145, consume 164.29s
+step 59800, loss 3.51, lr 0.000145, consume 167.88s
+step 59900, loss 3.51, lr 0.000144, consume 144.92s
+step 60000, loss 3.50, lr 0.000143, consume 145.10s
+step 60100, loss 3.50, lr 0.000142, consume 145.12s
+step 60200, loss 3.50, lr 0.000141, consume 145.09s
+step 60300, loss 3.51, lr 0.000141, consume 145.09s
+processing 89: english_c4/c4-train.00089-of-01024.txt, origin: 355704, samples: 173644, accum_tokens: 16002M, iter_num: 60362
+step 60400, loss 3.50, lr 0.000140, consume 165.42s
+step 60500, loss 3.50, lr 0.000139, consume 165.90s
+step 60600, loss 3.50, lr 0.000138, consume 145.08s
+step 60700, loss 3.50, lr 0.000138, consume 145.10s
+step 60800, loss 3.50, lr 0.000137, consume 145.07s
+step 60900, loss 3.50, lr 0.000136, consume 145.08s
+step 61000, loss 3.50, lr 0.000135, consume 145.06s
+processing 90: english_c4/c4-train.00090-of-01024.txt, origin: 355702, samples: 173297, accum_tokens: 16180M, iter_num: 61040
+step 61100, loss 3.50, lr 0.000135, consume 166.97s
+step 61200, loss 3.50, lr 0.000134, consume 165.64s
+step 61300, loss 3.50, lr 0.000133, consume 145.21s
+step 61400, loss 3.49, lr 0.000132, consume 145.23s
+step 61500, loss 3.50, lr 0.000132, consume 145.20s
+step 61600, loss 3.50, lr 0.000131, consume 145.19s
+step 61700, loss 3.50, lr 0.000130, consume 145.18s
+processing 91: english_c4/c4-train.00091-of-01024.txt, origin: 355734, samples: 173833, accum_tokens: 16358M, iter_num: 61717
+step 61800, loss 3.50, lr 0.000129, consume 167.00s
+step 61900, loss 3.50, lr 0.000129, consume 164.23s
+step 62000, loss 3.50, lr 0.000128, consume 145.22s
+step 62100, loss 3.50, lr 0.000127, consume 145.21s
+step 62200, loss 3.50, lr 0.000126, consume 145.18s
+step 62300, loss 3.50, lr 0.000126, consume 145.17s
+processing 92: english_c4/c4-train.00092-of-01024.txt, origin: 355739, samples: 173558, accum_tokens: 16535M, iter_num: 62396
+step 62400, loss 3.49, lr 0.000125, consume 164.28s
+step 62500, loss 3.49, lr 0.000124, consume 166.65s
+step 62600, loss 3.50, lr 0.000124, consume 144.81s
+step 62700, loss 3.49, lr 0.000123, consume 145.22s
+step 62800, loss 3.49, lr 0.000122, consume 145.22s
+step 62900, loss 3.49, lr 0.000122, consume 145.22s
+step 63000, loss 3.49, lr 0.000121, consume 145.20s
+processing 93: english_c4/c4-train.00093-of-01024.txt, origin: 355680, samples: 173573, accum_tokens: 16713M, iter_num: 63074
+step 63100, loss 3.49, lr 0.000120, consume 164.55s
+step 63200, loss 3.49, lr 0.000119, consume 166.82s
+step 63300, loss 3.49, lr 0.000119, consume 145.01s
+step 63400, loss 3.50, lr 0.000118, consume 145.09s
+step 63500, loss 3.50, lr 0.000117, consume 145.07s
+step 63600, loss 3.49, lr 0.000117, consume 145.05s
+step 63700, loss 3.49, lr 0.000116, consume 145.04s
+processing 94: english_c4/c4-train.00094-of-01024.txt, origin: 355750, samples: 174481, accum_tokens: 16892M, iter_num: 63752
+step 63800, loss 3.49, lr 0.000115, consume 164.86s
+step 63900, loss 3.49, lr 0.000115, consume 166.15s
+step 64000, loss 3.50, lr 0.000114, consume 145.11s
+step 64100, loss 3.49, lr 0.000114, consume 145.11s
+step 64200, loss 3.50, lr 0.000113, consume 145.12s
+step 64300, loss 3.49, lr 0.000112, consume 145.14s
+step 64400, loss 3.49, lr 0.000112, consume 145.11s
+processing 95: english_c4/c4-train.00095-of-01024.txt, origin: 355731, samples: 174016, accum_tokens: 17070M, iter_num: 64433
+step 64500, loss 3.49, lr 0.000111, consume 166.64s
+step 64600, loss 3.49, lr 0.000110, consume 165.74s
+step 64700, loss 3.49, lr 0.000110, consume 145.12s
+step 64800, loss 3.50, lr 0.000109, consume 145.10s
+step 64900, loss 3.49, lr 0.000108, consume 145.06s
+step 65000, loss 3.49, lr 0.000108, consume 145.08s
+step 65100, loss 3.49, lr 0.000107, consume 145.05s
+processing 96: english_c4/c4-train.00096-of-01024.txt, origin: 355724, samples: 174296, accum_tokens: 17249M, iter_num: 65113
+step 65200, loss 3.49, lr 0.000107, consume 167.37s
+step 65300, loss 3.49, lr 0.000106, consume 165.13s
+step 65400, loss 3.49, lr 0.000105, consume 145.14s
+step 65500, loss 3.49, lr 0.000105, consume 145.13s
+step 65600, loss 3.49, lr 0.000104, consume 145.10s
+step 65700, loss 3.49, lr 0.000104, consume 145.10s
+processing 97: english_c4/c4-train.00097-of-01024.txt, origin: 355707, samples: 174019, accum_tokens: 17427M, iter_num: 65794
+step 65800, loss 3.48, lr 0.000103, consume 164.23s
+step 65900, loss 3.49, lr 0.000102, consume 167.52s
+step 66000, loss 3.49, lr 0.000102, consume 145.22s
+step 66100, loss 3.49, lr 0.000101, consume 145.35s
+step 66200, loss 3.49, lr 0.000101, consume 145.22s
+step 66300, loss 3.50, lr 0.000100, consume 145.20s
+step 66400, loss 3.49, lr 0.000100, consume 145.21s
+processing 98: english_c4/c4-train.00098-of-01024.txt, origin: 355709, samples: 174792, accum_tokens: 17606M, iter_num: 66474
+step 66500, loss 3.49, lr 0.000099, consume 164.54s
+step 66600, loss 3.48, lr 0.000098, consume 168.14s
+step 66700, loss 3.49, lr 0.000098, consume 145.01s
+step 66800, loss 3.48, lr 0.000097, consume 145.10s
+step 66900, loss 3.49, lr 0.000097, consume 145.09s
+step 67000, loss 3.48, lr 0.000096, consume 145.04s
+step 67100, loss 3.48, lr 0.000096, consume 145.08s
+processing 99: english_c4/c4-train.00099-of-01024.txt, origin: 355710, samples: 174093, accum_tokens: 17784M, iter_num: 67156
+step 67200, loss 3.48, lr 0.000095, consume 164.73s
+step 67300, loss 3.49, lr 0.000095, consume 167.55s
+step 67400, loss 3.49, lr 0.000094, consume 145.11s
+step 67500, loss 3.48, lr 0.000094, consume 145.16s
+step 67600, loss 3.48, lr 0.000093, consume 145.11s
+step 67700, loss 3.49, lr 0.000092, consume 145.07s
+step 67800, loss 3.49, lr 0.000092, consume 145.07s
+processing 100: english_c4/c4-train.00100-of-01024.txt, origin: 355728, samples: 174038, accum_tokens: 17962M, iter_num: 67836
+step 67900, loss 3.49, lr 0.000091, consume 166.15s
+step 68000, loss 3.49, lr 0.000091, consume 165.08s
+step 68100, loss 3.49, lr 0.000090, consume 145.11s
+step 68200, loss 3.49, lr 0.000090, consume 145.11s
+step 68300, loss 3.48, lr 0.000089, consume 145.09s
+step 68400, loss 3.48, lr 0.000089, consume 145.07s
+step 68500, loss 3.48, lr 0.000088, consume 145.05s
+processing 101: english_c4/c4-train.00101-of-01024.txt, origin: 355722, samples: 173621, accum_tokens: 18140M, iter_num: 68516
+step 68600, loss 3.48, lr 0.000088, consume 168.45s
+step 68700, loss 3.48, lr 0.000087, consume 164.18s
+step 68800, loss 3.47, lr 0.000087, consume 145.15s
+step 68900, loss 3.48, lr 0.000087, consume 145.14s
+step 69000, loss 3.48, lr 0.000086, consume 145.10s
+step 69100, loss 3.48, lr 0.000086, consume 145.10s
+processing 102: english_c4/c4-train.00102-of-01024.txt, origin: 355723, samples: 174771, accum_tokens: 18319M, iter_num: 69194
+step 69200, loss 3.48, lr 0.000085, consume 164.38s
+step 69300, loss 3.49, lr 0.000085, consume 168.36s
+step 69400, loss 3.48, lr 0.000084, consume 144.99s
+step 69500, loss 3.48, lr 0.000084, consume 145.21s
+step 69600, loss 3.48, lr 0.000083, consume 145.18s
+step 69700, loss 3.48, lr 0.000083, consume 145.17s
+step 69800, loss 3.48, lr 0.000082, consume 145.13s
+processing 103: english_c4/c4-train.00103-of-01024.txt, origin: 355699, samples: 174028, accum_tokens: 18497M, iter_num: 69877
+step 69900, loss 3.48, lr 0.000082, consume 164.47s
+step 70000, loss 3.48, lr 0.000082, consume 166.99s
+step 70100, loss 3.49, lr 0.000081, consume 145.10s
+step 70200, loss 3.49, lr 0.000081, consume 145.18s
+step 70300, loss 3.48, lr 0.000080, consume 145.13s
+step 70400, loss 3.49, lr 0.000080, consume 145.14s
+step 70500, loss 3.49, lr 0.000080, consume 145.12s

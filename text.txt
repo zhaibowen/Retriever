@@ -1,0 +1,80 @@
+hello, what is your name?
+my name is hanlei.
+你好，我叫小明
+what is the phone number today?
+电话是13540341167
+
+
+GPT 
+Generative Pre-trained Transformer
+Causal Language Model
+
+数学计算
+1+1 = 
+5 + 8 = 
+99 + 256 = 
+3 * 8 = 
+24 * 16 = 
+36 -5 = 
+48 / 4 = 
+56 / 3 =
+编程
+How to sort the array [4, 2, 8, 6] using python?
+通识问答
+Who is the world's most famous football player?
+Who is Steve Jobs?
+Explain how the following technology works: Deep learning.
+How many states are there in the United States?
+How many genders are there in the United States?
+润色
+Rewrite the sentence into more descriptive form: 
+You are beautiful.
+脑筋急转弯
+Can polar bears eat penguins?
+提供建议
+Here are some suggestions to keep healthy:
+
+Pre-train 样本是如何组织的？
+hello, what is your name?   [3, 10, 6, 4, 8]
+what is the phone number?   [7, 9, 16, 53, 64, 90]
+my name is hanlei.    [17, 21, 83, 29]
+sequence_length = 10
+eos 结束标志 </s> = 2
+[3, 10, 6, 4, 8, 2, 7, 9, 16, 53]
+[64, 90, 2, 17, 21, 83, 29, 2, ...]
+最初的数据加载策略
+c4    [a1, a2, a3, ..., a1024]，采样率=1
+wiki  [b1, b2, b3, ..., b100]，采样率=2
+a3, a7, a11, ..., b5, a9, ...
+改进后的加载策略，模拟随机采样
+c4    [a1, a2, a3, ..., a1024]，采样率=1
+wiki  [b1, b2, b3, ..., b1024]，采样率=2
+epoch1 [a3, b1, b4]
+epoch2 [a6, b7, b14]
+
+att_mask
+pretrain   is_causal=True
+0, -1e38, -1e38, -1e38,
+0,     0, -1e38, -1e38,
+0,     0,     0, -1e38,
+0,     0,     0,     0,
+
+fine_tune  比如说sequence_length = 15
+[3, 10, 6, 4, 8, 2, 7, 9, 16, 53, 64, 90, 2, 2, 2]
+[17, 21, 83, 29, 2, ...]
+att_mask
+    0, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38,
+    0,     0, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38,
+    0,     0,     0, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38,
+    0,     0,     0,     0, -1e38, -1e38, -1e38, -1e38, -1e38, -1e38,
+    0,     0,     0,     0,     0, -1e38, -1e38, -1e38, -1e38, -1e38,
+    0,     0,     0,     0,     0,     0, -1e38, -1e38, -1e38, -1e38,
+-1e38, -1e38, -1e38, -1e38, -1e38, -1e38,     0, -1e38, -1e38, -1e38,
+-1e38, -1e38, -1e38, -1e38, -1e38, -1e38,     0,     0, -1e38, -1e38,
+-1e38, -1e38, -1e38, -1e38, -1e38, -1e38,     0,     0,     0, -1e38,
+-1e38, -1e38, -1e38, -1e38, -1e38, -1e38,     0,     0,     0,     0,
+
+样本组织形式：
+1 + 1 =\nResponse:2</s>What is your name?\nResponse:HanLei</s>
+tokens      [6, 10, 6, 11, 4, 15, 9, 7, 2, 9, 16, 53, 9, 90, 87, 2]
+label_mask  [0,  0, 0,  0, 0,  0, 0, 1, 1, 0,  0,  0, 0,  1,  1, 1]

@@ -1,0 +1,339 @@
+RetrieverConfig_medium()
+	batch_size: 16
+	beta1: 0.9
+	beta2: 0.95
+	gpu_num: 3
+	grad_clip: 1.0
+	gradient_accumulation_steps: 8
+	hidden_size: 768
+	learning_rate: 0.0001
+	lr_decay_iters: 20000
+	max_iters: 20000
+	min_lr: 1e-05
+	num_heads: 12
+	num_layers: 12
+	sequence_length: 1024
+	vocab_size: 32000
+	warmup_iters: 2000
+	weight_decay: 0.1
+
+OptimizedModule(
+  (_orig_mod): Retriever(
+    (token_embedding): Embedding(32000, 768)
+    (layers): ModuleList(
+      (0-11): 12 x DecoderLayer(
+        (ln_1): RMSNorm()
+        (attn): Attention(
+          (q_proj): Linear(in_features=768, out_features=768, bias=False)
+          (k_proj): Linear(in_features=768, out_features=768, bias=False)
+          (v_proj): Linear(in_features=768, out_features=768, bias=False)
+          (o_proj): Linear(in_features=768, out_features=768, bias=False)
+          (rotary_emb): RotaryEmbedding()
+        )
+        (ln_2): RMSNorm()
+        (mlp): MLP(
+          (gate_proj): Linear(in_features=768, out_features=2058, bias=False)
+          (up_proj): Linear(in_features=768, out_features=2058, bias=False)
+          (down_proj): Linear(in_features=2058, out_features=768, bias=False)
+        )
+      )
+    )
+    (norm): RMSNorm()
+    (lm_head): Linear(in_features=768, out_features=32000, bias=False)
+  )
+)
+
+num decayed parameter tensors: 85, with 109,787,136 parameters
+num non-decayed parameter tensors: 25, with 19,200 parameters
+number of total parameters: 109.81M
+all train file nums: 24
+processing 0: CausalInstructions20, CoT16, atlas19, AlpacaCoT01, MathInstruct19, mmlu20, mmlu14, NQ15, alpaca15, alpaca22, triviaqa15, origin: 1903981, samples: 354829, accum_tokens: 363M, iter_num: 0
+step 100, loss 2.10, lr 0.000005, consume 456.24s
+step 200, loss 1.90, lr 0.000010, consume 303.54s
+step 300, loss 1.82, lr 0.000015, consume 303.36s
+step 400, loss 1.77, lr 0.000020, consume 303.41s
+step 500, loss 1.72, lr 0.000025, consume 303.55s
+step 600, loss 1.69, lr 0.000030, consume 303.38s
+step 700, loss 1.67, lr 0.000035, consume 303.49s
+step 800, loss 1.65, lr 0.000040, consume 303.54s
+step 900, loss 1.62, lr 0.000045, consume 303.49s
+processing 1: CausalInstructions11, CoT15, atlas14, AlpacaCoT18, MathInstruct10, mmlu02, mmlu22, NQ03, alpaca02, alpaca09, triviaqa22, origin: 1904033, samples: 354806, accum_tokens: 726M, iter_num: 924
+step 1000, loss 1.60, lr 0.000050, consume 323.71s
+step 1100, loss 1.59, lr 0.000055, consume 304.07s
+step 1200, loss 1.57, lr 0.000060, consume 303.03s
+step 1300, loss 1.57, lr 0.000065, consume 303.07s
+step 1400, loss 1.55, lr 0.000070, consume 303.14s
+step 1500, loss 1.54, lr 0.000075, consume 303.03s
+step 1600, loss 1.53, lr 0.000080, consume 303.15s
+step 1700, loss 1.52, lr 0.000085, consume 303.16s
+step 1800, loss 1.51, lr 0.000090, consume 303.11s
+processing 2: CausalInstructions23, CoT04, atlas02, AlpacaCoT10, MathInstruct02, mmlu09, mmlu04, NQ18, alpaca23, alpaca17, triviaqa04, origin: 1904048, samples: 354273, accum_tokens: 1089M, iter_num: 1847
+step 1900, loss 1.52, lr 0.000095, consume 323.43s
+step 2000, loss 1.51, lr 0.000100, consume 304.64s
+step 2100, loss 1.50, lr 0.000100, consume 303.88s
+step 2200, loss 1.49, lr 0.000100, consume 303.58s
+step 2300, loss 1.49, lr 0.000100, consume 303.75s
+step 2400, loss 1.49, lr 0.000100, consume 303.78s
+step 2500, loss 1.47, lr 0.000100, consume 303.65s
+step 2600, loss 1.48, lr 0.000100, consume 303.76s
+step 2700, loss 1.47, lr 0.000100, consume 303.80s
+processing 3: CausalInstructions17, CoT09, atlas01, AlpacaCoT15, MathInstruct01, mmlu03, mmlu10, NQ11, alpaca16, alpaca14, triviaqa02, origin: 1904116, samples: 354314, accum_tokens: 1452M, iter_num: 2770
+step 2800, loss 1.47, lr 0.000100, consume 323.29s
+step 2900, loss 1.46, lr 0.000099, consume 305.19s
+step 3000, loss 1.46, lr 0.000099, consume 303.85s
+step 3100, loss 1.45, lr 0.000099, consume 303.50s
+step 3200, loss 1.45, lr 0.000099, consume 303.66s
+step 3300, loss 1.45, lr 0.000099, consume 303.79s
+step 3400, loss 1.44, lr 0.000099, consume 303.43s
+step 3500, loss 1.44, lr 0.000098, consume 303.56s
+step 3600, loss 1.43, lr 0.000098, consume 303.36s
+processing 4: CausalInstructions21, CoT05, atlas11, AlpacaCoT04, MathInstruct15, mmlu08, mmlu00, NQ02, alpaca03, alpaca18, triviaqa08, origin: 1904147, samples: 354714, accum_tokens: 1815M, iter_num: 3693
+step 3700, loss 1.44, lr 0.000098, consume 323.44s
+step 3800, loss 1.43, lr 0.000098, consume 304.56s
+step 3900, loss 1.43, lr 0.000098, consume 304.39s
+step 4000, loss 1.43, lr 0.000097, consume 303.89s
+step 4100, loss 1.42, lr 0.000097, consume 303.94s
+step 4200, loss 1.42, lr 0.000097, consume 303.96s
+step 4300, loss 1.43, lr 0.000096, consume 303.88s
+step 4400, loss 1.42, lr 0.000096, consume 304.31s
+step 4500, loss 1.42, lr 0.000096, consume 303.98s
+step 4600, loss 1.43, lr 0.000095, consume 304.07s
+processing 5: CausalInstructions13, CoT01, atlas00, AlpacaCoT23, MathInstruct11, mmlu12, mmlu19, NQ12, alpaca06, alpaca10, triviaqa21, origin: 1904080, samples: 354319, accum_tokens: 2178M, iter_num: 4616
+step 4700, loss 1.41, lr 0.000095, consume 326.48s
+step 4800, loss 1.41, lr 0.000095, consume 304.28s
+step 4900, loss 1.40, lr 0.000094, consume 303.50s
+step 5000, loss 1.40, lr 0.000094, consume 303.59s
+step 5100, loss 1.40, lr 0.000094, consume 303.49s
+step 5200, loss 1.41, lr 0.000093, consume 303.51s
+step 5300, loss 1.40, lr 0.000093, consume 303.58s
+step 5400, loss 1.40, lr 0.000092, consume 303.64s
+step 5500, loss 1.39, lr 0.000092, consume 303.64s
+processing 6: CausalInstructions05, CoT02, atlas18, AlpacaCoT16, MathInstruct03, mmlu05, mmlu21, NQ13, alpaca08, alpaca11, triviaqa00, origin: 1904155, samples: 354574, accum_tokens: 2541M, iter_num: 5539
+step 5600, loss 1.40, lr 0.000091, consume 325.94s
+step 5700, loss 1.40, lr 0.000091, consume 304.61s
+step 5800, loss 1.39, lr 0.000090, consume 303.51s
+step 5900, loss 1.39, lr 0.000090, consume 303.41s
+step 6000, loss 1.38, lr 0.000089, consume 303.45s
+step 6100, loss 1.40, lr 0.000089, consume 303.51s
+step 6200, loss 1.38, lr 0.000088, consume 303.51s
+step 6300, loss 1.38, lr 0.000088, consume 303.47s
+step 6400, loss 1.38, lr 0.000087, consume 303.49s
+processing 7: CausalInstructions10, CoT14, atlas06, AlpacaCoT09, MathInstruct20, mmlu07, mmlu23, NQ17, alpaca20, alpaca05, triviaqa07, origin: 1904048, samples: 354869, accum_tokens: 2904M, iter_num: 6462
+step 6500, loss 1.39, lr 0.000087, consume 325.74s
+step 6600, loss 1.38, lr 0.000086, consume 305.06s
+step 6700, loss 1.38, lr 0.000086, consume 303.93s
+step 6800, loss 1.37, lr 0.000085, consume 303.99s
+step 6900, loss 1.37, lr 0.000085, consume 303.96s
+step 7000, loss 1.38, lr 0.000084, consume 303.99s
+step 7100, loss 1.38, lr 0.000083, consume 304.07s
+step 7200, loss 1.37, lr 0.000083, consume 304.11s
+step 7300, loss 1.37, lr 0.000082, consume 304.33s
+processing 8: CausalInstructions09, CoT19, atlas07, AlpacaCoT00, MathInstruct14, mmlu16, mmlu06, NQ19, alpaca01, alpaca04, triviaqa13, origin: 1903927, samples: 354862, accum_tokens: 3268M, iter_num: 7386
+step 7400, loss 1.37, lr 0.000081, consume 325.65s
+step 7500, loss 1.37, lr 0.000081, consume 304.97s
+step 7600, loss 1.37, lr 0.000080, consume 303.85s
+step 7700, loss 1.36, lr 0.000080, consume 303.74s
+step 7800, loss 1.37, lr 0.000079, consume 303.68s
+step 7900, loss 1.35, lr 0.000078, consume 303.52s
+step 8000, loss 1.36, lr 0.000078, consume 303.67s
+step 8100, loss 1.36, lr 0.000077, consume 303.55s
+step 8200, loss 1.37, lr 0.000076, consume 303.52s
+step 8300, loss 1.36, lr 0.000075, consume 303.75s
+processing 9: CausalInstructions06, CoT23, atlas12, AlpacaCoT07, MathInstruct04, mmlu17, mmlu18, NQ06, alpaca12, alpaca21, triviaqa17, origin: 1904138, samples: 354968, accum_tokens: 3631M, iter_num: 8310
+step 8400, loss 1.36, lr 0.000075, consume 326.09s
+step 8500, loss 1.35, lr 0.000074, consume 304.26s
+step 8600, loss 1.35, lr 0.000073, consume 303.82s
+step 8700, loss 1.35, lr 0.000073, consume 303.66s
+step 8800, loss 1.36, lr 0.000072, consume 303.74s
+step 8900, loss 1.36, lr 0.000071, consume 303.54s
+step 9000, loss 1.35, lr 0.000070, consume 303.69s
+step 9100, loss 1.35, lr 0.000070, consume 303.60s
+step 9200, loss 1.36, lr 0.000069, consume 303.82s
+processing 10: CausalInstructions00, CoT07, atlas04, AlpacaCoT22, MathInstruct22, mmlu11, mmlu15, NQ04, alpaca07, alpaca00, triviaqa20, origin: 1904105, samples: 354579, accum_tokens: 3994M, iter_num: 9235
+step 9300, loss 1.35, lr 0.000068, consume 326.65s
+step 9400, loss 1.35, lr 0.000067, consume 306.69s
+step 9500, loss 1.35, lr 0.000067, consume 304.31s
+step 9600, loss 1.35, lr 0.000066, consume 304.83s
+step 9700, loss 1.34, lr 0.000065, consume 304.05s
+step 9800, loss 1.34, lr 0.000064, consume 304.20s
+step 9900, loss 1.34, lr 0.000064, consume 303.62s
+step 10000, loss 1.34, lr 0.000063, consume 303.62s
+step 10100, loss 1.34, lr 0.000062, consume 303.52s
+processing 11: CausalInstructions07, CoT03, atlas22, AlpacaCoT06, MathInstruct13, mmlu01, mmlu13, NQ00, alpaca13, alpaca19, triviaqa10, origin: 1904010, samples: 354494, accum_tokens: 4357M, iter_num: 10158
+step 10200, loss 1.34, lr 0.000061, consume 323.22s
+^[OPstep 10300, loss 1.34, lr 0.000060, consume 304.54s
+step 10400, loss 1.33, lr 0.000060, consume 302.99s
+step 10500, loss 1.34, lr 0.000059, consume 302.80s
+step 10600, loss 1.34, lr 0.000058, consume 302.92s
+step 10700, loss 1.33, lr 0.000057, consume 302.97s
+step 10800, loss 1.33, lr 0.000057, consume 302.97s
+step 10900, loss 1.33, lr 0.000056, consume 302.99s
+step 11000, loss 1.33, lr 0.000055, consume 302.92s
+processing 12: CausalInstructions01, CoT08, atlas16, AlpacaCoT08, MathInstruct09, mmlu09, mmlu11, NQ01, alpaca08, alpaca03, triviaqa09, origin: 1904110, samples: 354426, accum_tokens: 4720M, iter_num: 11081
+step 11100, loss 1.33, lr 0.000054, consume 322.57s
+step 11200, loss 1.32, lr 0.000053, consume 305.01s
+step 11300, loss 1.33, lr 0.000053, consume 303.69s
+step 11400, loss 1.33, lr 0.000052, consume 303.10s
+step 11500, loss 1.33, lr 0.000051, consume 305.28s
+step 11600, loss 1.33, lr 0.000050, consume 306.50s
+step 11700, loss 1.33, lr 0.000050, consume 305.93s
+step 11800, loss 1.33, lr 0.000049, consume 307.76s
+step 11900, loss 1.31, lr 0.000048, consume 306.94s
+step 12000, loss 1.32, lr 0.000047, consume 307.03s
+processing 13: CausalInstructions19, CoT18, atlas15, AlpacaCoT19, MathInstruct23, mmlu21, mmlu15, NQ20, alpaca15, alpaca05, triviaqa03, origin: 1904112, samples: 354303, accum_tokens: 5083M, iter_num: 12004
+step 12100, loss 1.31, lr 0.000046, consume 330.93s
+step 12200, loss 1.32, lr 0.000046, consume 309.77s
+step 12300, loss 1.32, lr 0.000045, consume 307.29s
+step 12400, loss 1.31, lr 0.000044, consume 303.99s
+step 12500, loss 1.32, lr 0.000043, consume 303.42s
+step 12600, loss 1.31, lr 0.000043, consume 303.40s
+step 12700, loss 1.31, lr 0.000042, consume 303.47s
+step 12800, loss 1.31, lr 0.000041, consume 303.45s
+step 12900, loss 1.31, lr 0.000040, consume 303.53s
+processing 14: CausalInstructions16, CoT11, atlas08, AlpacaCoT12, MathInstruct08, mmlu12, mmlu22, NQ07, alpaca07, alpaca00, triviaqa23, origin: 1903986, samples: 354660, accum_tokens: 5446M, iter_num: 12927
+step 13000, loss 1.31, lr 0.000040, consume 323.93s
+step 13100, loss 1.31, lr 0.000039, consume 304.26s
+step 13200, loss 1.31, lr 0.000038, consume 303.57s
+step 13300, loss 1.31, lr 0.000037, consume 303.68s
+step 13400, loss 1.30, lr 0.000037, consume 303.77s
+step 13500, loss 1.31, lr 0.000036, consume 303.48s
+step 13600, loss 1.31, lr 0.000035, consume 303.58s
+step 13700, loss 1.30, lr 0.000035, consume 303.74s
+step 13800, loss 1.31, lr 0.000034, consume 303.78s
+processing 15: CausalInstructions12, CoT13, atlas23, AlpacaCoT03, MathInstruct12, mmlu06, mmlu19, NQ10, alpaca12, alpaca10, triviaqa11, origin: 1904179, samples: 354561, accum_tokens: 5809M, iter_num: 13850
+step 13900, loss 1.31, lr 0.000033, consume 324.69s
+step 14000, loss 1.30, lr 0.000033, consume 304.86s
+step 14100, loss 1.29, lr 0.000032, consume 304.23s
+step 14200, loss 1.31, lr 0.000031, consume 304.16s
+step 14300, loss 1.30, lr 0.000030, consume 304.13s
+step 14400, loss 1.30, lr 0.000030, consume 304.26s
+step 14500, loss 1.30, lr 0.000029, consume 304.14s
+step 14600, loss 1.30, lr 0.000029, consume 304.08s
+step 14700, loss 1.30, lr 0.000028, consume 306.24s
+processing 16: CausalInstructions22, CoT06, atlas10, AlpacaCoT14, MathInstruct21, mmlu10, mmlu03, NQ14, alpaca17, alpaca02, triviaqa06, origin: 1903966, samples: 354383, accum_tokens: 6172M, iter_num: 14773
+step 14800, loss 1.29, lr 0.000027, consume 328.12s
+step 14900, loss 1.30, lr 0.000027, consume 307.48s
+step 15000, loss 1.30, lr 0.000026, consume 306.37s
+step 15100, loss 1.30, lr 0.000025, consume 304.85s
+step 15200, loss 1.30, lr 0.000025, consume 304.03s
+step 15300, loss 1.30, lr 0.000024, consume 303.96s
+step 15400, loss 1.29, lr 0.000024, consume 303.93s
+step 15500, loss 1.29, lr 0.000023, consume 304.11s
+step 15600, loss 1.29, lr 0.000023, consume 304.11s
+processing 17: CausalInstructions14, CoT12, atlas21, AlpacaCoT02, MathInstruct18, mmlu04, mmlu14, NQ09, alpaca11, alpaca18, triviaqa12, origin: 1904142, samples: 354784, accum_tokens: 6535M, iter_num: 15696
+step 15700, loss 1.29, lr 0.000022, consume 326.10s
+step 15800, loss 1.30, lr 0.000022, consume 304.48s
+step 15900, loss 1.29, lr 0.000021, consume 304.19s
+step 16000, loss 1.28, lr 0.000021, consume 303.92s
+step 16100, loss 1.29, lr 0.000020, consume 304.07s
+step 16200, loss 1.29, lr 0.000020, consume 304.14s
+step 16300, loss 1.29, lr 0.000019, consume 304.13s
+step 16400, loss 1.29, lr 0.000019, consume 304.86s
+step 16500, loss 1.29, lr 0.000018, consume 304.21s
+step 16600, loss 1.29, lr 0.000018, consume 304.11s
+processing 18: CausalInstructions15, CoT20, atlas09, AlpacaCoT20, MathInstruct17, mmlu07, mmlu00, NQ21, alpaca14, alpaca23, triviaqa01, origin: 1904095, samples: 354655, accum_tokens: 6899M, iter_num: 16620
+step 16700, loss 1.29, lr 0.000017, consume 326.98s
+step 16800, loss 1.29, lr 0.000017, consume 304.66s
+step 16900, loss 1.29, lr 0.000016, consume 304.41s
+step 17000, loss 1.29, lr 0.000016, consume 304.27s
+step 17100, loss 1.28, lr 0.000016, consume 304.27s
+step 17200, loss 1.29, lr 0.000015, consume 304.22s
+step 17300, loss 1.29, lr 0.000015, consume 304.11s
+step 17400, loss 1.28, lr 0.000015, consume 304.08s
+step 17500, loss 1.29, lr 0.000014, consume 304.26s
+processing 19: CausalInstructions03, CoT17, atlas05, AlpacaCoT17, MathInstruct06, mmlu13, mmlu16, NQ22, alpaca16, alpaca19, triviaqa16, origin: 1904130, samples: 353989, accum_tokens: 7261M, iter_num: 17543
+step 17600, loss 1.28, lr 0.000014, consume 326.33s
+step 17700, loss 1.28, lr 0.000014, consume 304.97s
+step 17800, loss 1.28, lr 0.000013, consume 304.04s
+step 17900, loss 1.27, lr 0.000013, consume 303.87s
+step 18000, loss 1.28, lr 0.000013, consume 303.90s
+step 18100, loss 1.28, lr 0.000012, consume 303.86s
+step 18200, loss 1.28, lr 0.000012, consume 303.95s
+step 18300, loss 1.29, lr 0.000012, consume 303.95s
+step 18400, loss 1.28, lr 0.000012, consume 303.85s
+processing 20: CausalInstructions08, CoT21, atlas03, AlpacaCoT11, MathInstruct00, mmlu20, mmlu01, NQ16, alpaca22, alpaca06, triviaqa19, origin: 1904030, samples: 354701, accum_tokens: 7624M, iter_num: 18465
+step 18500, loss 1.28, lr 0.000012, consume 326.19s
+step 18600, loss 1.28, lr 0.000011, consume 305.09s
+step 18700, loss 1.28, lr 0.000011, consume 304.21s
+step 18800, loss 1.28, lr 0.000011, consume 303.81s
+step 18900, loss 1.29, lr 0.000011, consume 303.97s
+step 19000, loss 1.28, lr 0.000011, consume 304.05s
+step 19100, loss 1.28, lr 0.000011, consume 304.12s
+step 19200, loss 1.28, lr 0.000010, consume 303.97s
+step 19300, loss 1.28, lr 0.000010, consume 304.02s
+processing 21: CausalInstructions02, CoT22, atlas20, AlpacaCoT05, MathInstruct07, mmlu08, mmlu23, NQ08, alpaca04, alpaca09, triviaqa05, origin: 1904051, samples: 354586, accum_tokens: 7987M, iter_num: 19389
+step 19400, loss 1.27, lr 0.000010, consume 326.00s
+step 19500, loss 1.28, lr 0.000010, consume 304.83s
+step 19600, loss 1.29, lr 0.000010, consume 304.37s
+step 19700, loss 1.28, lr 0.000010, consume 303.95s
+step 19800, loss 1.28, lr 0.000010, consume 304.06s
+step 19900, loss 1.28, lr 0.000010, consume 304.05s
+step 20000, loss 1.27, lr 0.000010, consume 304.11s
+
+boolq eval trucs: 1, correct: 1283, total: 3270, ratio: 0.39, consume: 48.5s
+piqa eval trucs: 0, correct: 926, total: 1838, ratio: 0.50, consume: 26.5s
+hellaswag eval trucs: 0, correct: 2510, total: 10042, ratio: 0.25, consume: 149.2s
+[304, 305, 306, 307]
+abstract_algebra correct: 24, total: 100, ratio: 0.24, trunc: 0
+anatomy correct: 34, total: 135, ratio: 0.25, trunc: 0
+astronomy correct: 28, total: 152, ratio: 0.18, trunc: 0
+business_ethics correct: 22, total: 100, ratio: 0.22, trunc: 0
+clinical_knowledge correct: 71, total: 265, ratio: 0.27, trunc: 0
+college_biology correct: 32, total: 144, ratio: 0.22, trunc: 0
+college_chemistry correct: 22, total: 100, ratio: 0.22, trunc: 0
+college_computer_science correct: 15, total: 100, ratio: 0.15, trunc: 0
+college_mathematics correct: 25, total: 100, ratio: 0.25, trunc: 0
+college_medicine correct: 37, total: 173, ratio: 0.21, trunc: 5
+college_physics correct: 21, total: 102, ratio: 0.21, trunc: 0
+computer_security correct: 25, total: 100, ratio: 0.25, trunc: 0
+conceptual_physics correct: 76, total: 235, ratio: 0.32, trunc: 0
+econometrics correct: 34, total: 114, ratio: 0.30, trunc: 0
+electrical_engineering correct: 32, total: 145, ratio: 0.22, trunc: 0
+elementary_mathematics correct: 97, total: 378, ratio: 0.26, trunc: 0
+formal_logic correct: 29, total: 126, ratio: 0.23, trunc: 0
+global_facts correct: 31, total: 100, ratio: 0.31, trunc: 0
+high_school_biology correct: 79, total: 310, ratio: 0.25, trunc: 0
+high_school_chemistry correct: 56, total: 203, ratio: 0.28, trunc: 0
+high_school_computer_science correct: 26, total: 100, ratio: 0.26, trunc: 0
+high_school_european_history correct: 37, total: 165, ratio: 0.22, trunc: 0
+high_school_geography correct: 44, total: 198, ratio: 0.22, trunc: 0
+high_school_government_and_politics correct: 42, total: 193, ratio: 0.22, trunc: 0
+high_school_macroeconomics correct: 89, total: 390, ratio: 0.23, trunc: 0
+high_school_mathematics correct: 67, total: 270, ratio: 0.25, trunc: 0
+high_school_microeconomics correct: 55, total: 238, ratio: 0.23, trunc: 0
+high_school_physics correct: 32, total: 151, ratio: 0.21, trunc: 0
+high_school_psychology correct: 128, total: 545, ratio: 0.23, trunc: 0
+high_school_statistics correct: 34, total: 216, ratio: 0.16, trunc: 0
+high_school_us_history correct: 48, total: 204, ratio: 0.24, trunc: 0
+high_school_world_history correct: 62, total: 237, ratio: 0.26, trunc: 0
+human_aging correct: 86, total: 223, ratio: 0.39, trunc: 0
+human_sexuality correct: 29, total: 131, ratio: 0.22, trunc: 0
+international_law correct: 30, total: 121, ratio: 0.25, trunc: 0
+jurisprudence correct: 31, total: 108, ratio: 0.29, trunc: 0
+logical_fallacies correct: 40, total: 163, ratio: 0.25, trunc: 0
+machine_learning correct: 28, total: 112, ratio: 0.25, trunc: 0
+management correct: 26, total: 103, ratio: 0.25, trunc: 0
+marketing correct: 60, total: 234, ratio: 0.26, trunc: 0
+medical_genetics correct: 26, total: 100, ratio: 0.26, trunc: 0
+miscellaneous correct: 228, total: 783, ratio: 0.29, trunc: 0
+moral_disputes correct: 83, total: 346, ratio: 0.24, trunc: 0
+moral_scenarios correct: 217, total: 895, ratio: 0.24, trunc: 0
+nutrition correct: 69, total: 306, ratio: 0.23, trunc: 0
+philosophy correct: 81, total: 311, ratio: 0.26, trunc: 0
+prehistory correct: 86, total: 324, ratio: 0.27, trunc: 0
+professional_accounting correct: 72, total: 282, ratio: 0.26, trunc: 0
+professional_law correct: 366, total: 1534, ratio: 0.24, trunc: 0
+professional_medicine correct: 55, total: 272, ratio: 0.20, trunc: 0
+professional_psychology correct: 157, total: 612, ratio: 0.26, trunc: 0
+public_relations correct: 38, total: 110, ratio: 0.35, trunc: 0
+security_studies correct: 47, total: 245, ratio: 0.19, trunc: 0
+sociology correct: 48, total: 201, ratio: 0.24, trunc: 0
+us_foreign_policy correct: 22, total: 100, ratio: 0.22, trunc: 0
+virology correct: 53, total: 166, ratio: 0.32, trunc: 0
+world_religions correct: 35, total: 171, ratio: 0.20, trunc: 0
+STEM: 0.23
+other (business, health, misc.): 0.27
+social sciences: 0.24
+humanities: 0.24
+race-middle eval trucs: 0, correct: 386, total: 1436, ratio: 0.27, consume: 22.0s
+race-high eval trucs: 27, correct: 941, total: 3498, ratio: 0.27, consume: 55.9s

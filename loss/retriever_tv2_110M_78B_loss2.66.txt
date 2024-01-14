@@ -1,0 +1,2438 @@
+RetrieverConfig_medium()
+	batch_size: 16
+	beta1: 0.9
+	beta2: 0.95
+	gpu_num: 3
+	grad_clip: 1.0
+	gradient_accumulation_steps: 8
+	hidden_size: 768
+	learning_rate: 0.0006
+	lr_decay_iters: 200000
+	max_iters: 200000
+	min_lr: 6e-05
+	num_heads: 12
+	num_layers: 12
+	sequence_length: 1024
+	vocab_size: 32000
+	warmup_iters: 2000
+	weight_decay: 0.1
+
+OptimizedModule(
+  (_orig_mod): Retriever(
+    (token_embedding): Embedding(32000, 768)
+    (layers): ModuleList(
+      (0-11): 12 x DecoderLayer(
+        (ln_1): RMSNorm()
+        (attn): Attention(
+          (q_proj): Linear(in_features=768, out_features=768, bias=False)
+          (k_proj): Linear(in_features=768, out_features=768, bias=False)
+          (v_proj): Linear(in_features=768, out_features=768, bias=False)
+          (o_proj): Linear(in_features=768, out_features=768, bias=False)
+          (rotary_emb): RotaryEmbedding()
+        )
+        (ln_2): RMSNorm()
+        (mlp): MLP(
+          (gate_proj): Linear(in_features=768, out_features=2058, bias=False)
+          (up_proj): Linear(in_features=768, out_features=2058, bias=False)
+          (down_proj): Linear(in_features=2058, out_features=768, bias=False)
+        )
+      )
+    )
+    (norm): RMSNorm()
+    (lm_head): Linear(in_features=768, out_features=32000, bias=False)
+  )
+)
+
+num decayed parameter tensors: 85, with 109,787,136 parameters
+num non-decayed parameter tensors: 25, with 19,200 parameters
+number of total parameters: 109.81M
+all train file nums: 1024
+preparing first dataset file: c400197, wiki0135, wiki0375, books0875, books0672, arxiv0594, stackexchange0958
+finished, consume: 472s
+processing 0: c400197, wiki0135, wiki0375, books0875, books0672, arxiv0594, stackexchange0958, origin: 446914, samples: 333677, accum_tokens: 341M, iter_num: 0
+step 100, loss 9.20, lr 0.000030, consume 764.50s
+step 200, loss 7.13, lr 0.000060, consume 248.09s
+step 300, loss 6.17, lr 0.000090, consume 247.47s
+step 400, loss 5.65, lr 0.000120, consume 247.56s
+step 500, loss 5.32, lr 0.000150, consume 247.60s
+step 600, loss 5.08, lr 0.000180, consume 247.71s
+step 700, loss 4.86, lr 0.000210, consume 247.68s
+step 800, loss 4.69, lr 0.000240, consume 247.93s
+processing 1: c400714, wiki0628, wiki0978, books0540, books0173, arxiv0802, stackexchange0721, origin: 447101, samples: 340932, accum_tokens: 690M, iter_num: 868
+step 900, loss 4.55, lr 0.000270, consume 299.83s
+step 1000, loss 4.42, lr 0.000300, consume 248.18s
+step 1100, loss 4.26, lr 0.000330, consume 249.94s
+step 1200, loss 4.09, lr 0.000360, consume 248.54s
+step 1300, loss 3.96, lr 0.000390, consume 248.55s
+step 1400, loss 3.85, lr 0.000420, consume 248.39s
+step 1500, loss 3.77, lr 0.000450, consume 248.47s
+step 1600, loss 3.71, lr 0.000480, consume 248.72s
+step 1700, loss 3.65, lr 0.000510, consume 248.18s
+processing 2: c400242, wiki0889, wiki0028, books0370, books0556, arxiv0423, stackexchange0619, origin: 446926, samples: 332922, accum_tokens: 1031M, iter_num: 1756
+step 1800, loss 3.64, lr 0.000540, consume 300.02s
+step 1900, loss 3.61, lr 0.000570, consume 248.17s
+step 2000, loss 3.58, lr 0.000600, consume 248.41s
+step 2100, loss 3.54, lr 0.000600, consume 248.61s
+step 2200, loss 3.50, lr 0.000600, consume 248.57s
+step 2300, loss 3.47, lr 0.000600, consume 248.42s
+step 2400, loss 3.45, lr 0.000600, consume 248.46s
+step 2500, loss 3.42, lr 0.000600, consume 248.69s
+step 2600, loss 3.38, lr 0.000600, consume 248.03s
+processing 3: c400169, wiki0528, wiki1003, books0072, books0309, arxiv0597, stackexchange0240, origin: 446862, samples: 332460, accum_tokens: 1372M, iter_num: 2623
+step 2700, loss 3.40, lr 0.000600, consume 300.72s
+step 2800, loss 3.36, lr 0.000600, consume 247.95s
+step 2900, loss 3.34, lr 0.000600, consume 248.14s
+step 3000, loss 3.32, lr 0.000600, consume 248.06s
+step 3100, loss 3.30, lr 0.000600, consume 248.07s
+step 3200, loss 3.28, lr 0.000600, consume 249.09s
+step 3300, loss 3.27, lr 0.000600, consume 250.29s
+step 3400, loss 3.25, lr 0.000600, consume 248.79s
+processing 4: c400559, wiki0575, wiki0936, books0759, books0774, arxiv0913, stackexchange0529, origin: 447058, samples: 337636, accum_tokens: 1717M, iter_num: 3489
+step 3500, loss 3.24, lr 0.000600, consume 301.71s
+step 3600, loss 3.26, lr 0.000600, consume 248.04s
+step 3700, loss 3.25, lr 0.000600, consume 248.15s
+step 3800, loss 3.22, lr 0.000600, consume 248.17s
+step 3900, loss 3.21, lr 0.000600, consume 248.17s
+step 4000, loss 3.21, lr 0.000600, consume 248.13s
+step 4100, loss 3.20, lr 0.000600, consume 248.13s
+step 4200, loss 3.19, lr 0.000600, consume 248.15s
+step 4300, loss 3.19, lr 0.000600, consume 248.08s
+processing 5: c400137, wiki0319, wiki0575, books0181, books0463, arxiv0173, stackexchange0318, origin: 446811, samples: 329981, accum_tokens: 2055M, iter_num: 4368
+step 4400, loss 3.19, lr 0.000600, consume 302.79s
+step 4500, loss 3.18, lr 0.000600, consume 248.39s
+step 4600, loss 3.16, lr 0.000600, consume 249.98s
+step 4700, loss 3.15, lr 0.000600, consume 248.19s
+step 4800, loss 3.14, lr 0.000600, consume 248.31s
+step 4900, loss 3.14, lr 0.000600, consume 248.26s
+step 5000, loss 3.14, lr 0.000600, consume 248.19s
+step 5100, loss 3.12, lr 0.000600, consume 248.29s
+step 5200, loss 3.12, lr 0.000600, consume 248.68s
+processing 6: c400735, wiki0641, wiki0642, books0145, books0295, arxiv0978, stackexchange0653, origin: 446947, samples: 338077, accum_tokens: 2401M, iter_num: 5227
+step 5300, loss 3.12, lr 0.000600, consume 301.00s
+step 5400, loss 3.10, lr 0.000600, consume 248.14s
+step 5500, loss 3.09, lr 0.000600, consume 248.03s
+step 5600, loss 3.08, lr 0.000600, consume 248.10s
+step 5700, loss 3.09, lr 0.000600, consume 248.18s
+step 5800, loss 3.08, lr 0.000600, consume 248.21s
+step 5900, loss 3.08, lr 0.000599, consume 248.28s
+step 6000, loss 3.07, lr 0.000599, consume 248.44s
+step 6100, loss 3.05, lr 0.000599, consume 247.83s
+processing 7: c400503, wiki0293, wiki0256, books0897, books0151, arxiv0088, stackexchange0645, origin: 446802, samples: 329635, accum_tokens: 2739M, iter_num: 6108
+step 6200, loss 3.10, lr 0.000599, consume 299.67s
+step 6300, loss 3.09, lr 0.000599, consume 248.56s
+step 6400, loss 3.09, lr 0.000599, consume 248.60s
+step 6500, loss 3.09, lr 0.000599, consume 248.56s
+step 6600, loss 3.08, lr 0.000599, consume 248.61s
+step 6700, loss 3.08, lr 0.000599, consume 248.55s
+step 6800, loss 3.07, lr 0.000599, consume 248.63s
+step 6900, loss 3.05, lr 0.000599, consume 248.64s
+processing 8: c400991, wiki0248, wiki0051, books0104, books0327, arxiv0893, stackexchange0717, origin: 446853, samples: 331309, accum_tokens: 3078M, iter_num: 6966
+step 7000, loss 3.07, lr 0.000599, consume 300.04s
+step 7100, loss 3.08, lr 0.000599, consume 248.38s
+step 7200, loss 3.06, lr 0.000599, consume 248.34s
+step 7300, loss 3.06, lr 0.000599, consume 248.40s
+step 7400, loss 3.06, lr 0.000599, consume 248.36s
+step 7500, loss 3.06, lr 0.000599, consume 248.48s
+step 7600, loss 3.04, lr 0.000599, consume 248.60s
+step 7700, loss 3.05, lr 0.000599, consume 248.85s
+step 7800, loss 3.05, lr 0.000599, consume 248.08s
+processing 9: c400155, wiki0930, wiki0065, books0185, books0864, arxiv1018, stackexchange0589, origin: 446892, samples: 332363, accum_tokens: 3419M, iter_num: 7829
+step 7900, loss 3.05, lr 0.000599, consume 300.06s
+step 8000, loss 3.05, lr 0.000599, consume 248.65s
+step 8100, loss 3.04, lr 0.000599, consume 248.66s
+step 8200, loss 3.03, lr 0.000599, consume 248.71s
+step 8300, loss 3.03, lr 0.000599, consume 248.68s
+step 8400, loss 3.02, lr 0.000599, consume 250.58s
+step 8500, loss 3.02, lr 0.000599, consume 254.55s
+step 8600, loss 3.02, lr 0.000599, consume 252.57s
+processing 10: c400682, wiki0958, wiki0495, books0016, books0819, arxiv0040, stackexchange0001, origin: 446752, samples: 329225, accum_tokens: 3756M, iter_num: 8694
+step 8700, loss 3.02, lr 0.000598, consume 300.95s
+step 8800, loss 3.04, lr 0.000598, consume 252.39s
+step 8900, loss 3.01, lr 0.000598, consume 249.33s
+step 9000, loss 3.01, lr 0.000598, consume 249.39s
+step 9100, loss 3.02, lr 0.000598, consume 250.74s
+step 9200, loss 3.01, lr 0.000598, consume 249.10s
+step 9300, loss 3.00, lr 0.000598, consume 250.34s
+step 9400, loss 3.00, lr 0.000598, consume 251.16s
+step 9500, loss 3.00, lr 0.000598, consume 253.02s
+processing 11: c400493, wiki0914, wiki0921, books0167, books0791, arxiv0275, stackexchange0960, origin: 446875, samples: 329274, accum_tokens: 4093M, iter_num: 9552
+step 9600, loss 3.01, lr 0.000598, consume 301.82s
+step 9700, loss 3.02, lr 0.000598, consume 249.19s
+step 9800, loss 3.02, lr 0.000598, consume 253.73s
+step 9900, loss 3.00, lr 0.000598, consume 255.69s
+step 10000, loss 3.00, lr 0.000598, consume 254.90s
+step 10100, loss 2.99, lr 0.000598, consume 256.05s
+step 10200, loss 3.00, lr 0.000598, consume 255.81s
+step 10300, loss 2.99, lr 0.000598, consume 250.41s
+step 10400, loss 2.98, lr 0.000598, consume 249.95s
+processing 12: c400052, wiki0756, wiki0960, books0474, books0267, arxiv0765, stackexchange0066, origin: 446748, samples: 329825, accum_tokens: 4431M, iter_num: 10409
+step 10500, loss 3.00, lr 0.000598, consume 669.24s
+step 10600, loss 2.98, lr 0.000597, consume 248.28s
+step 10700, loss 2.98, lr 0.000597, consume 248.57s
+step 10800, loss 2.97, lr 0.000597, consume 248.55s
+step 10900, loss 2.98, lr 0.000597, consume 248.59s
+step 11000, loss 2.97, lr 0.000597, consume 248.48s
+step 11100, loss 2.97, lr 0.000597, consume 248.54s
+step 11200, loss 2.97, lr 0.000597, consume 248.56s
+processing 13: c400444, wiki0613, wiki0852, books0761, books0663, arxiv0880, stackexchange0972, origin: 446907, samples: 334041, accum_tokens: 4773M, iter_num: 11268
+step 11300, loss 2.98, lr 0.000597, consume 301.62s
+step 11400, loss 2.98, lr 0.000597, consume 248.57s
+step 11500, loss 2.97, lr 0.000597, consume 248.70s
+step 11600, loss 2.97, lr 0.000597, consume 248.67s
+step 11700, loss 2.97, lr 0.000597, consume 248.67s
+step 11800, loss 2.97, lr 0.000597, consume 248.67s
+step 11900, loss 2.96, lr 0.000597, consume 248.72s
+step 12000, loss 2.94, lr 0.000597, consume 248.89s
+step 12100, loss 2.95, lr 0.000597, consume 248.19s
+processing 14: c400396, wiki0077, wiki0727, books0340, books0315, arxiv0854, stackexchange0649, origin: 446845, samples: 330725, accum_tokens: 5111M, iter_num: 12138
+step 12200, loss 2.97, lr 0.000596, consume 302.55s
+step 12300, loss 2.97, lr 0.000596, consume 248.68s
+step 12400, loss 2.97, lr 0.000596, consume 249.74s
+step 12500, loss 2.97, lr 0.000596, consume 248.58s
+step 12600, loss 2.95, lr 0.000596, consume 248.72s
+step 12700, loss 2.95, lr 0.000596, consume 248.68s
+step 12800, loss 2.95, lr 0.000596, consume 248.76s
+step 12900, loss 2.96, lr 0.000596, consume 248.78s
+processing 15: c400419, wiki0758, wiki0860, books0323, books0012, arxiv0847, stackexchange0753, origin: 446811, samples: 328934, accum_tokens: 5448M, iter_num: 12999
+step 13000, loss 2.94, lr 0.000596, consume 300.10s
+step 13100, loss 2.97, lr 0.000596, consume 248.13s
+step 13200, loss 2.95, lr 0.000596, consume 248.79s
+step 13300, loss 2.95, lr 0.000596, consume 248.81s
+step 13400, loss 2.95, lr 0.000596, consume 248.82s
+step 13500, loss 2.94, lr 0.000596, consume 248.80s
+step 13600, loss 2.94, lr 0.000595, consume 248.79s
+step 13700, loss 2.94, lr 0.000595, consume 249.02s
+step 13800, loss 2.94, lr 0.000595, consume 248.39s
+processing 16: c400704, wiki0269, wiki0906, books0894, books0507, arxiv0076, stackexchange0718, origin: 446915, samples: 333112, accum_tokens: 5789M, iter_num: 13855
+step 13900, loss 2.97, lr 0.000595, consume 300.40s
+step 14000, loss 2.96, lr 0.000595, consume 248.66s
+step 14100, loss 2.97, lr 0.000595, consume 248.81s
+step 14200, loss 2.95, lr 0.000595, consume 248.83s
+step 14300, loss 2.95, lr 0.000595, consume 248.71s
+step 14400, loss 2.95, lr 0.000595, consume 248.73s
+step 14500, loss 2.94, lr 0.000595, consume 248.73s
+step 14600, loss 2.95, lr 0.000595, consume 248.85s
+step 14700, loss 2.93, lr 0.000595, consume 248.28s
+processing 17: c400495, wiki0583, wiki0190, books0051, books0366, arxiv0110, stackexchange0654, origin: 446819, samples: 330557, accum_tokens: 6128M, iter_num: 14723
+step 14800, loss 2.94, lr 0.000594, consume 298.93s
+step 14900, loss 2.93, lr 0.000594, consume 248.95s
+step 15000, loss 2.93, lr 0.000594, consume 248.94s
+step 15100, loss 2.93, lr 0.000594, consume 248.94s
+step 15200, loss 2.92, lr 0.000594, consume 248.93s
+step 15300, loss 2.92, lr 0.000594, consume 248.90s
+step 15400, loss 2.92, lr 0.000594, consume 249.16s
+step 15500, loss 2.92, lr 0.000594, consume 248.42s
+processing 18: c400676, wiki0466, wiki0494, books0996, books0623, arxiv0049, stackexchange0791, origin: 446688, samples: 326710, accum_tokens: 6462M, iter_num: 15584
+step 15600, loss 2.93, lr 0.000594, consume 302.39s
+step 15700, loss 2.94, lr 0.000594, consume 248.46s
+step 15800, loss 2.93, lr 0.000594, consume 248.67s
+step 15900, loss 2.94, lr 0.000593, consume 248.66s
+step 16000, loss 2.91, lr 0.000593, consume 248.70s
+step 16100, loss 2.91, lr 0.000593, consume 248.62s
+step 16200, loss 2.91, lr 0.000593, consume 248.71s
+step 16300, loss 2.92, lr 0.000593, consume 248.81s
+step 16400, loss 2.91, lr 0.000593, consume 248.14s
+processing 19: c400479, wiki0527, wiki0394, books0377, books0502, arxiv0295, stackexchange0571, origin: 446811, samples: 330192, accum_tokens: 6800M, iter_num: 16434
+step 16500, loss 2.94, lr 0.000593, consume 302.12s
+step 16600, loss 2.94, lr 0.000593, consume 248.77s
+step 16700, loss 2.93, lr 0.000593, consume 248.79s
+step 16800, loss 2.93, lr 0.000593, consume 248.74s
+step 16900, loss 2.93, lr 0.000592, consume 248.73s
+step 17000, loss 2.92, lr 0.000592, consume 248.76s
+step 17100, loss 2.93, lr 0.000592, consume 248.75s
+step 17200, loss 2.92, lr 0.000592, consume 248.95s
+processing 20: c400928, wiki0447, wiki0005, books0000, books0646, arxiv0747, stackexchange0072, origin: 447038, samples: 336332, accum_tokens: 7145M, iter_num: 17294
+step 17300, loss 2.92, lr 0.000592, consume 302.73s
+step 17400, loss 2.94, lr 0.000592, consume 248.38s
+step 17500, loss 2.94, lr 0.000592, consume 248.77s
+step 17600, loss 2.93, lr 0.000592, consume 248.73s
+step 17700, loss 2.91, lr 0.000592, consume 248.78s
+step 17800, loss 2.93, lr 0.000592, consume 248.79s
+step 17900, loss 2.91, lr 0.000591, consume 248.81s
+step 18000, loss 2.92, lr 0.000591, consume 249.15s
+step 18100, loss 2.90, lr 0.000591, consume 248.53s
+processing 21: c400454, wiki0451, wiki0474, books0601, books0084, arxiv0374, stackexchange0164, origin: 446896, samples: 330248, accum_tokens: 7483M, iter_num: 18170
+step 18200, loss 2.92, lr 0.000591, consume 303.95s
+step 18300, loss 2.93, lr 0.000591, consume 248.60s
+step 18400, loss 2.91, lr 0.000591, consume 248.82s
+step 18500, loss 2.91, lr 0.000591, consume 248.78s
+step 18600, loss 2.90, lr 0.000591, consume 248.81s
+step 18700, loss 2.91, lr 0.000591, consume 248.80s
+step 18800, loss 2.89, lr 0.000590, consume 248.78s
+step 18900, loss 2.90, lr 0.000590, consume 248.87s
+step 19000, loss 2.90, lr 0.000590, consume 248.73s
+processing 22: c400655, wiki0246, wiki0685, books0052, books0869, arxiv0111, stackexchange0380, origin: 446945, samples: 333356, accum_tokens: 7824M, iter_num: 19030
+step 19100, loss 2.92, lr 0.000590, consume 300.94s
+step 19200, loss 2.92, lr 0.000590, consume 249.05s
+step 19300, loss 2.92, lr 0.000590, consume 249.10s
+step 19400, loss 2.92, lr 0.000590, consume 249.06s
+step 19500, loss 2.91, lr 0.000590, consume 249.03s
+step 19600, loss 2.91, lr 0.000590, consume 249.02s
+step 19700, loss 2.91, lr 0.000589, consume 249.10s
+step 19800, loss 2.90, lr 0.000589, consume 249.02s
+processing 23: c400586, wiki0396, wiki0448, books0244, books1022, arxiv0097, stackexchange0614, origin: 446911, samples: 331433, accum_tokens: 8164M, iter_num: 19898
+step 19900, loss 2.91, lr 0.000589, consume 301.58s
+step 20000, loss 2.92, lr 0.000589, consume 248.44s
+step 20100, loss 2.90, lr 0.000589, consume 249.04s
+step 20200, loss 2.90, lr 0.000589, consume 249.08s
+step 20300, loss 2.90, lr 0.000589, consume 249.06s
+step 20400, loss 2.90, lr 0.000589, consume 249.09s
+step 20500, loss 2.89, lr 0.000588, consume 249.08s
+step 20600, loss 2.90, lr 0.000588, consume 251.72s
+step 20700, loss 2.90, lr 0.000588, consume 249.19s
+processing 24: c400757, wiki0365, wiki0935, books0384, books0914, arxiv0383, stackexchange0862, origin: 446973, samples: 335323, accum_tokens: 8507M, iter_num: 20761
+step 20800, loss 2.91, lr 0.000588, consume 301.78s
+step 20900, loss 2.93, lr 0.000588, consume 248.98s
+step 21000, loss 2.92, lr 0.000588, consume 249.98s
+step 21100, loss 2.91, lr 0.000588, consume 249.09s
+step 21200, loss 2.90, lr 0.000588, consume 249.00s
+step 21300, loss 2.90, lr 0.000587, consume 249.02s
+step 21400, loss 2.91, lr 0.000587, consume 249.00s
+step 21500, loss 2.90, lr 0.000587, consume 249.00s
+step 21600, loss 2.89, lr 0.000587, consume 249.07s
+processing 25: c400047, wiki0933, wiki0310, books0986, books0451, arxiv0687, stackexchange0856, origin: 446974, samples: 332736, accum_tokens: 8848M, iter_num: 21634
+step 21700, loss 2.92, lr 0.000587, consume 299.83s
+step 21800, loss 2.90, lr 0.000587, consume 249.24s
+step 21900, loss 2.90, lr 0.000587, consume 248.85s
+step 22000, loss 2.88, lr 0.000587, consume 248.76s
+step 22100, loss 2.89, lr 0.000586, consume 248.90s
+step 22200, loss 2.88, lr 0.000586, consume 248.86s
+step 22300, loss 2.89, lr 0.000586, consume 248.89s
+step 22400, loss 2.89, lr 0.000586, consume 248.87s
+step 22500, loss 2.88, lr 0.000586, consume 248.34s
+processing 26: c400703, wiki0590, wiki0689, books0872, books1020, arxiv0672, stackexchange0843, origin: 446941, samples: 331142, accum_tokens: 9187M, iter_num: 22501
+step 22600, loss 2.90, lr 0.000586, consume 303.66s
+step 22700, loss 2.90, lr 0.000586, consume 249.03s
+step 22800, loss 2.88, lr 0.000585, consume 249.07s
+step 22900, loss 2.89, lr 0.000585, consume 249.06s
+step 23000, loss 2.87, lr 0.000585, consume 248.97s
+step 23100, loss 2.87, lr 0.000585, consume 249.06s
+step 23200, loss 2.89, lr 0.000585, consume 249.12s
+step 23300, loss 2.88, lr 0.000585, consume 248.83s
+processing 27: c400652, wiki0483, wiki0954, books0600, books0370, arxiv0375, stackexchange0243, origin: 446898, samples: 331623, accum_tokens: 9527M, iter_num: 23363
+step 23400, loss 2.89, lr 0.000585, consume 302.54s
+step 23500, loss 2.91, lr 0.000584, consume 249.04s
+step 23600, loss 2.90, lr 0.000584, consume 249.10s
+step 23700, loss 2.90, lr 0.000584, consume 249.05s
+step 23800, loss 2.88, lr 0.000584, consume 249.07s
+step 23900, loss 2.89, lr 0.000584, consume 249.08s
+step 24000, loss 2.88, lr 0.000584, consume 249.06s
+step 24100, loss 2.88, lr 0.000584, consume 249.13s
+step 24200, loss 2.89, lr 0.000583, consume 248.55s
+processing 28: c400787, wiki0172, wiki0508, books0808, books0047, arxiv0508, stackexchange0590, origin: 446829, samples: 328560, accum_tokens: 9863M, iter_num: 24226
+step 24300, loss 2.89, lr 0.000583, consume 302.81s
+step 24400, loss 2.88, lr 0.000583, consume 249.17s
+step 24500, loss 2.87, lr 0.000583, consume 249.15s
+step 24600, loss 2.87, lr 0.000583, consume 249.14s
+step 24700, loss 2.87, lr 0.000583, consume 249.16s
+step 24800, loss 2.87, lr 0.000583, consume 249.13s
+step 24900, loss 2.86, lr 0.000582, consume 249.07s
+step 25000, loss 2.86, lr 0.000582, consume 249.04s
+processing 29: c400219, wiki0043, wiki0713, books0103, books0476, arxiv0846, stackexchange0478, origin: 446685, samples: 328792, accum_tokens: 10200M, iter_num: 25082
+step 25100, loss 2.88, lr 0.000582, consume 302.48s
+step 25200, loss 2.90, lr 0.000582, consume 248.77s
+step 25300, loss 2.88, lr 0.000582, consume 249.09s
+step 25400, loss 2.87, lr 0.000582, consume 249.07s
+step 25500, loss 2.87, lr 0.000581, consume 249.03s
+step 25600, loss 2.87, lr 0.000581, consume 249.04s
+step 25700, loss 2.86, lr 0.000581, consume 250.23s
+step 25800, loss 2.86, lr 0.000581, consume 250.55s
+step 25900, loss 2.86, lr 0.000581, consume 249.91s
+processing 30: c400233, wiki0104, wiki0227, books0959, books0359, arxiv0610, stackexchange0646, origin: 446703, samples: 329591, accum_tokens: 10537M, iter_num: 25938
+step 26000, loss 2.88, lr 0.000581, consume 297.87s
+step 26100, loss 2.89, lr 0.000581, consume 248.66s
+step 26200, loss 2.88, lr 0.000580, consume 248.62s
+step 26300, loss 2.86, lr 0.000580, consume 248.67s
+step 26400, loss 2.88, lr 0.000580, consume 248.69s
+step 26500, loss 2.87, lr 0.000580, consume 248.70s
+step 26600, loss 2.86, lr 0.000580, consume 248.76s
+step 26700, loss 2.86, lr 0.000580, consume 248.77s
+processing 31: c400608, wiki0805, wiki0154, books0990, books0932, arxiv0056, stackexchange0141, origin: 446828, samples: 331296, accum_tokens: 10876M, iter_num: 26796
+step 26800, loss 2.85, lr 0.000579, consume 304.17s
+step 26900, loss 2.88, lr 0.000579, consume 248.99s
+step 27000, loss 2.89, lr 0.000579, consume 248.40s
+step 27100, loss 2.87, lr 0.000579, consume 248.43s
+step 27200, loss 2.88, lr 0.000579, consume 248.47s
+step 27300, loss 2.88, lr 0.000579, consume 248.95s
+step 27400, loss 2.87, lr 0.000578, consume 249.51s
+step 27500, loss 2.87, lr 0.000578, consume 248.85s
+step 27600, loss 2.88, lr 0.000578, consume 250.21s
+processing 32: c400243, wiki0085, wiki0578, books0771, books0030, arxiv0203, stackexchange0815, origin: 446988, samples: 336091, accum_tokens: 11221M, iter_num: 27659
+step 27700, loss 2.88, lr 0.000578, consume 302.09s
+step 27800, loss 2.88, lr 0.000578, consume 250.34s
+step 27900, loss 2.87, lr 0.000578, consume 252.91s
+step 28000, loss 2.87, lr 0.000577, consume 251.51s
+step 28100, loss 2.87, lr 0.000577, consume 253.35s
+step 28200, loss 2.86, lr 0.000577, consume 250.75s
+step 28300, loss 2.85, lr 0.000577, consume 250.78s
+step 28400, loss 2.86, lr 0.000577, consume 249.38s
+step 28500, loss 2.86, lr 0.000576, consume 250.80s
+processing 33: c400363, wiki0373, wiki0849, books0977, books0381, arxiv0875, stackexchange0546, origin: 446886, samples: 330093, accum_tokens: 11559M, iter_num: 28534
+step 28600, loss 2.89, lr 0.000576, consume 307.91s
+step 28700, loss 2.89, lr 0.000576, consume 251.39s
+step 28800, loss 2.88, lr 0.000576, consume 249.45s
+step 28900, loss 2.87, lr 0.000576, consume 250.17s
+step 29000, loss 2.87, lr 0.000576, consume 248.02s
+step 29100, loss 2.87, lr 0.000575, consume 248.02s
+step 29200, loss 2.86, lr 0.000575, consume 250.76s
+step 29300, loss 2.86, lr 0.000575, consume 252.90s
+processing 34: c400851, wiki0944, wiki0196, books0267, books0417, arxiv0148, stackexchange0008, origin: 446772, samples: 327203, accum_tokens: 11894M, iter_num: 29394
+step 29400, loss 2.85, lr 0.000575, consume 304.52s
+step 29500, loss 2.86, lr 0.000575, consume 253.54s
+step 29600, loss 2.87, lr 0.000575, consume 248.60s
+step 29700, loss 2.87, lr 0.000574, consume 254.45s
+step 29800, loss 2.87, lr 0.000574, consume 251.42s
+step 29900, loss 2.85, lr 0.000574, consume 248.79s
+step 30000, loss 2.85, lr 0.000574, consume 248.77s
+step 30100, loss 2.85, lr 0.000574, consume 248.95s
+step 30200, loss 2.85, lr 0.000573, consume 248.69s
+processing 35: c400820, wiki0227, wiki0004, books0053, books0119, arxiv0692, stackexchange0233, origin: 446841, samples: 330673, accum_tokens: 12232M, iter_num: 30246
+step 30300, loss 2.87, lr 0.000573, consume 301.78s
+step 30400, loss 2.88, lr 0.000573, consume 248.45s
+step 30500, loss 2.87, lr 0.000573, consume 248.71s
+step 30600, loss 2.87, lr 0.000573, consume 248.84s
+step 30700, loss 2.87, lr 0.000572, consume 248.78s
+step 30800, loss 2.87, lr 0.000572, consume 248.89s
+step 30900, loss 2.87, lr 0.000572, consume 248.91s
+step 31000, loss 2.87, lr 0.000572, consume 249.04s
+step 31100, loss 2.86, lr 0.000572, consume 248.43s
+processing 36: c400409, wiki0886, wiki0477, books0981, books0928, arxiv0890, stackexchange0277, origin: 446748, samples: 327379, accum_tokens: 12568M, iter_num: 31107
+step 31200, loss 2.88, lr 0.000572, consume 302.86s
+step 31300, loss 2.87, lr 0.000571, consume 250.07s
+step 31400, loss 2.86, lr 0.000571, consume 248.93s
+step 31500, loss 2.85, lr 0.000571, consume 248.94s
+step 31600, loss 2.86, lr 0.000571, consume 248.88s
+step 31700, loss 2.86, lr 0.000571, consume 248.83s
+step 31800, loss 2.86, lr 0.000570, consume 248.83s
+step 31900, loss 2.85, lr 0.000570, consume 248.90s
+processing 37: c400506, wiki0083, wiki0838, books0090, books0574, arxiv0065, stackexchange0542, origin: 446985, samples: 336797, accum_tokens: 12912M, iter_num: 31959
+step 32000, loss 2.86, lr 0.000570, consume 302.93s
+step 32100, loss 2.86, lr 0.000570, consume 248.93s
+step 32200, loss 2.84, lr 0.000570, consume 251.74s
+step 32300, loss 2.84, lr 0.000569, consume 252.02s
+step 32400, loss 2.86, lr 0.000569, consume 249.02s
+step 32500, loss 2.85, lr 0.000569, consume 248.91s
+step 32600, loss 2.84, lr 0.000569, consume 249.01s
+step 32700, loss 2.84, lr 0.000569, consume 249.09s
+step 32800, loss 2.83, lr 0.000568, consume 249.22s
+processing 38: c400095, wiki0804, wiki0127, books0450, books0620, arxiv0017, stackexchange0122, origin: 446806, samples: 328839, accum_tokens: 13249M, iter_num: 32836
+step 32900, loss 2.86, lr 0.000568, consume 301.77s
+step 33000, loss 2.87, lr 0.000568, consume 249.25s
+step 33100, loss 2.87, lr 0.000568, consume 249.29s
+step 33200, loss 2.87, lr 0.000568, consume 249.34s
+step 33300, loss 2.87, lr 0.000567, consume 249.35s
+step 33400, loss 2.86, lr 0.000567, consume 249.31s
+step 33500, loss 2.87, lr 0.000567, consume 249.30s
+step 33600, loss 2.86, lr 0.000567, consume 249.40s
+processing 39: c400619, wiki0671, wiki0715, books0826, books0990, arxiv0068, stackexchange0930, origin: 446866, samples: 329953, accum_tokens: 13587M, iter_num: 33693
+step 33700, loss 2.85, lr 0.000567, consume 301.93s
+step 33800, loss 2.88, lr 0.000566, consume 248.49s
+step 33900, loss 2.86, lr 0.000566, consume 249.27s
+step 34000, loss 2.87, lr 0.000566, consume 249.20s
+step 34100, loss 2.85, lr 0.000566, consume 249.17s
+step 34200, loss 2.86, lr 0.000566, consume 249.20s
+step 34300, loss 2.86, lr 0.000565, consume 249.18s
+step 34400, loss 2.85, lr 0.000565, consume 249.39s
+step 34500, loss 2.85, lr 0.000565, consume 248.81s
+processing 40: c400863, wiki0885, wiki0000, books0559, books0363, arxiv0587, stackexchange0296, origin: 446780, samples: 330483, accum_tokens: 13925M, iter_num: 34552
+step 34600, loss 2.87, lr 0.000565, consume 301.64s
+step 34700, loss 2.87, lr 0.000564, consume 249.07s
+step 34800, loss 2.86, lr 0.000564, consume 249.36s
+step 34900, loss 2.85, lr 0.000564, consume 249.55s
+step 35000, loss 2.85, lr 0.000564, consume 249.25s
+step 35100, loss 2.84, lr 0.000564, consume 249.30s
+step 35200, loss 2.84, lr 0.000563, consume 249.35s
+step 35300, loss 2.84, lr 0.000563, consume 249.52s
+step 35400, loss 2.84, lr 0.000563, consume 248.78s
+processing 41: c400034, wiki0777, wiki0966, books0555, books0025, arxiv0386, stackexchange0220, origin: 446856, samples: 330343, accum_tokens: 14264M, iter_num: 35412
+step 35500, loss 2.87, lr 0.000563, consume 303.18s
+step 35600, loss 2.87, lr 0.000563, consume 249.15s
+step 35700, loss 2.85, lr 0.000562, consume 249.28s
+step 35800, loss 2.85, lr 0.000562, consume 249.48s
+step 35900, loss 2.85, lr 0.000562, consume 249.25s
+step 36000, loss 2.84, lr 0.000562, consume 249.29s
+step 36100, loss 2.84, lr 0.000561, consume 249.25s
+step 36200, loss 2.85, lr 0.000561, consume 249.30s
+processing 42: c400825, wiki0387, wiki0345, books0364, books0568, arxiv0477, stackexchange0314, origin: 446934, samples: 334063, accum_tokens: 14606M, iter_num: 36273
+step 36300, loss 2.83, lr 0.000561, consume 303.52s
+step 36400, loss 2.86, lr 0.000561, consume 249.45s
+step 36500, loss 2.87, lr 0.000561, consume 249.31s
+step 36600, loss 2.85, lr 0.000560, consume 248.68s
+step 36700, loss 2.85, lr 0.000560, consume 248.61s
+step 36800, loss 2.85, lr 0.000560, consume 248.71s
+step 36900, loss 2.86, lr 0.000560, consume 248.63s
+step 37000, loss 2.84, lr 0.000559, consume 248.64s
+step 37100, loss 2.84, lr 0.000559, consume 248.93s
+processing 43: c400294, wiki0302, wiki0897, books0223, books0470, arxiv0520, stackexchange0785, origin: 446950, samples: 334207, accum_tokens: 14948M, iter_num: 37143
+step 37200, loss 2.85, lr 0.000559, consume 302.70s
+step 37300, loss 2.84, lr 0.000559, consume 248.79s
+step 37400, loss 2.83, lr 0.000559, consume 249.04s
+step 37500, loss 2.84, lr 0.000558, consume 249.01s
+step 37600, loss 2.83, lr 0.000558, consume 248.97s
+step 37700, loss 2.84, lr 0.000558, consume 248.92s
+step 37800, loss 2.83, lr 0.000558, consume 248.87s
+step 37900, loss 2.83, lr 0.000557, consume 253.16s
+step 38000, loss 2.82, lr 0.000557, consume 253.70s
+processing 44: c400073, wiki0985, wiki0066, books0218, books0426, arxiv0412, stackexchange0974, origin: 446269, samples: 336070, accum_tokens: 15292M, iter_num: 38013
+step 38100, loss 2.84, lr 0.000557, consume 784.92s
+step 38200, loss 2.83, lr 0.000557, consume 249.88s
+step 38300, loss 2.81, lr 0.000556, consume 249.51s
+step 38400, loss 2.81, lr 0.000556, consume 249.61s
+step 38500, loss 2.81, lr 0.000556, consume 249.56s
+step 38600, loss 2.82, lr 0.000556, consume 249.54s
+step 38700, loss 2.81, lr 0.000556, consume 249.73s
+step 38800, loss 2.80, lr 0.000555, consume 249.16s
+processing 45: c400827, wiki0517, wiki0020, books0204, books0465, arxiv0626, stackexchange0950, origin: 446375, samples: 336231, accum_tokens: 15636M, iter_num: 38888
+step 38900, loss 2.81, lr 0.000555, consume 385.03s
+step 39000, loss 2.86, lr 0.000555, consume 249.61s
+step 39100, loss 2.86, lr 0.000555, consume 249.68s
+step 39200, loss 2.85, lr 0.000554, consume 249.64s
+step 39300, loss 2.84, lr 0.000554, consume 249.68s
+step 39400, loss 2.85, lr 0.000554, consume 249.69s
+step 39500, loss 2.85, lr 0.000554, consume 249.68s
+step 39600, loss 2.84, lr 0.000553, consume 249.73s
+step 39700, loss 2.83, lr 0.000553, consume 249.48s
+processing 46: c400455, wiki0198, wiki0834, books0813, books0058, arxiv0785, stackexchange0665, origin: 446316, samples: 335793, accum_tokens: 15980M, iter_num: 39763
+step 39800, loss 2.87, lr 0.000553, consume 136.68s
+step 39900, loss 2.84, lr 0.000553, consume 251.39s
+step 40000, loss 2.84, lr 0.000552, consume 251.41s
+step 40100, loss 2.83, lr 0.000552, consume 251.39s
+step 40200, loss 2.83, lr 0.000552, consume 251.78s
+step 40300, loss 2.82, lr 0.000552, consume 251.40s
+step 40400, loss 2.82, lr 0.000551, consume 251.72s
+step 40500, loss 2.81, lr 0.000551, consume 251.09s
+step 40600, loss 2.80, lr 0.000551, consume 253.88s
+processing 47: c400239, wiki0113, wiki0894, books0080, books0070, arxiv0182, stackexchange0455, origin: 447112, samples: 331319, accum_tokens: 16320M, iter_num: 40637
+step 40700, loss 2.85, lr 0.000551, consume 306.56s
+step 40800, loss 2.84, lr 0.000550, consume 253.66s
+step 40900, loss 2.83, lr 0.000550, consume 252.25s
+step 41000, loss 2.84, lr 0.000550, consume 252.21s
+step 41100, loss 2.84, lr 0.000550, consume 252.35s
+step 41200, loss 2.84, lr 0.000549, consume 252.40s
+step 41300, loss 2.82, lr 0.000549, consume 252.60s
+step 41400, loss 2.83, lr 0.000549, consume 251.68s
+step 41500, loss 2.84, lr 0.000549, consume 251.78s
+processing 48: c400246, wiki0169, wiki0609, books0002, books0346, arxiv0183, stackexchange0620, origin: 447065, samples: 327180, accum_tokens: 16655M, iter_num: 41500
+step 41600, loss 2.86, lr 0.000548, consume 304.61s
+step 41700, loss 2.85, lr 0.000548, consume 252.48s
+step 41800, loss 2.85, lr 0.000548, consume 252.41s
+step 41900, loss 2.84, lr 0.000548, consume 252.28s
+step 42000, loss 2.84, lr 0.000547, consume 252.37s
+step 42100, loss 2.84, lr 0.000547, consume 252.38s
+step 42200, loss 2.83, lr 0.000547, consume 252.50s
+step 42300, loss 2.83, lr 0.000547, consume 251.75s
+processing 49: c400987, wiki0001, wiki0209, books0672, books0472, arxiv0584, stackexchange0442, origin: 447211, samples: 334146, accum_tokens: 16997M, iter_num: 42352
+step 42400, loss 2.84, lr 0.000546, consume 301.91s
+step 42500, loss 2.85, lr 0.000546, consume 252.34s
+step 42600, loss 2.84, lr 0.000546, consume 252.47s
+step 42700, loss 2.84, lr 0.000546, consume 252.39s
+step 42800, loss 2.84, lr 0.000545, consume 252.43s
+step 42900, loss 2.83, lr 0.000545, consume 252.41s
+step 43000, loss 2.82, lr 0.000545, consume 252.60s
+step 43100, loss 2.83, lr 0.000545, consume 251.80s
+step 43200, loss 2.82, lr 0.000544, consume 251.80s
+processing 50: c400930, wiki0905, wiki0922, books0236, books0617, arxiv0013, stackexchange0155, origin: 447000, samples: 327051, accum_tokens: 17332M, iter_num: 43222
+step 43300, loss 2.85, lr 0.000544, consume 306.08s
+step 43400, loss 2.85, lr 0.000544, consume 252.39s
+step 43500, loss 2.83, lr 0.000544, consume 252.50s
+step 43600, loss 2.83, lr 0.000543, consume 252.48s
+step 43700, loss 2.83, lr 0.000543, consume 252.51s
+step 43800, loss 2.82, lr 0.000543, consume 252.46s
+step 43900, loss 2.83, lr 0.000543, consume 252.62s
+step 44000, loss 2.82, lr 0.000542, consume 252.06s
+processing 51: c400749, wiki0120, wiki0275, books0516, books0264, arxiv0581, stackexchange0813, origin: 447022, samples: 329856, accum_tokens: 17669M, iter_num: 44073
+step 44100, loss 2.83, lr 0.000542, consume 304.91s
+step 44200, loss 2.84, lr 0.000542, consume 252.30s
+step 44300, loss 2.83, lr 0.000541, consume 252.50s
+step 44400, loss 2.82, lr 0.000541, consume 252.50s
+step 44500, loss 2.83, lr 0.000541, consume 252.49s
+step 44600, loss 2.81, lr 0.000541, consume 252.44s
+step 44700, loss 2.81, lr 0.000540, consume 252.60s
+step 44800, loss 2.82, lr 0.000540, consume 252.10s
+step 44900, loss 2.81, lr 0.000540, consume 251.85s
+processing 52: c400633, wiki0605, wiki0179, books0354, books0558, arxiv0344, stackexchange0275, origin: 447082, samples: 331430, accum_tokens: 18009M, iter_num: 44932
+step 45000, loss 2.83, lr 0.000540, consume 305.85s
+step 45100, loss 2.83, lr 0.000539, consume 252.46s
+step 45200, loss 2.82, lr 0.000539, consume 252.50s
+step 45300, loss 2.82, lr 0.000539, consume 252.47s
+step 45400, loss 2.82, lr 0.000538, consume 252.47s
+step 45500, loss 2.82, lr 0.000538, consume 252.48s
+step 45600, loss 2.82, lr 0.000538, consume 252.87s
+step 45700, loss 2.81, lr 0.000538, consume 251.88s
+processing 53: c400446, wiki0358, wiki0483, books0857, books0475, arxiv0323, stackexchange0034, origin: 447214, samples: 334342, accum_tokens: 18351M, iter_num: 45795
+step 45800, loss 2.82, lr 0.000537, consume 306.29s
+step 45900, loss 2.84, lr 0.000537, consume 251.92s
+step 46000, loss 2.83, lr 0.000537, consume 252.58s
+step 46100, loss 2.81, lr 0.000537, consume 252.50s
+step 46200, loss 2.82, lr 0.000536, consume 252.47s
+step 46300, loss 2.82, lr 0.000536, consume 252.50s
+step 46400, loss 2.81, lr 0.000536, consume 252.44s
+step 46500, loss 2.81, lr 0.000535, consume 252.55s
+step 46600, loss 2.81, lr 0.000535, consume 251.87s
+processing 54: c400058, wiki0436, wiki0139, books0577, books0851, arxiv0239, stackexchange0087, origin: 447257, samples: 334078, accum_tokens: 18693M, iter_num: 46666
+step 46700, loss 2.81, lr 0.000535, consume 303.35s
+step 46800, loss 2.83, lr 0.000535, consume 252.02s
+step 46900, loss 2.82, lr 0.000534, consume 252.18s
+step 47000, loss 2.82, lr 0.000534, consume 252.12s
+step 47100, loss 2.81, lr 0.000534, consume 252.15s
+step 47200, loss 2.82, lr 0.000533, consume 252.08s
+step 47300, loss 2.80, lr 0.000533, consume 252.48s
+step 47400, loss 2.80, lr 0.000533, consume 251.44s
+step 47500, loss 2.80, lr 0.000533, consume 251.44s
+processing 55: c400722, wiki0845, wiki0981, books0418, books0490, arxiv0297, stackexchange0819, origin: 447018, samples: 329028, accum_tokens: 19030M, iter_num: 47536
+step 47600, loss 2.82, lr 0.000532, consume 304.31s
+step 47700, loss 2.83, lr 0.000532, consume 252.14s
+step 47800, loss 2.82, lr 0.000532, consume 252.18s
+step 47900, loss 2.81, lr 0.000532, consume 252.14s
+step 48000, loss 2.82, lr 0.000531, consume 252.11s
+step 48100, loss 2.83, lr 0.000531, consume 252.12s
+step 48200, loss 2.81, lr 0.000531, consume 252.49s
+step 48300, loss 2.81, lr 0.000530, consume 251.51s
+processing 56: c400362, wiki0717, wiki0183, books0381, books0218, arxiv0140, stackexchange0422, origin: 447135, samples: 333699, accum_tokens: 19372M, iter_num: 48393
+step 48400, loss 2.82, lr 0.000530, consume 303.46s
+step 48500, loss 2.84, lr 0.000530, consume 251.71s
+step 48600, loss 2.82, lr 0.000530, consume 252.17s
+step 48700, loss 2.81, lr 0.000529, consume 252.16s
+step 48800, loss 2.81, lr 0.000529, consume 252.17s
+step 48900, loss 2.83, lr 0.000529, consume 252.25s
+step 49000, loss 2.82, lr 0.000528, consume 252.23s
+step 49100, loss 2.81, lr 0.000528, consume 252.10s
+step 49200, loss 2.80, lr 0.000528, consume 251.48s
+processing 57: c400900, wiki0173, wiki0890, books0047, books0896, arxiv1017, stackexchange0294, origin: 447055, samples: 328913, accum_tokens: 19709M, iter_num: 49262
+step 49300, loss 2.83, lr 0.000527, consume 305.80s
+step 49400, loss 2.83, lr 0.000527, consume 252.28s
+step 49500, loss 2.82, lr 0.000527, consume 252.51s
+step 49600, loss 2.82, lr 0.000527, consume 252.39s
+step 49700, loss 2.83, lr 0.000526, consume 252.45s
+step 49800, loss 2.81, lr 0.000526, consume 252.38s
+step 49900, loss 2.80, lr 0.000526, consume 252.72s
+step 50000, loss 2.81, lr 0.000525, consume 251.85s
+step 50100, loss 2.82, lr 0.000525, consume 251.78s
+processing 58: c400054, wiki0095, wiki0070, books0770, books0071, arxiv0206, stackexchange0389, origin: 447080, samples: 330300, accum_tokens: 20047M, iter_num: 50118
+step 50200, loss 2.83, lr 0.000525, consume 305.35s
+step 50300, loss 2.83, lr 0.000525, consume 252.43s
+step 50400, loss 2.82, lr 0.000524, consume 252.46s
+step 50500, loss 2.81, lr 0.000524, consume 252.43s
+step 50600, loss 2.80, lr 0.000524, consume 252.38s
+step 50700, loss 2.83, lr 0.000523, consume 252.35s
+step 50800, loss 2.80, lr 0.000523, consume 252.42s
+step 50900, loss 2.82, lr 0.000523, consume 251.73s
+processing 59: c400673, wiki0821, wiki0786, books0317, books0186, arxiv0270, stackexchange0774, origin: 446950, samples: 326132, accum_tokens: 20381M, iter_num: 50978
+step 51000, loss 2.82, lr 0.000522, consume 305.46s
+step 51100, loss 2.85, lr 0.000522, consume 252.11s
+step 51200, loss 2.85, lr 0.000522, consume 252.43s
+step 51300, loss 2.82, lr 0.000522, consume 252.41s
+step 51400, loss 2.83, lr 0.000521, consume 252.40s
+step 51500, loss 2.83, lr 0.000521, consume 252.38s
+step 51600, loss 2.82, lr 0.000521, consume 252.39s
+step 51700, loss 2.83, lr 0.000520, consume 252.51s
+step 51800, loss 2.81, lr 0.000520, consume 251.89s
+processing 60: c400082, wiki0471, wiki0607, books0078, books0595, arxiv0868, stackexchange0421, origin: 447372, samples: 339175, accum_tokens: 20728M, iter_num: 51828
+step 51900, loss 2.83, lr 0.000520, consume 305.19s
+step 52000, loss 2.82, lr 0.000519, consume 252.55s
+step 52100, loss 2.81, lr 0.000519, consume 252.49s
+step 52200, loss 2.81, lr 0.000519, consume 252.42s
+step 52300, loss 2.80, lr 0.000518, consume 252.39s
+step 52400, loss 2.80, lr 0.000518, consume 252.41s
+step 52500, loss 2.81, lr 0.000518, consume 252.72s
+step 52600, loss 2.80, lr 0.000518, consume 251.78s
+step 52700, loss 2.80, lr 0.000517, consume 251.76s
+processing 61: c400269, wiki0403, wiki0560, books0937, books0236, arxiv0090, stackexchange0945, origin: 447178, samples: 332174, accum_tokens: 21068M, iter_num: 52711
+step 52800, loss 2.82, lr 0.000517, consume 307.55s
+step 52900, loss 2.81, lr 0.000517, consume 253.09s
+step 53000, loss 2.81, lr 0.000516, consume 253.09s
+step 53100, loss 2.81, lr 0.000516, consume 252.64s
+step 53200, loss 2.81, lr 0.000516, consume 252.58s
+step 53300, loss 2.80, lr 0.000515, consume 252.59s
+step 53400, loss 2.80, lr 0.000515, consume 252.60s
+step 53500, loss 2.80, lr 0.000515, consume 251.96s
+processing 62: c400394, wiki0762, wiki0090, books1008, books0940, arxiv0500, stackexchange0817, origin: 447017, samples: 328620, accum_tokens: 21405M, iter_num: 53576
+step 53600, loss 2.81, lr 0.000514, consume 303.88s
+step 53700, loss 2.82, lr 0.000514, consume 252.60s
+step 53800, loss 2.81, lr 0.000514, consume 252.95s
+step 53900, loss 2.81, lr 0.000514, consume 252.94s
+step 54000, loss 2.81, lr 0.000513, consume 252.97s
+step 54100, loss 2.81, lr 0.000513, consume 252.99s
+step 54200, loss 2.81, lr 0.000513, consume 253.10s
+step 54300, loss 2.80, lr 0.000512, consume 252.62s
+step 54400, loss 2.81, lr 0.000512, consume 252.35s
+processing 63: c400358, wiki0441, wiki0801, books0428, books0169, arxiv0195, stackexchange0701, origin: 447048, samples: 329702, accum_tokens: 21742M, iter_num: 54432
+step 54500, loss 2.82, lr 0.000512, consume 303.84s
+step 54600, loss 2.82, lr 0.000511, consume 252.96s
+step 54700, loss 2.81, lr 0.000511, consume 253.02s
+step 54800, loss 2.81, lr 0.000511, consume 253.05s
+step 54900, loss 2.81, lr 0.000510, consume 253.01s
+step 55000, loss 2.81, lr 0.000510, consume 252.96s
+step 55100, loss 2.80, lr 0.000510, consume 253.28s
+step 55200, loss 2.81, lr 0.000509, consume 252.38s
+processing 64: c400510, wiki0649, wiki0399, books0607, books0423, arxiv0416, stackexchange0447, origin: 447123, samples: 330968, accum_tokens: 22081M, iter_num: 55290
+step 55300, loss 2.81, lr 0.000509, consume 304.42s
+step 55400, loss 2.83, lr 0.000509, consume 252.25s
+step 55500, loss 2.83, lr 0.000508, consume 253.14s
+step 55600, loss 2.83, lr 0.000508, consume 252.97s
+step 55700, loss 2.82, lr 0.000508, consume 253.02s
+step 55800, loss 2.82, lr 0.000507, consume 252.98s
+step 55900, loss 2.81, lr 0.000507, consume 253.01s
+step 56000, loss 2.82, lr 0.000507, consume 253.05s
+step 56100, loss 2.81, lr 0.000506, consume 252.40s
+processing 65: c400345, wiki0865, wiki0864, books0444, books0988, arxiv0371, stackexchange0300, origin: 447205, samples: 333408, accum_tokens: 22423M, iter_num: 56152
+step 56200, loss 2.82, lr 0.000506, consume 305.72s
+step 56300, loss 2.82, lr 0.000506, consume 252.86s
+step 56400, loss 2.81, lr 0.000506, consume 253.13s
+step 56500, loss 2.81, lr 0.000505, consume 253.11s
+step 56600, loss 2.82, lr 0.000505, consume 253.03s
+step 56700, loss 2.82, lr 0.000505, consume 253.05s
+step 56800, loss 2.81, lr 0.000504, consume 253.20s
+step 56900, loss 2.81, lr 0.000504, consume 252.44s
+step 57000, loss 2.80, lr 0.000504, consume 252.78s
+processing 66: c400487, wiki0428, wiki0385, books0530, books0709, arxiv0973, stackexchange0109, origin: 446991, samples: 326452, accum_tokens: 22757M, iter_num: 57020
+step 57100, loss 2.83, lr 0.000503, consume 305.99s
+step 57200, loss 2.82, lr 0.000503, consume 252.35s
+step 57300, loss 2.81, lr 0.000503, consume 252.35s
+step 57400, loss 2.81, lr 0.000502, consume 253.22s
+step 57500, loss 2.80, lr 0.000502, consume 254.88s
+step 57600, loss 2.81, lr 0.000502, consume 252.83s
+step 57700, loss 2.80, lr 0.000501, consume 255.98s
+step 57800, loss 2.80, lr 0.000501, consume 253.03s
+processing 67: c400476, wiki0161, wiki0278, books0168, books0481, arxiv0335, stackexchange0911, origin: 447070, samples: 329206, accum_tokens: 23094M, iter_num: 57871
+step 57900, loss 2.82, lr 0.000501, consume 255.28s
+step 58000, loss 2.83, lr 0.000500, consume 249.22s
+step 58100, loss 2.82, lr 0.000500, consume 249.25s
+step 58200, loss 2.81, lr 0.000500, consume 249.24s
+step 58300, loss 2.81, lr 0.000499, consume 249.25s
+step 58400, loss 2.80, lr 0.000499, consume 249.25s
+step 58500, loss 2.81, lr 0.000499, consume 249.28s
+step 58600, loss 2.79, lr 0.000498, consume 249.13s
+step 58700, loss 2.79, lr 0.000498, consume 248.75s
+processing 68: c400812, wiki0768, wiki0546, books0883, books0594, arxiv0320, stackexchange0471, origin: 447061, samples: 330688, accum_tokens: 23433M, iter_num: 58728
+step 58800, loss 2.82, lr 0.000498, consume 255.47s
+step 58900, loss 2.82, lr 0.000497, consume 249.21s
+step 59000, loss 2.81, lr 0.000497, consume 249.23s
+step 59100, loss 2.81, lr 0.000497, consume 249.26s
+step 59200, loss 2.81, lr 0.000496, consume 249.26s
+step 59300, loss 2.79, lr 0.000496, consume 249.23s
+step 59400, loss 2.79, lr 0.000496, consume 249.50s
+step 59500, loss 2.79, lr 0.000495, consume 248.76s
+processing 69: c400892, wiki0992, wiki0692, books0622, books0121, arxiv0993, stackexchange0926, origin: 447247, samples: 336465, accum_tokens: 23777M, iter_num: 59589
+step 59600, loss 2.80, lr 0.000495, consume 255.26s
+step 59700, loss 2.83, lr 0.000495, consume 249.35s
+step 59800, loss 2.81, lr 0.000494, consume 249.35s
+step 59900, loss 2.82, lr 0.000494, consume 249.26s
+step 60000, loss 2.79, lr 0.000494, consume 249.23s
+step 60100, loss 2.81, lr 0.000493, consume 249.26s
+step 60200, loss 2.79, lr 0.000493, consume 249.19s
+step 60300, loss 2.80, lr 0.000492, consume 249.35s
+step 60400, loss 2.81, lr 0.000492, consume 248.69s
+processing 70: c400541, wiki0828, wiki0143, books0184, books0411, arxiv0945, stackexchange0568, origin: 447398, samples: 336952, accum_tokens: 24122M, iter_num: 60465
+step 60500, loss 2.81, lr 0.000492, consume 255.33s
+step 60600, loss 2.83, lr 0.000491, consume 249.12s
+step 60700, loss 2.82, lr 0.000491, consume 249.19s
+step 60800, loss 2.82, lr 0.000491, consume 249.16s
+step 60900, loss 2.81, lr 0.000490, consume 249.23s
+step 61000, loss 2.82, lr 0.000490, consume 249.23s
+step 61100, loss 2.80, lr 0.000490, consume 249.22s
+step 61200, loss 2.81, lr 0.000489, consume 249.02s
+step 61300, loss 2.81, lr 0.000489, consume 248.73s
+processing 71: c400049, wiki0069, wiki0977, books0293, books0375, arxiv0356, stackexchange0755, origin: 447135, samples: 331758, accum_tokens: 24462M, iter_num: 61343
+step 61400, loss 2.82, lr 0.000489, consume 255.44s
+step 61500, loss 2.81, lr 0.000488, consume 249.17s
+step 61600, loss 2.81, lr 0.000488, consume 249.22s
+step 61700, loss 2.82, lr 0.000488, consume 249.20s
+step 61800, loss 2.81, lr 0.000487, consume 251.78s
+step 61900, loss 2.82, lr 0.000487, consume 255.43s
+step 62000, loss 2.80, lr 0.000487, consume 250.02s
+step 62100, loss 2.80, lr 0.000486, consume 248.59s
+step 62200, loss 2.80, lr 0.000486, consume 248.65s
+processing 72: c400207, wiki0464, wiki0470, books0460, books0166, arxiv0429, stackexchange0190, origin: 447142, samples: 331107, accum_tokens: 24801M, iter_num: 62206
+step 62300, loss 2.81, lr 0.000486, consume 255.25s
+step 62400, loss 2.80, lr 0.000485, consume 249.20s
+step 62500, loss 2.81, lr 0.000485, consume 249.20s
+step 62600, loss 2.80, lr 0.000485, consume 249.21s
+step 62700, loss 2.80, lr 0.000484, consume 249.24s
+step 62800, loss 2.81, lr 0.000484, consume 249.21s
+step 62900, loss 2.79, lr 0.000483, consume 249.36s
+step 63000, loss 2.79, lr 0.000483, consume 248.84s
+processing 73: c400776, wiki0424, wiki0123, books0462, books0625, arxiv0396, stackexchange0336, origin: 447176, samples: 332357, accum_tokens: 25142M, iter_num: 63069
+step 63100, loss 2.80, lr 0.000483, consume 258.61s
+step 63200, loss 2.81, lr 0.000482, consume 249.75s
+step 63300, loss 2.81, lr 0.000482, consume 249.17s
+step 63400, loss 2.80, lr 0.000482, consume 249.24s
+step 63500, loss 2.80, lr 0.000481, consume 249.27s
+step 63600, loss 2.80, lr 0.000481, consume 249.48s
+step 63700, loss 2.79, lr 0.000481, consume 252.05s
+step 63800, loss 2.79, lr 0.000480, consume 252.77s
+step 63900, loss 2.78, lr 0.000480, consume 251.24s
+processing 74: c400407, wiki1003, wiki0553, books0294, books0743, arxiv0200, stackexchange0532, origin: 446934, samples: 326452, accum_tokens: 25476M, iter_num: 63934
+step 64000, loss 2.81, lr 0.000480, consume 257.21s
+step 64100, loss 2.82, lr 0.000479, consume 251.79s
+step 64200, loss 2.81, lr 0.000479, consume 251.10s
+step 64300, loss 2.81, lr 0.000478, consume 251.08s
+step 64400, loss 2.80, lr 0.000478, consume 253.50s
+step 64500, loss 2.81, lr 0.000478, consume 252.36s
+step 64600, loss 2.81, lr 0.000477, consume 253.72s
+step 64700, loss 2.81, lr 0.000477, consume 251.76s
+processing 75: c400899, wiki0964, wiki0688, books0779, books0824, arxiv0678, stackexchange0792, origin: 447042, samples: 330018, accum_tokens: 25814M, iter_num: 64784
+step 64800, loss 2.82, lr 0.000477, consume 255.50s
+step 64900, loss 2.82, lr 0.000476, consume 250.87s
+step 65000, loss 2.81, lr 0.000476, consume 253.61s
+step 65100, loss 2.80, lr 0.000476, consume 253.17s
+step 65200, loss 2.80, lr 0.000475, consume 250.73s
+step 65300, loss 2.79, lr 0.000475, consume 249.86s
+step 65400, loss 2.80, lr 0.000475, consume 250.64s
+step 65500, loss 2.78, lr 0.000474, consume 252.13s
+step 65600, loss 2.81, lr 0.000474, consume 250.49s
+processing 76: c400648, wiki0084, wiki0702, books0475, books0206, arxiv0646, stackexchange0222, origin: 447202, samples: 333578, accum_tokens: 26155M, iter_num: 65644
+step 65700, loss 2.81, lr 0.000473, consume 258.08s
+step 65800, loss 2.79, lr 0.000473, consume 251.30s
+step 65900, loss 2.78, lr 0.000473, consume 251.14s
+step 66000, loss 2.79, lr 0.000472, consume 251.29s
+step 66100, loss 2.78, lr 0.000472, consume 251.96s
+step 66200, loss 2.77, lr 0.000472, consume 252.13s
+step 66300, loss 2.76, lr 0.000471, consume 251.76s
+step 66400, loss 2.77, lr 0.000471, consume 251.85s
+step 66500, loss 2.77, lr 0.000471, consume 251.89s
+processing 77: c400764, wiki0969, wiki0803, books0509, books0303, arxiv0877, stackexchange0279, origin: 447077, samples: 332184, accum_tokens: 26496M, iter_num: 66512
+step 66600, loss 2.80, lr 0.000470, consume 255.46s
+step 66700, loss 2.80, lr 0.000470, consume 251.87s
+step 66800, loss 2.79, lr 0.000469, consume 252.61s
+step 66900, loss 2.78, lr 0.000469, consume 252.15s
+step 67000, loss 2.80, lr 0.000469, consume 251.55s
+step 67100, loss 2.79, lr 0.000468, consume 251.11s
+step 67200, loss 2.79, lr 0.000468, consume 254.25s
+step 67300, loss 2.76, lr 0.000468, consume 252.54s
+processing 78: c400356, wiki0111, wiki0588, books0121, books0453, arxiv0381, stackexchange0010, origin: 447297, samples: 334341, accum_tokens: 26838M, iter_num: 67377
+step 67400, loss 2.79, lr 0.000467, consume 259.20s
+step 67500, loss 2.81, lr 0.000467, consume 251.44s
+step 67600, loss 2.79, lr 0.000466, consume 250.05s
+step 67700, loss 2.80, lr 0.000466, consume 254.91s
+step 67800, loss 2.79, lr 0.000466, consume 250.40s
+step 67900, loss 2.80, lr 0.000465, consume 248.84s
+step 68000, loss 2.79, lr 0.000465, consume 248.70s
+step 68100, loss 2.78, lr 0.000465, consume 248.57s
+step 68200, loss 2.79, lr 0.000464, consume 248.19s
+processing 79: c400864, wiki1015, wiki0217, books0023, books0541, arxiv0757, stackexchange0541, origin: 447136, samples: 332008, accum_tokens: 27178M, iter_num: 68248
+step 68300, loss 2.79, lr 0.000464, consume 254.76s
+step 68400, loss 2.80, lr 0.000464, consume 248.90s
+step 68500, loss 2.79, lr 0.000463, consume 249.05s
+step 68600, loss 2.79, lr 0.000463, consume 249.12s
+step 68700, loss 2.79, lr 0.000462, consume 249.11s
+step 68800, loss 2.78, lr 0.000462, consume 249.12s
+step 68900, loss 2.79, lr 0.000462, consume 249.25s
+step 69000, loss 2.77, lr 0.000461, consume 248.88s
+step 69100, loss 2.78, lr 0.000461, consume 248.58s
+processing 80: c400397, wiki0017, wiki0298, books0414, books0566, arxiv0873, stackexchange0405, origin: 447204, samples: 335168, accum_tokens: 27521M, iter_num: 69112
+step 69200, loss 2.80, lr 0.000461, consume 255.42s
+step 69300, loss 2.80, lr 0.000460, consume 248.84s
+step 69400, loss 2.79, lr 0.000460, consume 249.07s
+step 69500, loss 2.78, lr 0.000459, consume 249.07s
+step 69600, loss 2.78, lr 0.000459, consume 249.13s
+step 69700, loss 2.79, lr 0.000459, consume 249.13s
+step 69800, loss 2.78, lr 0.000458, consume 249.23s
+step 69900, loss 2.78, lr 0.000458, consume 248.63s
+processing 81: c400206, wiki0860, wiki0624, books0249, books0821, arxiv0548, stackexchange0229, origin: 447213, samples: 333980, accum_tokens: 27863M, iter_num: 69985
+step 70000, loss 2.78, lr 0.000458, consume 255.21s
+step 70100, loss 2.80, lr 0.000457, consume 249.13s
+step 70200, loss 2.80, lr 0.000457, consume 249.22s
+step 70300, loss 2.79, lr 0.000456, consume 249.17s
+step 70400, loss 2.79, lr 0.000456, consume 249.14s
+step 70500, loss 2.79, lr 0.000456, consume 249.21s
+step 70600, loss 2.79, lr 0.000455, consume 249.24s
+step 70700, loss 2.79, lr 0.000455, consume 249.18s
+step 70800, loss 2.78, lr 0.000454, consume 248.68s
+processing 82: c401016, wiki0907, wiki0555, books0842, books0929, arxiv0652, stackexchange0650, origin: 447188, samples: 333519, accum_tokens: 28205M, iter_num: 70855
+step 70900, loss 2.77, lr 0.000454, consume 255.40s
+step 71000, loss 2.80, lr 0.000454, consume 249.19s
+step 71100, loss 2.78, lr 0.000453, consume 249.15s
+step 71200, loss 2.77, lr 0.000453, consume 249.18s
+step 71300, loss 2.77, lr 0.000453, consume 249.15s
+step 71400, loss 2.79, lr 0.000452, consume 249.18s
+step 71500, loss 2.77, lr 0.000452, consume 249.33s
+step 71600, loss 2.78, lr 0.000451, consume 248.65s
+step 71700, loss 2.78, lr 0.000451, consume 248.58s
+processing 83: c400822, wiki0614, wiki0211, books0525, books0844, arxiv0963, stackexchange0946, origin: 446998, samples: 327365, accum_tokens: 28540M, iter_num: 71723
+step 71800, loss 2.81, lr 0.000451, consume 255.33s
+step 71900, loss 2.80, lr 0.000450, consume 249.07s
+step 72000, loss 2.79, lr 0.000450, consume 249.05s
+step 72100, loss 2.80, lr 0.000450, consume 249.12s
+step 72200, loss 2.79, lr 0.000449, consume 249.11s
+step 72300, loss 2.79, lr 0.000449, consume 249.07s
+step 72400, loss 2.79, lr 0.000448, consume 249.25s
+step 72500, loss 2.79, lr 0.000448, consume 248.60s
+processing 84: c400308, wiki0967, wiki0824, books0947, books0299, arxiv0278, stackexchange0418, origin: 447157, samples: 331080, accum_tokens: 28879M, iter_num: 72576
+step 72600, loss 2.80, lr 0.000448, consume 255.31s
+step 72700, loss 2.81, lr 0.000447, consume 249.12s
+step 72800, loss 2.80, lr 0.000447, consume 249.09s
+step 72900, loss 2.79, lr 0.000446, consume 249.12s
+step 73000, loss 2.79, lr 0.000446, consume 249.13s
+step 73100, loss 2.79, lr 0.000446, consume 253.07s
+step 73200, loss 2.80, lr 0.000445, consume 251.21s
+step 73300, loss 2.78, lr 0.000445, consume 253.38s
+step 73400, loss 2.78, lr 0.000444, consume 252.16s
+processing 85: c400532, wiki0253, wiki0195, books0867, books0939, arxiv0717, stackexchange0287, origin: 447070, samples: 329173, accum_tokens: 29216M, iter_num: 73438
+step 73500, loss 2.81, lr 0.000444, consume 259.92s
+step 73600, loss 2.79, lr 0.000444, consume 253.76s
+step 73700, loss 2.81, lr 0.000443, consume 251.48s
+step 73800, loss 2.78, lr 0.000443, consume 253.32s
+step 73900, loss 2.79, lr 0.000443, consume 251.73s
+step 74000, loss 2.80, lr 0.000442, consume 252.64s
+step 74100, loss 2.78, lr 0.000442, consume 253.56s
+step 74200, loss 2.78, lr 0.000441, consume 252.42s
+processing 86: c400612, wiki0956, wiki0758, books0382, books0014, arxiv0380, stackexchange0506, origin: 447064, samples: 327829, accum_tokens: 29552M, iter_num: 74295
+step 74300, loss 2.78, lr 0.000441, consume 260.09s
+step 74400, loss 2.81, lr 0.000441, consume 254.50s
+step 74500, loss 2.80, lr 0.000440, consume 256.17s
+step 74600, loss 2.80, lr 0.000440, consume 252.12s
+step 74700, loss 2.79, lr 0.000439, consume 254.68s
+step 74800, loss 2.78, lr 0.000439, consume 249.17s
+step 74900, loss 2.78, lr 0.000439, consume 249.08s
+step 75000, loss 2.77, lr 0.000438, consume 249.27s
+step 75100, loss 2.79, lr 0.000438, consume 248.62s
+processing 87: c400826, wiki0165, wiki0796, books0337, books0847, arxiv0667, stackexchange0936, origin: 447308, samples: 338130, accum_tokens: 29898M, iter_num: 75149
+step 75200, loss 2.79, lr 0.000437, consume 254.95s
+step 75300, loss 2.77, lr 0.000437, consume 248.86s
+step 75400, loss 2.75, lr 0.000437, consume 248.90s
+step 75500, loss 2.75, lr 0.000436, consume 248.76s
+step 75600, loss 2.75, lr 0.000436, consume 248.77s
+step 75700, loss 2.74, lr 0.000436, consume 248.82s
+step 75800, loss 2.74, lr 0.000435, consume 249.03s
+step 75900, loss 2.74, lr 0.000435, consume 248.58s
+step 76000, loss 2.75, lr 0.000434, consume 248.42s
+processing 88: c400969, wiki0708, wiki0418, books0793, books0489, arxiv0805, stackexchange0099, origin: 447188, samples: 331820, accum_tokens: 30238M, iter_num: 76029
+step 76100, loss 2.79, lr 0.000434, consume 255.13s
+step 76200, loss 2.79, lr 0.000434, consume 248.85s
+step 76300, loss 2.79, lr 0.000433, consume 248.97s
+step 76400, loss 2.79, lr 0.000433, consume 248.85s
+step 76500, loss 2.78, lr 0.000432, consume 248.88s
+step 76600, loss 2.78, lr 0.000432, consume 248.85s
+step 76700, loss 2.77, lr 0.000432, consume 249.00s
+step 76800, loss 2.78, lr 0.000431, consume 248.31s
+processing 89: c400146, wiki0031, wiki0761, books0212, books0376, arxiv0010, stackexchange0210, origin: 447137, samples: 333067, accum_tokens: 30579M, iter_num: 76893
+step 76900, loss 2.78, lr 0.000431, consume 255.05s
+step 77000, loss 2.79, lr 0.000430, consume 248.95s
+step 77100, loss 2.78, lr 0.000430, consume 252.13s
+step 77200, loss 2.78, lr 0.000430, consume 256.07s
+step 77300, loss 2.78, lr 0.000429, consume 249.05s
+step 77400, loss 2.77, lr 0.000429, consume 249.05s
+step 77500, loss 2.78, lr 0.000428, consume 249.07s
+step 77600, loss 2.77, lr 0.000428, consume 249.10s
+step 77700, loss 2.78, lr 0.000428, consume 248.56s
+processing 90: c400158, wiki0621, wiki0396, books0501, books0963, arxiv0045, stackexchange0086, origin: 447178, samples: 334621, accum_tokens: 30921M, iter_num: 77760
+step 77800, loss 2.77, lr 0.000427, consume 255.12s
+step 77900, loss 2.80, lr 0.000427, consume 248.91s
+step 78000, loss 2.77, lr 0.000426, consume 248.95s
+step 78100, loss 2.79, lr 0.000426, consume 248.97s
+step 78200, loss 2.77, lr 0.000426, consume 249.01s
+step 78300, loss 2.78, lr 0.000425, consume 248.92s
+step 78400, loss 2.77, lr 0.000425, consume 249.10s
+step 78500, loss 2.78, lr 0.000424, consume 248.45s
+step 78600, loss 2.77, lr 0.000424, consume 248.27s
+processing 91: c400370, wiki0410, wiki0285, books0281, books0581, arxiv0241, stackexchange0250, origin: 447064, samples: 328595, accum_tokens: 31258M, iter_num: 78632
+step 78700, loss 2.79, lr 0.000424, consume 254.29s
+step 78800, loss 2.80, lr 0.000423, consume 248.59s
+step 78900, loss 2.79, lr 0.000423, consume 248.77s
+step 79000, loss 2.79, lr 0.000422, consume 248.63s
+step 79100, loss 2.79, lr 0.000422, consume 248.70s
+step 79200, loss 2.79, lr 0.000422, consume 248.71s
+step 79300, loss 2.78, lr 0.000421, consume 248.90s
+step 79400, loss 2.78, lr 0.000421, consume 248.20s
+processing 92: c400768, wiki0250, wiki0544, books0644, books0251, arxiv1012, stackexchange0377, origin: 447147, samples: 331345, accum_tokens: 31597M, iter_num: 79487
+step 79500, loss 2.78, lr 0.000420, consume 254.69s
+step 79600, loss 2.79, lr 0.000420, consume 248.15s
+step 79700, loss 2.80, lr 0.000420, consume 248.71s
+step 79800, loss 2.78, lr 0.000419, consume 248.98s
+step 79900, loss 2.77, lr 0.000419, consume 253.20s
+step 80000, loss 2.77, lr 0.000418, consume 257.28s
+step 80100, loss 2.77, lr 0.000418, consume 251.29s
+step 80200, loss 2.77, lr 0.000418, consume 251.58s
+step 80300, loss 2.77, lr 0.000417, consume 250.42s
+processing 93: c400254, wiki0184, wiki0012, books0636, books0995, arxiv0408, stackexchange0013, origin: 447158, samples: 330715, accum_tokens: 31936M, iter_num: 80350
+step 80400, loss 2.78, lr 0.000417, consume 258.09s
+step 80500, loss 2.80, lr 0.000416, consume 253.21s
+step 80600, loss 2.79, lr 0.000416, consume 253.01s
+step 80700, loss 2.79, lr 0.000415, consume 252.06s
+step 80800, loss 2.79, lr 0.000415, consume 253.33s
+step 80900, loss 2.78, lr 0.000415, consume 251.69s
+step 81000, loss 2.78, lr 0.000414, consume 254.87s
+step 81100, loss 2.77, lr 0.000414, consume 252.56s
+step 81200, loss 2.77, lr 0.000413, consume 252.29s
+processing 94: c400131, wiki0409, wiki0022, books0917, books0887, arxiv0343, stackexchange0603, origin: 447102, samples: 329234, accum_tokens: 32273M, iter_num: 81211
+step 81300, loss 2.79, lr 0.000413, consume 254.69s
+step 81400, loss 2.78, lr 0.000413, consume 248.75s
+step 81500, loss 2.78, lr 0.000412, consume 249.20s
+step 81600, loss 2.77, lr 0.000412, consume 249.18s
+step 81700, loss 2.77, lr 0.000411, consume 249.20s
+step 81800, loss 2.77, lr 0.000411, consume 249.15s
+step 81900, loss 2.77, lr 0.000411, consume 249.32s
+step 82000, loss 2.76, lr 0.000410, consume 248.70s
+processing 95: c400798, wiki0801, wiki0630, books0918, books0567, arxiv0728, stackexchange0784, origin: 447178, samples: 334406, accum_tokens: 32615M, iter_num: 82069
+step 82100, loss 2.79, lr 0.000410, consume 255.19s
+step 82200, loss 2.79, lr 0.000409, consume 248.93s
+step 82300, loss 2.78, lr 0.000409, consume 249.38s
+step 82400, loss 2.77, lr 0.000409, consume 249.34s
+step 82500, loss 2.78, lr 0.000408, consume 249.33s
+step 82600, loss 2.78, lr 0.000408, consume 249.38s
+step 82700, loss 2.78, lr 0.000407, consume 249.41s
+step 82800, loss 2.76, lr 0.000407, consume 249.13s
+step 82900, loss 2.78, lr 0.000406, consume 248.84s
+processing 96: c400107, wiki0016, wiki0096, books0433, books0643, arxiv0982, stackexchange1007, origin: 447060, samples: 331732, accum_tokens: 32955M, iter_num: 82940
+step 83000, loss 2.78, lr 0.000406, consume 255.35s
+step 83100, loss 2.77, lr 0.000406, consume 249.34s
+step 83200, loss 2.78, lr 0.000405, consume 249.36s
+step 83300, loss 2.77, lr 0.000405, consume 249.33s
+step 83400, loss 2.77, lr 0.000404, consume 249.38s
+step 83500, loss 2.77, lr 0.000404, consume 249.31s
+step 83600, loss 2.76, lr 0.000404, consume 249.57s
+step 83700, loss 2.77, lr 0.000403, consume 248.85s
+step 83800, loss 2.77, lr 0.000403, consume 248.85s
+processing 97: c400004, wiki0619, wiki0530, books0791, books0105, arxiv0165, stackexchange0138, origin: 447053, samples: 330190, accum_tokens: 33293M, iter_num: 83803
+step 83900, loss 2.79, lr 0.000402, consume 255.48s
+step 84000, loss 2.78, lr 0.000402, consume 249.43s
+step 84100, loss 2.79, lr 0.000402, consume 249.43s
+step 84200, loss 2.78, lr 0.000401, consume 249.42s
+step 84300, loss 2.78, lr 0.000401, consume 249.32s
+step 84400, loss 2.78, lr 0.000400, consume 249.28s
+step 84500, loss 2.77, lr 0.000400, consume 249.28s
+step 84600, loss 2.77, lr 0.000399, consume 251.35s
+processing 98: c400737, wiki0508, wiki0296, books0076, books0008, arxiv0175, stackexchange0915, origin: 447114, samples: 331535, accum_tokens: 33633M, iter_num: 84663
+step 84700, loss 2.78, lr 0.000399, consume 255.32s
+step 84800, loss 2.78, lr 0.000399, consume 249.28s
+step 84900, loss 2.78, lr 0.000398, consume 249.41s
+step 85000, loss 2.78, lr 0.000398, consume 249.41s
+step 85100, loss 2.77, lr 0.000397, consume 249.43s
+step 85200, loss 2.78, lr 0.000397, consume 249.40s
+step 85300, loss 2.76, lr 0.000397, consume 249.38s
+step 85400, loss 2.76, lr 0.000396, consume 249.35s
+step 85500, loss 2.76, lr 0.000396, consume 248.88s
+processing 99: c400585, wiki0637, wiki0631, books0195, books0345, arxiv0281, stackexchange0350, origin: 447191, samples: 334480, accum_tokens: 33975M, iter_num: 85526
+step 85600, loss 2.78, lr 0.000395, consume 255.43s
+step 85700, loss 2.78, lr 0.000395, consume 249.37s
+step 85800, loss 2.78, lr 0.000394, consume 249.43s
+step 85900, loss 2.78, lr 0.000394, consume 249.39s
+step 86000, loss 2.78, lr 0.000394, consume 249.38s
+step 86100, loss 2.77, lr 0.000393, consume 249.37s
+step 86200, loss 2.77, lr 0.000393, consume 249.54s
+step 86300, loss 2.77, lr 0.000392, consume 248.83s
+processing 100: c400121, wiki0170, wiki0402, books0230, books0564, arxiv0809, stackexchange0783, origin: 447171, samples: 331098, accum_tokens: 34314M, iter_num: 86397
+step 86400, loss 2.76, lr 0.000392, consume 255.48s
+step 86500, loss 2.80, lr 0.000392, consume 249.01s
+step 86600, loss 2.78, lr 0.000391, consume 249.39s
+step 86700, loss 2.78, lr 0.000391, consume 249.35s
+step 86800, loss 2.78, lr 0.000390, consume 249.31s
+step 86900, loss 2.77, lr 0.000390, consume 249.33s
+step 87000, loss 2.77, lr 0.000389, consume 249.35s
+step 87100, loss 2.77, lr 0.000389, consume 249.36s
+step 87200, loss 2.76, lr 0.000389, consume 248.84s
+processing 101: c400457, wiki0238, wiki0145, books0082, books0731, arxiv0643, stackexchange0639, origin: 447229, samples: 332579, accum_tokens: 34655M, iter_num: 87260
+step 87300, loss 2.78, lr 0.000388, consume 254.84s
+step 87400, loss 2.77, lr 0.000388, consume 249.19s
+step 87500, loss 2.78, lr 0.000387, consume 249.17s
+step 87600, loss 2.77, lr 0.000387, consume 249.18s
+step 87700, loss 2.78, lr 0.000387, consume 249.16s
+step 87800, loss 2.77, lr 0.000386, consume 249.20s
+step 87900, loss 2.77, lr 0.000386, consume 249.19s
+step 88000, loss 2.76, lr 0.000385, consume 248.95s
+step 88100, loss 2.77, lr 0.000385, consume 248.64s
+processing 102: c401021, wiki0032, wiki0543, books0850, books0762, arxiv0696, stackexchange0118, origin: 447117, samples: 329319, accum_tokens: 34992M, iter_num: 88126
+step 88200, loss 2.79, lr 0.000384, consume 255.00s
+step 88300, loss 2.78, lr 0.000384, consume 249.28s
+step 88400, loss 2.78, lr 0.000384, consume 249.31s
+step 88500, loss 2.77, lr 0.000383, consume 249.25s
+step 88600, loss 2.77, lr 0.000383, consume 249.31s
+step 88700, loss 2.76, lr 0.000382, consume 249.34s
+step 88800, loss 2.76, lr 0.000382, consume 249.46s
+step 88900, loss 2.76, lr 0.000382, consume 248.85s
+processing 103: c400904, wiki0882, wiki0386, books0688, books0319, arxiv0842, stackexchange0202, origin: 447114, samples: 333107, accum_tokens: 35333M, iter_num: 88983
+step 89000, loss 2.77, lr 0.000381, consume 255.15s
+step 89100, loss 2.78, lr 0.000381, consume 249.15s
+step 89200, loss 2.78, lr 0.000380, consume 249.32s
+step 89300, loss 2.77, lr 0.000380, consume 249.37s
+step 89400, loss 2.78, lr 0.000379, consume 249.38s
+step 89500, loss 2.77, lr 0.000379, consume 249.37s
+step 89600, loss 2.78, lr 0.000379, consume 249.34s
+step 89700, loss 2.75, lr 0.000378, consume 249.37s
+step 89800, loss 2.77, lr 0.000378, consume 248.83s
+processing 104: c400915, wiki1004, wiki0328, books0427, books0718, arxiv0285, stackexchange0189, origin: 447211, samples: 334665, accum_tokens: 35676M, iter_num: 89850
+step 89900, loss 2.77, lr 0.000377, consume 255.30s
+step 90000, loss 2.78, lr 0.000377, consume 249.34s
+step 90100, loss 2.77, lr 0.000376, consume 249.39s
+step 90200, loss 2.77, lr 0.000376, consume 249.37s
+step 90300, loss 2.77, lr 0.000376, consume 249.41s
+step 90400, loss 2.76, lr 0.000375, consume 249.40s
+step 90500, loss 2.76, lr 0.000375, consume 249.38s
+step 90600, loss 2.76, lr 0.000374, consume 249.43s
+step 90700, loss 2.76, lr 0.000374, consume 248.95s
+processing 105: c400241, wiki0047, wiki0128, books0242, books0211, arxiv0345, stackexchange0854, origin: 447250, samples: 337728, accum_tokens: 36022M, iter_num: 90722
+step 90800, loss 2.77, lr 0.000374, consume 255.48s
+step 90900, loss 2.76, lr 0.000373, consume 249.38s
+step 91000, loss 2.77, lr 0.000373, consume 249.41s
+step 91100, loss 2.76, lr 0.000372, consume 249.42s
+step 91200, loss 2.75, lr 0.000372, consume 249.39s
+step 91300, loss 2.75, lr 0.000371, consume 249.40s
+step 91400, loss 2.75, lr 0.000371, consume 249.53s
+step 91500, loss 2.75, lr 0.000371, consume 248.92s
+step 91600, loss 2.74, lr 0.000370, consume 248.89s
+processing 106: c400244, wiki0823, wiki0541, books0656, books0683, arxiv0774, stackexchange0374, origin: 447146, samples: 331375, accum_tokens: 36361M, iter_num: 91601
+step 91700, loss 2.79, lr 0.000370, consume 255.61s
+step 91800, loss 2.78, lr 0.000369, consume 249.39s
+step 91900, loss 2.79, lr 0.000369, consume 249.44s
+step 92000, loss 2.77, lr 0.000368, consume 249.41s
+step 92100, loss 2.77, lr 0.000368, consume 249.42s
+step 92200, loss 2.78, lr 0.000368, consume 249.48s
+step 92300, loss 2.76, lr 0.000367, consume 249.41s
+step 92400, loss 2.76, lr 0.000367, consume 248.90s
+processing 107: c400647, wiki0629, wiki0062, books0471, books0059, arxiv0264, stackexchange0509, origin: 447069, samples: 330372, accum_tokens: 36699M, iter_num: 92464
+step 92500, loss 2.76, lr 0.000366, consume 255.44s
+step 92600, loss 2.76, lr 0.000366, consume 249.37s
+step 92700, loss 2.76, lr 0.000365, consume 249.40s
+step 92800, loss 2.75, lr 0.000365, consume 249.44s
+step 92900, loss 2.75, lr 0.000365, consume 249.42s
+step 93000, loss 2.75, lr 0.000364, consume 249.40s
+step 93100, loss 2.74, lr 0.000364, consume 249.48s
+step 93200, loss 2.75, lr 0.000363, consume 249.19s
+step 93300, loss 2.75, lr 0.000363, consume 248.90s
+processing 108: c400934, wiki0075, wiki0228, books0811, books0582, arxiv0600, stackexchange0280, origin: 447106, samples: 331727, accum_tokens: 37039M, iter_num: 93325
+step 93400, loss 2.77, lr 0.000362, consume 255.51s
+step 93500, loss 2.75, lr 0.000362, consume 249.39s
+step 93600, loss 2.76, lr 0.000362, consume 249.40s
+step 93700, loss 2.74, lr 0.000361, consume 249.42s
+step 93800, loss 2.76, lr 0.000361, consume 249.38s
+step 93900, loss 2.75, lr 0.000360, consume 249.41s
+step 94000, loss 2.75, lr 0.000360, consume 249.61s
+step 94100, loss 2.75, lr 0.000360, consume 248.90s
+processing 109: c400050, wiki0213, wiki0958, books0560, books0329, arxiv0559, stackexchange0676, origin: 447273, samples: 334858, accum_tokens: 37382M, iter_num: 94188
+step 94200, loss 2.76, lr 0.000359, consume 255.40s
+step 94300, loss 2.78, lr 0.000359, consume 249.13s
+step 94400, loss 2.77, lr 0.000358, consume 249.42s
+step 94500, loss 2.76, lr 0.000358, consume 249.44s
+step 94600, loss 2.77, lr 0.000357, consume 249.42s
+step 94700, loss 2.76, lr 0.000357, consume 249.42s
+step 94800, loss 2.76, lr 0.000357, consume 249.44s
+step 94900, loss 2.76, lr 0.000356, consume 249.46s
+step 95000, loss 2.75, lr 0.000356, consume 248.93s
+processing 110: c400972, wiki0787, wiki0898, books0963, books0090, arxiv0268, stackexchange0962, origin: 447210, samples: 334956, accum_tokens: 37725M, iter_num: 95060
+step 95100, loss 2.76, lr 0.000355, consume 255.43s
+step 95200, loss 2.76, lr 0.000355, consume 249.39s
+step 95300, loss 2.75, lr 0.000354, consume 249.41s
+step 95400, loss 2.75, lr 0.000354, consume 249.48s
+step 95500, loss 2.74, lr 0.000354, consume 249.59s
+step 95600, loss 2.74, lr 0.000353, consume 249.44s
+step 95700, loss 2.73, lr 0.000353, consume 249.43s
+step 95800, loss 2.74, lr 0.000352, consume 249.45s
+step 95900, loss 2.74, lr 0.000352, consume 248.69s
+processing 111: c400013, wiki0102, wiki0777, books0478, books0584, arxiv0363, stackexchange0540, origin: 447476, samples: 342797, accum_tokens: 38076M, iter_num: 95933
+step 96000, loss 2.76, lr 0.000351, consume 254.96s
+step 96100, loss 2.76, lr 0.000351, consume 249.16s
+step 96200, loss 2.75, lr 0.000351, consume 249.17s
+step 96300, loss 2.75, lr 0.000350, consume 249.21s
+step 96400, loss 2.75, lr 0.000350, consume 249.27s
+step 96500, loss 2.75, lr 0.000349, consume 249.28s
+step 96600, loss 2.73, lr 0.000349, consume 249.40s
+step 96700, loss 2.74, lr 0.000348, consume 248.88s
+step 96800, loss 2.73, lr 0.000348, consume 248.78s
+processing 112: c400783, wiki0325, wiki0654, books0895, books0499, arxiv0406, stackexchange0698, origin: 447036, samples: 330710, accum_tokens: 38414M, iter_num: 96825
+step 96900, loss 2.77, lr 0.000348, consume 255.50s
+step 97000, loss 2.76, lr 0.000347, consume 249.30s
+step 97100, loss 2.77, lr 0.000347, consume 249.29s
+step 97200, loss 2.75, lr 0.000346, consume 249.33s
+step 97300, loss 2.75, lr 0.000346, consume 249.30s
+step 97400, loss 2.75, lr 0.000345, consume 249.33s
+step 97500, loss 2.75, lr 0.000345, consume 249.49s
+step 97600, loss 2.75, lr 0.000345, consume 248.82s
+processing 113: c400597, wiki0679, wiki0146, books0402, books0005, arxiv0149, stackexchange0685, origin: 447262, samples: 333345, accum_tokens: 38756M, iter_num: 97686
+step 97700, loss 2.75, lr 0.000344, consume 255.40s
+step 97800, loss 2.77, lr 0.000344, consume 249.28s
+step 97900, loss 2.76, lr 0.000343, consume 249.29s
+step 98000, loss 2.76, lr 0.000343, consume 249.38s
+step 98100, loss 2.76, lr 0.000342, consume 249.33s
+step 98200, loss 2.75, lr 0.000342, consume 249.37s
+step 98300, loss 2.75, lr 0.000342, consume 249.37s
+step 98400, loss 2.75, lr 0.000341, consume 249.23s
+step 98500, loss 2.75, lr 0.000341, consume 248.84s
+processing 114: c400474, wiki0342, wiki0047, books0343, books0335, arxiv0151, stackexchange0012, origin: 447060, samples: 331281, accum_tokens: 39095M, iter_num: 98554
+step 98600, loss 2.75, lr 0.000340, consume 255.71s
+step 98700, loss 2.76, lr 0.000340, consume 249.31s
+step 98800, loss 2.76, lr 0.000339, consume 249.41s
+step 98900, loss 2.76, lr 0.000339, consume 249.41s
+step 99000, loss 2.76, lr 0.000339, consume 249.43s
+step 99100, loss 2.74, lr 0.000338, consume 249.49s
+step 99200, loss 2.75, lr 0.000338, consume 249.66s
+step 99300, loss 2.74, lr 0.000337, consume 248.71s
+step 99400, loss 2.75, lr 0.000337, consume 248.53s
+processing 115: c400478, wiki0581, wiki0451, books0359, books0369, arxiv0060, stackexchange0852, origin: 446992, samples: 328076, accum_tokens: 39431M, iter_num: 99417
+step 99500, loss 2.77, lr 0.000336, consume 259.61s
+step 99600, loss 2.75, lr 0.000336, consume 250.99s
+step 99700, loss 2.76, lr 0.000336, consume 249.34s
+step 99800, loss 2.76, lr 0.000335, consume 249.30s
+step 99900, loss 2.75, lr 0.000335, consume 249.31s
+step 100000, loss 2.76, lr 0.000334, consume 250.26s
+step 100100, loss 2.75, lr 0.000334, consume 249.51s
+step 100200, loss 2.74, lr 0.000333, consume 249.12s
+processing 116: c400624, wiki0661, wiki0831, books0639, books0854, arxiv0414, stackexchange0997, origin: 447128, samples: 331318, accum_tokens: 39770M, iter_num: 100271
+step 100300, loss 2.75, lr 0.000333, consume 255.29s
+step 100400, loss 2.77, lr 0.000333, consume 249.76s
+step 100500, loss 2.76, lr 0.000332, consume 250.50s
+step 100600, loss 2.75, lr 0.000332, consume 250.42s
+step 100700, loss 2.75, lr 0.000331, consume 250.43s
+step 100800, loss 2.74, lr 0.000331, consume 250.51s
+step 100900, loss 2.74, lr 0.000330, consume 250.66s
+step 101000, loss 2.74, lr 0.000330, consume 250.52s
+step 101100, loss 2.74, lr 0.000330, consume 250.11s
+processing 117: c400125, wiki0811, wiki0410, books0347, books0970, arxiv0459, stackexchange0184, origin: 447102, samples: 328504, accum_tokens: 40107M, iter_num: 101134
+step 101200, loss 2.76, lr 0.000329, consume 256.57s
+step 101300, loss 2.76, lr 0.000329, consume 250.44s
+step 101400, loss 2.76, lr 0.000328, consume 250.34s
+step 101500, loss 2.76, lr 0.000328, consume 250.17s
+step 101600, loss 2.75, lr 0.000327, consume 250.19s
+step 101700, loss 2.74, lr 0.000327, consume 250.30s
+step 101800, loss 2.75, lr 0.000327, consume 250.94s
+step 101900, loss 2.75, lr 0.000326, consume 250.08s
+processing 118: c400613, wiki0648, wiki0054, books0830, books0671, arxiv0578, stackexchange0443, origin: 447035, samples: 330741, accum_tokens: 40445M, iter_num: 101989
+step 102000, loss 2.74, lr 0.000326, consume 256.68s
+step 102100, loss 2.76, lr 0.000325, consume 250.38s
+step 102200, loss 2.75, lr 0.000325, consume 251.02s
+step 102300, loss 2.75, lr 0.000324, consume 250.45s
+step 102400, loss 2.73, lr 0.000324, consume 250.66s
+step 102500, loss 2.73, lr 0.000324, consume 250.57s
+step 102600, loss 2.75, lr 0.000323, consume 250.66s
+step 102700, loss 2.74, lr 0.000323, consume 250.60s
+step 102800, loss 2.74, lr 0.000322, consume 249.06s
+processing 119: c400889, wiki0689, wiki0822, books0049, books0028, arxiv0627, stackexchange1009, origin: 447156, samples: 332349, accum_tokens: 40786M, iter_num: 102851
+step 102900, loss 2.76, lr 0.000322, consume 255.26s
+step 103000, loss 2.76, lr 0.000321, consume 249.32s
+step 103100, loss 2.75, lr 0.000321, consume 249.34s
+step 103200, loss 2.75, lr 0.000321, consume 249.47s
+step 103300, loss 2.75, lr 0.000320, consume 249.40s
+step 103400, loss 2.74, lr 0.000320, consume 249.36s
+step 103500, loss 2.74, lr 0.000319, consume 249.66s
+step 103600, loss 2.75, lr 0.000319, consume 248.89s
+step 103700, loss 2.73, lr 0.000318, consume 248.94s
+processing 120: c400357, wiki0866, wiki0198, books0149, books0273, arxiv0640, stackexchange0460, origin: 447088, samples: 330093, accum_tokens: 41124M, iter_num: 103716
+step 103800, loss 2.76, lr 0.000318, consume 255.62s
+step 103900, loss 2.76, lr 0.000318, consume 249.35s
+step 104000, loss 2.75, lr 0.000317, consume 249.38s
+step 104100, loss 2.74, lr 0.000317, consume 249.33s
+step 104200, loss 2.75, lr 0.000316, consume 249.34s
+step 104300, loss 2.74, lr 0.000316, consume 249.35s
+step 104400, loss 2.74, lr 0.000315, consume 249.45s
+step 104500, loss 2.74, lr 0.000315, consume 248.80s
+processing 121: c401007, wiki0714, wiki0320, books0507, books0945, arxiv0306, stackexchange0302, origin: 447179, samples: 333336, accum_tokens: 41465M, iter_num: 104575
+step 104600, loss 2.74, lr 0.000315, consume 255.23s
+step 104700, loss 2.76, lr 0.000314, consume 249.22s
+step 104800, loss 2.76, lr 0.000314, consume 249.34s
+step 104900, loss 2.75, lr 0.000313, consume 249.29s
+step 105000, loss 2.74, lr 0.000313, consume 249.37s
+step 105100, loss 2.74, lr 0.000312, consume 249.29s
+step 105200, loss 2.74, lr 0.000312, consume 249.32s
+step 105300, loss 2.75, lr 0.000312, consume 249.32s
+step 105400, loss 2.72, lr 0.000311, consume 248.78s
+processing 122: c400824, wiki0457, wiki0287, books0556, books0380, arxiv0413, stackexchange0176, origin: 447197, samples: 332822, accum_tokens: 41806M, iter_num: 105443
+step 105500, loss 2.74, lr 0.000311, consume 255.64s
+step 105600, loss 2.75, lr 0.000310, consume 249.29s
+step 105700, loss 2.74, lr 0.000310, consume 249.37s
+step 105800, loss 2.74, lr 0.000309, consume 249.26s
+step 105900, loss 2.74, lr 0.000309, consume 249.33s
+step 106000, loss 2.74, lr 0.000309, consume 249.29s
+step 106100, loss 2.74, lr 0.000308, consume 249.57s
+step 106200, loss 2.72, lr 0.000308, consume 248.84s
+step 106300, loss 2.74, lr 0.000307, consume 248.81s
+processing 123: c400360, wiki0577, wiki0194, books0202, books0416, arxiv0201, stackexchange0822, origin: 447092, samples: 330401, accum_tokens: 42144M, iter_num: 106310
+step 106400, loss 2.77, lr 0.000307, consume 255.70s
+step 106500, loss 2.76, lr 0.000306, consume 249.37s
+step 106600, loss 2.76, lr 0.000306, consume 249.35s
+step 106700, loss 2.76, lr 0.000306, consume 249.38s
+step 106800, loss 2.75, lr 0.000305, consume 249.37s
+step 106900, loss 2.75, lr 0.000305, consume 249.35s
+step 107000, loss 2.74, lr 0.000304, consume 249.35s
+step 107100, loss 2.75, lr 0.000304, consume 248.86s
+processing 124: c400295, wiki0394, wiki0459, books0798, books0155, arxiv0648, stackexchange1001, origin: 446954, samples: 327520, accum_tokens: 42480M, iter_num: 107170
+step 107200, loss 2.76, lr 0.000303, consume 255.51s
+step 107300, loss 2.75, lr 0.000303, consume 249.30s
+step 107400, loss 2.75, lr 0.000303, consume 249.38s
+step 107500, loss 2.74, lr 0.000302, consume 249.32s
+step 107600, loss 2.75, lr 0.000302, consume 249.27s
+step 107700, loss 2.73, lr 0.000301, consume 249.14s
+step 107800, loss 2.73, lr 0.000301, consume 249.12s
+step 107900, loss 2.74, lr 0.000301, consume 249.12s
+step 108000, loss 2.74, lr 0.000300, consume 248.62s
+processing 125: c400878, wiki0354, wiki0840, books0449, books0825, arxiv0495, stackexchange1017, origin: 447236, samples: 336043, accum_tokens: 42824M, iter_num: 108023
+step 108100, loss 2.74, lr 0.000300, consume 255.04s
+step 108200, loss 2.74, lr 0.000299, consume 248.96s
+step 108300, loss 2.73, lr 0.000299, consume 248.89s
+step 108400, loss 2.74, lr 0.000298, consume 248.87s
+step 108500, loss 2.74, lr 0.000298, consume 248.92s
+step 108600, loss 2.71, lr 0.000298, consume 248.86s
+step 108700, loss 2.73, lr 0.000297, consume 248.87s
+step 108800, loss 2.74, lr 0.000297, consume 248.38s
+processing 126: c400573, wiki0909, wiki1006, books1013, books0721, arxiv0378, stackexchange0512, origin: 446983, samples: 329397, accum_tokens: 43161M, iter_num: 108898
+step 108900, loss 2.74, lr 0.000296, consume 254.87s
+step 109000, loss 2.76, lr 0.000296, consume 248.42s
+step 109100, loss 2.75, lr 0.000295, consume 248.82s
+step 109200, loss 2.74, lr 0.000295, consume 248.78s
+step 109300, loss 2.75, lr 0.000295, consume 248.69s
+step 109400, loss 2.74, lr 0.000294, consume 248.98s
+step 109500, loss 2.73, lr 0.000294, consume 249.15s
+step 109600, loss 2.74, lr 0.000293, consume 249.16s
+step 109700, loss 2.73, lr 0.000293, consume 248.65s
+processing 127: c400523, wiki0877, wiki0484, books0353, books0103, arxiv0211, stackexchange0039, origin: 447049, samples: 331375, accum_tokens: 43500M, iter_num: 109756
+step 109800, loss 2.75, lr 0.000292, consume 255.32s
+step 109900, loss 2.74, lr 0.000292, consume 249.04s
+step 110000, loss 2.75, lr 0.000292, consume 248.97s
+step 110100, loss 2.75, lr 0.000291, consume 248.83s
+step 110200, loss 2.74, lr 0.000291, consume 248.76s
+step 110300, loss 2.74, lr 0.000290, consume 248.78s
+step 110400, loss 2.74, lr 0.000290, consume 248.86s
+step 110500, loss 2.73, lr 0.000289, consume 248.54s
+step 110600, loss 2.73, lr 0.000289, consume 248.22s
+processing 128: c400919, wiki0899, wiki0057, books0477, books0712, arxiv0436, stackexchange0759, origin: 447142, samples: 332035, accum_tokens: 43840M, iter_num: 110619
+step 110700, loss 2.75, lr 0.000289, consume 254.92s
+step 110800, loss 2.74, lr 0.000288, consume 248.79s
+step 110900, loss 2.74, lr 0.000288, consume 248.78s
+step 111000, loss 2.73, lr 0.000287, consume 248.81s
+step 111100, loss 2.73, lr 0.000287, consume 249.13s
+step 111200, loss 2.72, lr 0.000286, consume 248.80s
+step 111300, loss 2.73, lr 0.000286, consume 248.89s
+step 111400, loss 2.73, lr 0.000286, consume 248.48s
+processing 129: c400280, wiki0990, wiki0171, books0754, books0632, arxiv0506, stackexchange0884, origin: 447048, samples: 328683, accum_tokens: 44177M, iter_num: 111484
+step 111500, loss 2.74, lr 0.000285, consume 255.18s
+step 111600, loss 2.75, lr 0.000285, consume 249.04s
+step 111700, loss 2.74, lr 0.000284, consume 249.14s
+step 111800, loss 2.74, lr 0.000284, consume 249.21s
+step 111900, loss 2.74, lr 0.000284, consume 251.94s
+step 112000, loss 2.72, lr 0.000283, consume 249.05s
+step 112100, loss 2.73, lr 0.000283, consume 249.14s
+step 112200, loss 2.73, lr 0.000282, consume 249.06s
+step 112300, loss 2.74, lr 0.000282, consume 248.61s
+processing 130: c400610, wiki0364, wiki0464, books0301, books0553, arxiv0177, stackexchange0985, origin: 447098, samples: 330871, accum_tokens: 44516M, iter_num: 112339
+step 112400, loss 2.74, lr 0.000281, consume 255.54s
+step 112500, loss 2.74, lr 0.000281, consume 249.15s
+step 112600, loss 2.74, lr 0.000281, consume 249.10s
+step 112700, loss 2.74, lr 0.000280, consume 249.14s
+step 112800, loss 2.74, lr 0.000280, consume 254.64s
+step 112900, loss 2.73, lr 0.000279, consume 253.54s
+step 113000, loss 2.72, lr 0.000279, consume 249.18s
+step 113100, loss 2.72, lr 0.000278, consume 248.91s
+step 113200, loss 2.73, lr 0.000278, consume 248.53s
+processing 131: c400417, wiki0291, wiki0305, books0776, books0095, arxiv0266, stackexchange0628, origin: 447300, samples: 335713, accum_tokens: 44859M, iter_num: 113201
+step 113300, loss 2.74, lr 0.000278, consume 255.07s
+step 113400, loss 2.75, lr 0.000277, consume 249.21s
+step 113500, loss 2.73, lr 0.000277, consume 250.89s
+step 113600, loss 2.74, lr 0.000276, consume 250.16s
+step 113700, loss 2.73, lr 0.000276, consume 250.13s
+step 113800, loss 2.74, lr 0.000276, consume 249.94s
+step 113900, loss 2.73, lr 0.000275, consume 249.84s
+step 114000, loss 2.73, lr 0.000275, consume 249.64s
+processing 132: c400037, wiki0611, wiki0398, books0345, books0209, arxiv0907, stackexchange0297, origin: 447122, samples: 330338, accum_tokens: 45198M, iter_num: 114075
+step 114100, loss 2.73, lr 0.000274, consume 255.80s
+step 114200, loss 2.74, lr 0.000274, consume 249.59s
+step 114300, loss 2.73, lr 0.000273, consume 250.16s
+step 114400, loss 2.74, lr 0.000273, consume 250.00s
+step 114500, loss 2.73, lr 0.000273, consume 249.82s
+step 114600, loss 2.73, lr 0.000272, consume 250.64s
+step 114700, loss 2.73, lr 0.000272, consume 251.11s
+step 114800, loss 2.73, lr 0.000271, consume 250.20s
+step 114900, loss 2.72, lr 0.000271, consume 250.52s
+processing 133: c400186, wiki0610, wiki0478, books0597, books0378, arxiv0631, stackexchange0840, origin: 447109, samples: 332191, accum_tokens: 45538M, iter_num: 114936
+step 115000, loss 2.73, lr 0.000271, consume 256.96s
+step 115100, loss 2.74, lr 0.000270, consume 250.65s
+step 115200, loss 2.72, lr 0.000270, consume 249.43s
+step 115300, loss 2.73, lr 0.000269, consume 248.69s
+step 115400, loss 2.72, lr 0.000269, consume 248.75s
+step 115500, loss 2.72, lr 0.000268, consume 248.71s
+step 115600, loss 2.72, lr 0.000268, consume 248.88s
+step 115700, loss 2.71, lr 0.000268, consume 248.26s
+step 115800, loss 2.72, lr 0.000267, consume 248.20s
+processing 134: c400306, wiki0448, wiki0686, books0732, books0161, arxiv0738, stackexchange0417, origin: 447214, samples: 335256, accum_tokens: 45881M, iter_num: 115801
+step 115900, loss 2.74, lr 0.000267, consume 255.00s
+step 116000, loss 2.73, lr 0.000266, consume 249.00s
+step 116100, loss 2.73, lr 0.000266, consume 249.04s
+step 116200, loss 2.72, lr 0.000266, consume 249.05s
+step 116300, loss 2.72, lr 0.000265, consume 249.03s
+step 116400, loss 2.71, lr 0.000265, consume 249.06s
+step 116500, loss 2.72, lr 0.000264, consume 249.16s
+step 116600, loss 2.72, lr 0.000264, consume 254.66s
+processing 135: c400731, wiki0817, wiki0719, books0927, books0158, arxiv0174, stackexchange0802, origin: 447125, samples: 333042, accum_tokens: 46222M, iter_num: 116674
+step 116700, loss 2.71, lr 0.000263, consume 257.49s
+step 116800, loss 2.74, lr 0.000263, consume 251.73s
+step 116900, loss 2.74, lr 0.000263, consume 251.08s
+step 117000, loss 2.73, lr 0.000262, consume 254.30s
+step 117100, loss 2.73, lr 0.000262, consume 251.43s
+step 117200, loss 2.72, lr 0.000261, consume 252.25s
+step 117300, loss 2.71, lr 0.000261, consume 252.25s
+step 117400, loss 2.71, lr 0.000261, consume 250.82s
+step 117500, loss 2.72, lr 0.000260, consume 255.22s
+processing 136: c400730, wiki0155, wiki0279, books0992, books0794, arxiv0899, stackexchange0339, origin: 447024, samples: 328422, accum_tokens: 46559M, iter_num: 117541
+step 117600, loss 2.74, lr 0.000260, consume 256.17s
+step 117700, loss 2.74, lr 0.000259, consume 250.39s
+step 117800, loss 2.73, lr 0.000259, consume 249.57s
+step 117900, loss 2.74, lr 0.000258, consume 249.19s
+step 118000, loss 2.73, lr 0.000258, consume 249.18s
+step 118100, loss 2.71, lr 0.000258, consume 249.17s
+step 118200, loss 2.73, lr 0.000257, consume 249.31s
+step 118300, loss 2.73, lr 0.000257, consume 249.17s
+processing 137: c400896, wiki0460, wiki0583, books0506, books0100, arxiv0478, stackexchange0656, origin: 447327, samples: 338017, accum_tokens: 46905M, iter_num: 118396
+step 118400, loss 2.73, lr 0.000256, consume 254.93s
+step 118500, loss 2.73, lr 0.000256, consume 249.13s
+step 118600, loss 2.73, lr 0.000256, consume 249.30s
+step 118700, loss 2.72, lr 0.000255, consume 249.29s
+step 118800, loss 2.74, lr 0.000255, consume 249.23s
+step 118900, loss 2.72, lr 0.000254, consume 249.23s
+step 119000, loss 2.73, lr 0.000254, consume 249.29s
+step 119100, loss 2.72, lr 0.000254, consume 249.15s
+step 119200, loss 2.72, lr 0.000253, consume 248.51s
+processing 138: c400992, wiki0340, wiki0449, books0868, books0840, arxiv0248, stackexchange0616, origin: 447125, samples: 331022, accum_tokens: 47244M, iter_num: 119276
+step 119300, loss 2.72, lr 0.000253, consume 255.12s
+step 119400, loss 2.74, lr 0.000252, consume 249.10s
+step 119500, loss 2.73, lr 0.000252, consume 249.17s
+step 119600, loss 2.72, lr 0.000251, consume 249.15s
+step 119700, loss 2.71, lr 0.000251, consume 249.43s
+step 119800, loss 2.72, lr 0.000251, consume 249.11s
+step 119900, loss 2.72, lr 0.000250, consume 249.17s
+step 120000, loss 2.72, lr 0.000250, consume 249.12s
+step 120100, loss 2.71, lr 0.000249, consume 248.69s
+processing 139: c400617, wiki0721, wiki1001, books0138, books0118, arxiv0456, stackexchange0071, origin: 447166, samples: 332462, accum_tokens: 47584M, iter_num: 120138
+step 120200, loss 2.73, lr 0.000249, consume 255.45s
+step 120300, loss 2.75, lr 0.000249, consume 249.09s
+step 120400, loss 2.74, lr 0.000248, consume 249.15s
+step 120500, loss 2.74, lr 0.000248, consume 249.11s
+step 120600, loss 2.74, lr 0.000247, consume 249.14s
+step 120700, loss 2.73, lr 0.000247, consume 249.12s
+step 120800, loss 2.73, lr 0.000247, consume 249.37s
+step 120900, loss 2.73, lr 0.000246, consume 248.67s
+step 121000, loss 2.73, lr 0.000246, consume 248.65s
+processing 140: c400893, wiki0740, wiki0383, books0681, books0268, arxiv0121, stackexchange0232, origin: 447051, samples: 329679, accum_tokens: 47922M, iter_num: 121004
+step 121100, loss 2.76, lr 0.000245, consume 255.47s
+step 121200, loss 2.74, lr 0.000245, consume 249.10s
+step 121300, loss 2.74, lr 0.000245, consume 249.08s
+step 121400, loss 2.74, lr 0.000244, consume 249.08s
+step 121500, loss 2.74, lr 0.000244, consume 249.09s
+step 121600, loss 2.72, lr 0.000243, consume 249.07s
+step 121700, loss 2.74, lr 0.000243, consume 249.14s
+step 121800, loss 2.72, lr 0.000243, consume 248.63s
+processing 141: c400606, wiki0202, wiki0913, books0260, books0822, arxiv0912, stackexchange0221, origin: 447033, samples: 329553, accum_tokens: 48259M, iter_num: 121863
+step 121900, loss 2.71, lr 0.000242, consume 255.16s
+step 122000, loss 2.74, lr 0.000242, consume 249.13s
+step 122100, loss 2.73, lr 0.000241, consume 249.16s
+step 122200, loss 2.72, lr 0.000241, consume 249.09s
+step 122300, loss 2.72, lr 0.000240, consume 249.11s
+step 122400, loss 2.73, lr 0.000240, consume 249.07s
+step 122500, loss 2.71, lr 0.000240, consume 249.09s
+step 122600, loss 2.72, lr 0.000239, consume 249.09s
+step 122700, loss 2.73, lr 0.000239, consume 248.62s
+processing 142: c400007, wiki0097, wiki0925, books0536, books0197, arxiv0332, stackexchange0757, origin: 447225, samples: 337105, accum_tokens: 48604M, iter_num: 122721
+step 122800, loss 2.72, lr 0.000238, consume 255.41s
+step 122900, loss 2.71, lr 0.000238, consume 249.08s
+step 123000, loss 2.72, lr 0.000238, consume 249.05s
+step 123100, loss 2.70, lr 0.000237, consume 249.08s
+step 123200, loss 2.69, lr 0.000237, consume 249.05s
+step 123300, loss 2.70, lr 0.000236, consume 249.14s
+step 123400, loss 2.68, lr 0.000236, consume 249.35s
+step 123500, loss 2.70, lr 0.000236, consume 248.64s
+processing 143: c400852, wiki0760, wiki0234, books0613, books1006, arxiv0282, stackexchange0500, origin: 447200, samples: 332409, accum_tokens: 48945M, iter_num: 123599
+step 123600, loss 2.69, lr 0.000235, consume 255.20s
+step 123700, loss 2.73, lr 0.000235, consume 248.93s
+step 123800, loss 2.73, lr 0.000234, consume 249.08s
+step 123900, loss 2.72, lr 0.000234, consume 249.08s
+step 124000, loss 2.72, lr 0.000234, consume 249.08s
+step 124100, loss 2.72, lr 0.000233, consume 249.12s
+step 124200, loss 2.72, lr 0.000233, consume 249.11s
+step 124300, loss 2.71, lr 0.000232, consume 249.06s
+step 124400, loss 2.72, lr 0.000232, consume 248.63s
+processing 144: c400147, wiki0007, wiki0926, books0336, books0969, arxiv0094, stackexchange0928, origin: 447020, samples: 330303, accum_tokens: 49283M, iter_num: 124464
+step 124500, loss 2.72, lr 0.000232, consume 255.23s
+step 124600, loss 2.73, lr 0.000231, consume 249.01s
+step 124700, loss 2.72, lr 0.000231, consume 249.10s
+step 124800, loss 2.73, lr 0.000230, consume 249.12s
+step 124900, loss 2.72, lr 0.000230, consume 249.19s
+step 125000, loss 2.71, lr 0.000230, consume 249.16s
+step 125100, loss 2.72, lr 0.000229, consume 249.21s
+step 125200, loss 2.71, lr 0.000229, consume 248.81s
+step 125300, loss 2.72, lr 0.000228, consume 248.63s
+processing 145: c400056, wiki0014, wiki0791, books1011, books0388, arxiv0309, stackexchange0495, origin: 447057, samples: 328494, accum_tokens: 49619M, iter_num: 125324
+step 125400, loss 2.73, lr 0.000228, consume 255.48s
+step 125500, loss 2.73, lr 0.000228, consume 249.11s
+step 125600, loss 2.73, lr 0.000227, consume 249.13s
+step 125700, loss 2.73, lr 0.000227, consume 249.12s
+step 125800, loss 2.71, lr 0.000226, consume 249.21s
+step 125900, loss 2.71, lr 0.000226, consume 250.41s
+step 126000, loss 2.72, lr 0.000226, consume 249.79s
+step 126100, loss 2.71, lr 0.000225, consume 249.15s
+processing 146: c401006, wiki0039, wiki0071, books0187, books0849, arxiv0247, stackexchange0384, origin: 447037, samples: 328002, accum_tokens: 49955M, iter_num: 126180
+step 126200, loss 2.72, lr 0.000225, consume 255.81s
+step 126300, loss 2.75, lr 0.000225, consume 249.52s
+step 126400, loss 2.75, lr 0.000224, consume 249.60s
+step 126500, loss 2.74, lr 0.000224, consume 249.61s
+step 126600, loss 2.73, lr 0.000223, consume 249.63s
+step 126700, loss 2.73, lr 0.000223, consume 249.67s
+step 126800, loss 2.73, lr 0.000223, consume 249.61s
+step 126900, loss 2.72, lr 0.000222, consume 249.51s
+step 127000, loss 2.73, lr 0.000222, consume 249.17s
+processing 147: c400781, wiki0385, wiki0222, books0491, books0139, arxiv0312, stackexchange0883, origin: 447146, samples: 330975, accum_tokens: 50294M, iter_num: 127034
+step 127100, loss 2.74, lr 0.000221, consume 254.88s
+step 127200, loss 2.72, lr 0.000221, consume 249.58s
+step 127300, loss 2.71, lr 0.000221, consume 249.66s
+step 127400, loss 2.71, lr 0.000220, consume 249.68s
+step 127500, loss 2.70, lr 0.000220, consume 249.66s
+step 127600, loss 2.71, lr 0.000219, consume 249.66s
+step 127700, loss 2.71, lr 0.000219, consume 249.78s
+step 127800, loss 2.70, lr 0.000219, consume 249.18s
+processing 148: c400371, wiki0487, wiki0412, books0957, books0931, arxiv0611, stackexchange0482, origin: 446996, samples: 328751, accum_tokens: 50631M, iter_num: 127896
+step 127900, loss 2.71, lr 0.000218, consume 255.40s
+step 128000, loss 2.74, lr 0.000218, consume 249.44s
+step 128100, loss 2.72, lr 0.000217, consume 249.62s
+step 128200, loss 2.72, lr 0.000217, consume 249.64s
+step 128300, loss 2.72, lr 0.000217, consume 249.65s
+step 128400, loss 2.71, lr 0.000216, consume 249.63s
+step 128500, loss 2.70, lr 0.000216, consume 249.64s
+step 128600, loss 2.71, lr 0.000216, consume 249.58s
+step 128700, loss 2.72, lr 0.000215, consume 249.18s
+processing 149: c400887, wiki0292, wiki0548, books0123, books0716, arxiv0943, stackexchange0459, origin: 446996, samples: 328865, accum_tokens: 50967M, iter_num: 128752
+step 128800, loss 2.73, lr 0.000215, consume 255.40s
+step 128900, loss 2.74, lr 0.000214, consume 249.65s
+step 129000, loss 2.73, lr 0.000214, consume 249.69s
+step 129100, loss 2.72, lr 0.000214, consume 249.70s
+step 129200, loss 2.71, lr 0.000213, consume 249.64s
+step 129300, loss 2.70, lr 0.000213, consume 249.66s
+step 129400, loss 2.71, lr 0.000212, consume 249.81s
+step 129500, loss 2.70, lr 0.000212, consume 249.13s
+step 129600, loss 2.71, lr 0.000212, consume 249.13s
+processing 150: c400966, wiki0100, wiki1015, books0415, books0410, arxiv0647, stackexchange0068, origin: 446943, samples: 328344, accum_tokens: 51304M, iter_num: 129608
+step 129700, loss 2.72, lr 0.000211, consume 255.74s
+step 129800, loss 2.72, lr 0.000211, consume 249.59s
+step 129900, loss 2.71, lr 0.000210, consume 249.70s
+step 130000, loss 2.72, lr 0.000210, consume 249.75s
+step 130100, loss 2.71, lr 0.000210, consume 249.67s
+step 130200, loss 2.71, lr 0.000209, consume 249.70s
+step 130300, loss 2.71, lr 0.000209, consume 249.66s
+step 130400, loss 2.69, lr 0.000209, consume 249.21s
+processing 151: c400143, wiki0117, wiki0909, books0657, books0138, arxiv0862, stackexchange0261, origin: 447101, samples: 331222, accum_tokens: 51643M, iter_num: 130463
+step 130500, loss 2.72, lr 0.000208, consume 255.63s
+step 130600, loss 2.72, lr 0.000208, consume 249.59s
+step 130700, loss 2.72, lr 0.000207, consume 249.60s
+step 130800, loss 2.72, lr 0.000207, consume 249.66s
+step 130900, loss 2.71, lr 0.000207, consume 249.65s
+step 131000, loss 2.71, lr 0.000206, consume 249.61s
+step 131100, loss 2.71, lr 0.000206, consume 249.68s
+step 131200, loss 2.70, lr 0.000206, consume 249.56s
+step 131300, loss 2.70, lr 0.000205, consume 249.16s
+processing 152: c400100, wiki0308, wiki0730, books0190, books0239, arxiv0658, stackexchange0807, origin: 447230, samples: 335136, accum_tokens: 51986M, iter_num: 131326
+step 131400, loss 2.72, lr 0.000205, consume 255.86s
+step 131500, loss 2.73, lr 0.000204, consume 249.65s
+step 131600, loss 2.71, lr 0.000204, consume 249.64s
+step 131700, loss 2.70, lr 0.000204, consume 249.98s
+step 131800, loss 2.72, lr 0.000203, consume 249.62s
+step 131900, loss 2.70, lr 0.000203, consume 249.63s
+step 132000, loss 2.70, lr 0.000202, consume 251.29s
+step 132100, loss 2.69, lr 0.000202, consume 252.36s
+processing 153: c400059, wiki0433, wiki0081, books0733, books0829, arxiv0775, stackexchange0719, origin: 447125, samples: 330477, accum_tokens: 52324M, iter_num: 132198
+step 132200, loss 2.69, lr 0.000202, consume 261.08s
+step 132300, loss 2.74, lr 0.000201, consume 255.01s
+step 132400, loss 2.72, lr 0.000201, consume 256.57s
+step 132500, loss 2.73, lr 0.000201, consume 250.39s
+step 132600, loss 2.72, lr 0.000200, consume 249.20s
+step 132700, loss 2.71, lr 0.000200, consume 249.15s
+step 132800, loss 2.71, lr 0.000199, consume 249.15s
+step 132900, loss 2.71, lr 0.000199, consume 249.12s
+step 133000, loss 2.71, lr 0.000199, consume 248.62s
+processing 154: c400918, wiki0390, wiki0176, books0129, books1008, arxiv0445, stackexchange0022, origin: 447075, samples: 329724, accum_tokens: 52662M, iter_num: 133059
+step 133100, loss 2.71, lr 0.000198, consume 253.72s
+step 133200, loss 2.72, lr 0.000198, consume 249.02s
+step 133300, loss 2.70, lr 0.000198, consume 249.10s
+step 133400, loss 2.71, lr 0.000197, consume 249.01s
+step 133500, loss 2.70, lr 0.000197, consume 249.00s
+step 133600, loss 2.69, lr 0.000196, consume 249.05s
+step 133700, loss 2.69, lr 0.000196, consume 249.25s
+step 133800, loss 2.69, lr 0.000196, consume 249.69s
+step 133900, loss 2.71, lr 0.000195, consume 250.38s
+processing 155: c400799, wiki0217, wiki0972, books0938, books0022, arxiv0258, stackexchange0551, origin: 447014, samples: 329704, accum_tokens: 53000M, iter_num: 133917
+step 134000, loss 2.72, lr 0.000195, consume 255.53s
+step 134100, loss 2.72, lr 0.000195, consume 249.98s
+step 134200, loss 2.72, lr 0.000194, consume 250.01s
+step 134300, loss 2.71, lr 0.000194, consume 250.01s
+step 134400, loss 2.71, lr 0.000194, consume 250.06s
+step 134500, loss 2.71, lr 0.000193, consume 250.30s
+step 134600, loss 2.71, lr 0.000193, consume 250.49s
+step 134700, loss 2.70, lr 0.000192, consume 249.89s
+processing 156: c400611, wiki0739, wiki0140, books0349, books0933, arxiv0767, stackexchange0166, origin: 447222, samples: 336058, accum_tokens: 53344M, iter_num: 134776
+step 134800, loss 2.71, lr 0.000192, consume 254.99s
+step 134900, loss 2.73, lr 0.000192, consume 250.16s
+step 135000, loss 2.72, lr 0.000191, consume 250.31s
+step 135100, loss 2.71, lr 0.000191, consume 250.24s
+step 135200, loss 2.71, lr 0.000191, consume 250.29s
+step 135300, loss 2.71, lr 0.000190, consume 250.28s
+step 135400, loss 2.71, lr 0.000190, consume 250.27s
+step 135500, loss 2.71, lr 0.000189, consume 250.25s
+step 135600, loss 2.70, lr 0.000189, consume 249.77s
+processing 157: c400895, wiki0139, wiki0450, books1021, books0181, arxiv0214, stackexchange0860, origin: 447194, samples: 332769, accum_tokens: 53685M, iter_num: 135651
+step 135700, loss 2.72, lr 0.000189, consume 256.53s
+step 135800, loss 2.72, lr 0.000188, consume 250.15s
+step 135900, loss 2.71, lr 0.000188, consume 250.30s
+step 136000, loss 2.72, lr 0.000188, consume 250.32s
+step 136100, loss 2.71, lr 0.000187, consume 250.95s
+step 136200, loss 2.70, lr 0.000187, consume 250.67s
+step 136300, loss 2.70, lr 0.000187, consume 250.38s
+step 136400, loss 2.69, lr 0.000186, consume 250.55s
+step 136500, loss 2.69, lr 0.000186, consume 250.03s
+processing 158: c400715, wiki0163, wiki0531, books0837, books0611, arxiv0390, stackexchange0361, origin: 447220, samples: 338084, accum_tokens: 54031M, iter_num: 136518
+step 136600, loss 2.71, lr 0.000185, consume 256.08s
+step 136700, loss 2.70, lr 0.000185, consume 250.37s
+step 136800, loss 2.70, lr 0.000185, consume 251.00s
+step 136900, loss 2.70, lr 0.000184, consume 250.89s
+step 137000, loss 2.69, lr 0.000184, consume 251.32s
+step 137100, loss 2.68, lr 0.000184, consume 251.06s
+step 137200, loss 2.68, lr 0.000183, consume 250.39s
+step 137300, loss 2.69, lr 0.000183, consume 250.33s
+processing 159: c400293, wiki0158, wiki0315, books0737, books0736, arxiv0246, stackexchange0206, origin: 447097, samples: 330317, accum_tokens: 54369M, iter_num: 137398
+step 137400, loss 2.68, lr 0.000183, consume 254.91s
+step 137500, loss 2.72, lr 0.000182, consume 248.57s
+step 137600, loss 2.71, lr 0.000182, consume 248.90s
+step 137700, loss 2.71, lr 0.000182, consume 248.88s
+step 137800, loss 2.71, lr 0.000181, consume 248.97s
+step 137900, loss 2.71, lr 0.000181, consume 249.13s
+step 138000, loss 2.71, lr 0.000180, consume 249.17s
+step 138100, loss 2.70, lr 0.000180, consume 249.33s
+step 138200, loss 2.70, lr 0.000180, consume 248.62s
+processing 160: c400999, wiki0299, wiki0007, books0810, books1012, arxiv0324, stackexchange0597, origin: 447354, samples: 339123, accum_tokens: 54716M, iter_num: 138258
+step 138300, loss 2.71, lr 0.000179, consume 255.38s
+step 138400, loss 2.71, lr 0.000179, consume 249.17s
+step 138500, loss 2.70, lr 0.000179, consume 249.21s
+step 138600, loss 2.71, lr 0.000178, consume 249.17s
+step 138700, loss 2.70, lr 0.000178, consume 249.15s
+step 138800, loss 2.71, lr 0.000178, consume 249.15s
+step 138900, loss 2.69, lr 0.000177, consume 249.25s
+step 139000, loss 2.68, lr 0.000177, consume 248.86s
+step 139100, loss 2.70, lr 0.000177, consume 248.66s
+processing 161: c400266, wiki0690, wiki0355, books0602, books0925, arxiv0661, stackexchange0353, origin: 447146, samples: 331036, accum_tokens: 55055M, iter_num: 139141
+step 139200, loss 2.71, lr 0.000176, consume 255.37s
+step 139300, loss 2.71, lr 0.000176, consume 249.20s
+step 139400, loss 2.71, lr 0.000175, consume 249.16s
+step 139500, loss 2.71, lr 0.000175, consume 249.24s
+step 139600, loss 2.70, lr 0.000175, consume 249.26s
+step 139700, loss 2.70, lr 0.000174, consume 249.21s
+step 139800, loss 2.71, lr 0.000174, consume 249.35s
+step 139900, loss 2.70, lr 0.000174, consume 248.71s
+step 140000, loss 2.70, lr 0.000173, consume 250.58s
+processing 162: c400323, wiki0687, wiki0354, books0673, books0577, arxiv0784, stackexchange0092, origin: 447093, samples: 330014, accum_tokens: 55393M, iter_num: 140003
+step 140100, loss 2.73, lr 0.000173, consume 255.75s
+step 140200, loss 2.71, lr 0.000173, consume 249.21s
+step 140300, loss 2.72, lr 0.000172, consume 249.24s
+step 140400, loss 2.71, lr 0.000172, consume 249.17s
+step 140500, loss 2.71, lr 0.000172, consume 249.15s
+step 140600, loss 2.70, lr 0.000171, consume 249.23s
+step 140700, loss 2.70, lr 0.000171, consume 249.13s
+step 140800, loss 2.70, lr 0.000171, consume 248.61s
+processing 163: c400542, wiki0369, wiki0788, books0006, books0922, arxiv0702, stackexchange0635, origin: 447115, samples: 332694, accum_tokens: 55734M, iter_num: 140863
+step 140900, loss 2.70, lr 0.000170, consume 255.28s
+step 141000, loss 2.69, lr 0.000170, consume 249.13s
+step 141100, loss 2.70, lr 0.000170, consume 249.05s
+step 141200, loss 2.69, lr 0.000169, consume 249.16s
+step 141300, loss 2.69, lr 0.000169, consume 249.14s
+step 141400, loss 2.69, lr 0.000169, consume 249.12s
+step 141500, loss 2.69, lr 0.000168, consume 249.91s
+step 141600, loss 2.69, lr 0.000168, consume 266.50s
+step 141700, loss 2.70, lr 0.000168, consume 264.79s
+processing 164: c400726, wiki0488, wiki0932, books0227, books1009, arxiv0837, stackexchange0100, origin: 447219, samples: 336218, accum_tokens: 56078M, iter_num: 141729
+step 141800, loss 2.72, lr 0.000167, consume 261.12s
+step 141900, loss 2.72, lr 0.000167, consume 249.13s
+step 142000, loss 2.70, lr 0.000166, consume 249.19s
+step 142100, loss 2.70, lr 0.000166, consume 249.17s
+step 142200, loss 2.70, lr 0.000166, consume 249.15s
+step 142300, loss 2.70, lr 0.000165, consume 249.12s
+step 142400, loss 2.70, lr 0.000165, consume 249.24s
+step 142500, loss 2.69, lr 0.000165, consume 248.61s
+step 142600, loss 2.69, lr 0.000164, consume 248.56s
+processing 165: c400019, wiki0857, wiki1020, books0970, books0147, arxiv0135, stackexchange0419, origin: 447055, samples: 330084, accum_tokens: 56416M, iter_num: 142604
+step 142700, loss 2.73, lr 0.000164, consume 254.74s
+step 142800, loss 2.71, lr 0.000164, consume 249.19s
+step 142900, loss 2.71, lr 0.000163, consume 249.13s
+step 143000, loss 2.71, lr 0.000163, consume 249.16s
+step 143100, loss 2.70, lr 0.000163, consume 249.09s
+step 143200, loss 2.70, lr 0.000162, consume 249.14s
+step 143300, loss 2.69, lr 0.000162, consume 249.15s
+step 143400, loss 2.70, lr 0.000162, consume 248.65s
+processing 166: c400950, wiki0975, wiki0533, books0956, books0661, arxiv0536, stackexchange0686, origin: 447132, samples: 332116, accum_tokens: 56756M, iter_num: 143464
+step 143500, loss 2.70, lr 0.000161, consume 254.93s
+step 143600, loss 2.72, lr 0.000161, consume 249.13s
+step 143700, loss 2.71, lr 0.000161, consume 249.11s
+step 143800, loss 2.71, lr 0.000160, consume 248.94s
+step 143900, loss 2.70, lr 0.000160, consume 248.84s
+step 144000, loss 2.71, lr 0.000160, consume 248.84s
+step 144100, loss 2.71, lr 0.000159, consume 248.98s
+step 144200, loss 2.69, lr 0.000159, consume 248.35s
+step 144300, loss 2.69, lr 0.000159, consume 248.37s
+processing 167: c400068, wiki0407, wiki0200, books0975, books0890, arxiv1021, stackexchange0408, origin: 446987, samples: 327241, accum_tokens: 57091M, iter_num: 144329
+step 144400, loss 2.70, lr 0.000158, consume 254.95s
+step 144500, loss 2.72, lr 0.000158, consume 248.92s
+step 144600, loss 2.70, lr 0.000158, consume 249.05s
+step 144700, loss 2.69, lr 0.000157, consume 249.12s
+step 144800, loss 2.70, lr 0.000157, consume 249.68s
+step 144900, loss 2.69, lr 0.000157, consume 248.97s
+step 145000, loss 2.69, lr 0.000156, consume 249.25s
+step 145100, loss 2.68, lr 0.000156, consume 248.52s
+processing 168: c400809, wiki0215, wiki0820, books0784, books0245, arxiv0654, stackexchange0014, origin: 447248, samples: 333564, accum_tokens: 57433M, iter_num: 145181
+step 145200, loss 2.69, lr 0.000156, consume 254.84s
+step 145300, loss 2.71, lr 0.000155, consume 248.89s
+step 145400, loss 2.69, lr 0.000155, consume 249.06s
+step 145500, loss 2.70, lr 0.000155, consume 249.08s
+step 145600, loss 2.70, lr 0.000154, consume 249.12s
+step 145700, loss 2.70, lr 0.000154, consume 249.15s
+step 145800, loss 2.68, lr 0.000154, consume 249.14s
+step 145900, loss 2.69, lr 0.000154, consume 249.13s
+step 146000, loss 2.69, lr 0.000153, consume 248.48s
+processing 169: c400651, wiki0283, wiki0193, books0738, books0462, arxiv0819, stackexchange0575, origin: 447157, samples: 333410, accum_tokens: 57774M, iter_num: 146050
+step 146100, loss 2.69, lr 0.000153, consume 254.71s
+step 146200, loss 2.70, lr 0.000153, consume 248.99s
+step 146300, loss 2.69, lr 0.000152, consume 249.13s
+step 146400, loss 2.69, lr 0.000152, consume 249.16s
+step 146500, loss 2.69, lr 0.000152, consume 249.18s
+step 146600, loss 2.68, lr 0.000151, consume 249.11s
+step 146700, loss 2.68, lr 0.000151, consume 249.37s
+step 146800, loss 2.68, lr 0.000151, consume 248.65s
+step 146900, loss 2.69, lr 0.000150, consume 248.66s
+processing 170: c400641, wiki0144, wiki0231, books0306, books0921, arxiv0197, stackexchange0507, origin: 446959, samples: 328593, accum_tokens: 58111M, iter_num: 146918
+step 147000, loss 2.70, lr 0.000150, consume 255.36s
+step 147100, loss 2.70, lr 0.000150, consume 249.26s
+step 147200, loss 2.69, lr 0.000149, consume 249.24s
+step 147300, loss 2.70, lr 0.000149, consume 249.15s
+step 147400, loss 2.69, lr 0.000149, consume 249.10s
+step 147500, loss 2.69, lr 0.000148, consume 249.10s
+step 147600, loss 2.68, lr 0.000148, consume 249.36s
+step 147700, loss 2.68, lr 0.000148, consume 248.62s
+processing 171: c400135, wiki0529, wiki0426, books0593, books0784, arxiv0781, stackexchange0694, origin: 447338, samples: 337344, accum_tokens: 58456M, iter_num: 147773
+step 147800, loss 2.69, lr 0.000147, consume 254.92s
+step 147900, loss 2.70, lr 0.000147, consume 250.01s
+step 148000, loss 2.70, lr 0.000147, consume 250.49s
+step 148100, loss 2.70, lr 0.000146, consume 250.37s
+step 148200, loss 2.70, lr 0.000146, consume 250.23s
+step 148300, loss 2.70, lr 0.000146, consume 250.36s
+step 148400, loss 2.70, lr 0.000146, consume 250.25s
+step 148500, loss 2.70, lr 0.000145, consume 250.36s
+step 148600, loss 2.70, lr 0.000145, consume 250.03s
+processing 172: c400053, wiki0998, wiki0322, books0569, books0271, arxiv0721, stackexchange0715, origin: 447099, samples: 331627, accum_tokens: 58796M, iter_num: 148652
+step 148700, loss 2.70, lr 0.000145, consume 255.41s
+step 148800, loss 2.70, lr 0.000144, consume 250.88s
+step 148900, loss 2.69, lr 0.000144, consume 252.05s
+step 149000, loss 2.69, lr 0.000144, consume 252.79s
+step 149100, loss 2.70, lr 0.000143, consume 251.20s
+step 149200, loss 2.70, lr 0.000143, consume 250.71s
+step 149300, loss 2.69, lr 0.000143, consume 250.59s
+step 149400, loss 2.69, lr 0.000142, consume 250.14s
+step 149500, loss 2.69, lr 0.000142, consume 250.55s
+processing 173: c400484, wiki0255, wiki0547, books0862, books0176, arxiv0117, stackexchange0356, origin: 447145, samples: 332881, accum_tokens: 59137M, iter_num: 149515
+step 149600, loss 2.70, lr 0.000142, consume 256.07s
+step 149700, loss 2.70, lr 0.000142, consume 253.18s
+step 149800, loss 2.70, lr 0.000141, consume 253.08s
+step 149900, loss 2.70, lr 0.000141, consume 250.43s
+step 150000, loss 2.69, lr 0.000141, consume 250.37s
+step 150100, loss 2.69, lr 0.000140, consume 250.45s
+step 150200, loss 2.67, lr 0.000140, consume 250.69s
+step 150300, loss 2.69, lr 0.000140, consume 250.01s
+processing 174: c400767, wiki0608, wiki0942, books0191, books0659, arxiv0507, stackexchange0613, origin: 447338, samples: 337142, accum_tokens: 59482M, iter_num: 150382
+step 150400, loss 2.68, lr 0.000139, consume 256.74s
+step 150500, loss 2.69, lr 0.000139, consume 250.39s
+step 150600, loss 2.69, lr 0.000139, consume 250.47s
+step 150700, loss 2.70, lr 0.000138, consume 250.48s
+step 150800, loss 2.69, lr 0.000138, consume 250.86s
+step 150900, loss 2.69, lr 0.000138, consume 250.52s
+step 151000, loss 2.67, lr 0.000138, consume 250.30s
+step 151100, loss 2.68, lr 0.000137, consume 250.78s
+step 151200, loss 2.67, lr 0.000137, consume 250.42s
+processing 175: c400447, wiki0888, wiki0635, books0884, books0233, arxiv0697, stackexchange0306, origin: 447425, samples: 338570, accum_tokens: 59829M, iter_num: 151260
+step 151300, loss 2.69, lr 0.000137, consume 256.81s
+step 151400, loss 2.70, lr 0.000136, consume 250.50s
+step 151500, loss 2.70, lr 0.000136, consume 251.55s
+step 151600, loss 2.69, lr 0.000136, consume 253.45s
+step 151700, loss 2.70, lr 0.000135, consume 253.96s
+step 151800, loss 2.69, lr 0.000135, consume 254.86s
+step 151900, loss 2.69, lr 0.000135, consume 249.47s
+step 152000, loss 2.69, lr 0.000135, consume 249.10s
+step 152100, loss 2.69, lr 0.000134, consume 248.63s
+processing 176: c400180, wiki0931, wiki0424, books0817, books0982, arxiv0093, stackexchange0737, origin: 447090, samples: 330638, accum_tokens: 60167M, iter_num: 152142
+step 152200, loss 2.70, lr 0.000134, consume 255.16s
+step 152300, loss 2.70, lr 0.000134, consume 249.10s
+step 152400, loss 2.70, lr 0.000133, consume 249.15s
+step 152500, loss 2.70, lr 0.000133, consume 249.09s
+step 152600, loss 2.70, lr 0.000133, consume 249.08s
+step 152700, loss 2.69, lr 0.000133, consume 249.14s
+step 152800, loss 2.69, lr 0.000132, consume 249.17s
+step 152900, loss 2.69, lr 0.000132, consume 248.95s
+step 153000, loss 2.69, lr 0.000132, consume 249.62s
+processing 177: c400791, wiki0036, wiki0268, books0911, books0670, arxiv0259, stackexchange1020, origin: 447192, samples: 333435, accum_tokens: 60509M, iter_num: 153003
+step 153100, loss 2.70, lr 0.000131, consume 255.50s
+step 153200, loss 2.70, lr 0.000131, consume 249.24s
+step 153300, loss 2.70, lr 0.000131, consume 249.31s
+step 153400, loss 2.69, lr 0.000131, consume 249.40s
+step 153500, loss 2.69, lr 0.000130, consume 249.39s
+step 153600, loss 2.68, lr 0.000130, consume 249.36s
+step 153700, loss 2.69, lr 0.000130, consume 249.33s
+step 153800, loss 2.69, lr 0.000129, consume 248.82s
+processing 178: c400311, wiki0534, wiki0232, books0476, books0056, arxiv0971, stackexchange0564, origin: 447031, samples: 330258, accum_tokens: 60847M, iter_num: 153871
+step 153900, loss 2.69, lr 0.000129, consume 255.40s
+step 154000, loss 2.69, lr 0.000129, consume 249.26s
+step 154100, loss 2.68, lr 0.000128, consume 249.36s
+step 154200, loss 2.69, lr 0.000128, consume 249.33s
+step 154300, loss 2.68, lr 0.000128, consume 249.36s
+step 154400, loss 2.68, lr 0.000128, consume 249.34s
+step 154500, loss 2.67, lr 0.000127, consume 249.31s
+step 154600, loss 2.67, lr 0.000127, consume 249.26s
+step 154700, loss 2.69, lr 0.000127, consume 248.83s
+processing 179: c400023, wiki0187, wiki0900, books0871, books0755, arxiv0932, stackexchange0224, origin: 447192, samples: 334028, accum_tokens: 61189M, iter_num: 154731
+step 154800, loss 2.70, lr 0.000127, consume 255.66s
+step 154900, loss 2.70, lr 0.000126, consume 249.33s
+step 155000, loss 2.69, lr 0.000126, consume 249.29s
+step 155100, loss 2.69, lr 0.000126, consume 249.31s
+step 155200, loss 2.68, lr 0.000125, consume 249.29s
+step 155300, loss 2.68, lr 0.000125, consume 249.31s
+step 155400, loss 2.69, lr 0.000125, consume 249.35s
+step 155500, loss 2.68, lr 0.000125, consume 248.82s
+step 155600, loss 2.68, lr 0.000124, consume 248.83s
+processing 180: c400176, wiki0698, wiki0475, books0814, books0428, arxiv0641, stackexchange0920, origin: 446905, samples: 326234, accum_tokens: 61523M, iter_num: 155601
+step 155700, loss 2.69, lr 0.000124, consume 255.70s
+step 155800, loss 2.68, lr 0.000124, consume 249.29s
+step 155900, loss 2.68, lr 0.000123, consume 249.27s
+step 156000, loss 2.68, lr 0.000123, consume 249.35s
+step 156100, loss 2.69, lr 0.000123, consume 249.27s
+step 156200, loss 2.68, lr 0.000123, consume 249.24s
+step 156300, loss 2.67, lr 0.000122, consume 249.40s
+step 156400, loss 2.67, lr 0.000122, consume 248.78s
+processing 181: c400350, wiki0798, wiki0612, books0496, books0202, arxiv0796, stackexchange0934, origin: 447227, samples: 333412, accum_tokens: 61864M, iter_num: 156450
+step 156500, loss 2.68, lr 0.000122, consume 255.43s
+step 156600, loss 2.70, lr 0.000122, consume 249.29s
+step 156700, loss 2.68, lr 0.000121, consume 249.38s
+step 156800, loss 2.68, lr 0.000121, consume 249.37s
+step 156900, loss 2.68, lr 0.000121, consume 249.30s
+step 157000, loss 2.67, lr 0.000120, consume 249.34s
+step 157100, loss 2.68, lr 0.000120, consume 249.53s
+step 157200, loss 2.67, lr 0.000120, consume 248.92s
+step 157300, loss 2.67, lr 0.000120, consume 248.88s
+processing 182: c400881, wiki0892, wiki0263, books0878, books0879, arxiv0786, stackexchange0107, origin: 447135, samples: 333685, accum_tokens: 62206M, iter_num: 157319
+step 157400, loss 2.69, lr 0.000119, consume 255.58s
+step 157500, loss 2.68, lr 0.000119, consume 249.35s
+step 157600, loss 2.67, lr 0.000119, consume 249.31s
+step 157700, loss 2.68, lr 0.000119, consume 249.28s
+step 157800, loss 2.67, lr 0.000118, consume 249.28s
+step 157900, loss 2.68, lr 0.000118, consume 249.35s
+step 158000, loss 2.68, lr 0.000118, consume 249.31s
+step 158100, loss 2.65, lr 0.000118, consume 248.79s
+processing 183: c400481, wiki0188, wiki0137, books0796, books0727, arxiv0227, stackexchange0522, origin: 447070, samples: 330957, accum_tokens: 62545M, iter_num: 158187
+step 158200, loss 2.67, lr 0.000117, consume 253.57s
+step 158300, loss 2.70, lr 0.000117, consume 249.27s
+step 158400, loss 2.68, lr 0.000117, consume 249.34s
+step 158500, loss 2.68, lr 0.000116, consume 249.34s
+step 158600, loss 2.68, lr 0.000116, consume 249.41s
+step 158700, loss 2.68, lr 0.000116, consume 249.31s
+step 158800, loss 2.69, lr 0.000116, consume 249.38s
+step 158900, loss 2.68, lr 0.000115, consume 249.32s
+step 159000, loss 2.68, lr 0.000115, consume 248.90s
+processing 184: c400706, wiki0616, wiki0319, books0618, books0123, arxiv0133, stackexchange0048, origin: 447202, samples: 332633, accum_tokens: 62886M, iter_num: 159049
+step 159100, loss 2.69, lr 0.000115, consume 254.22s
+step 159200, loss 2.69, lr 0.000115, consume 249.34s
+step 159300, loss 2.68, lr 0.000114, consume 249.35s
+step 159400, loss 2.67, lr 0.000114, consume 249.32s
+step 159500, loss 2.67, lr 0.000114, consume 249.37s
+step 159600, loss 2.67, lr 0.000114, consume 249.36s
+step 159700, loss 2.66, lr 0.000113, consume 249.48s
+step 159800, loss 2.67, lr 0.000113, consume 248.89s
+step 159900, loss 2.67, lr 0.000113, consume 248.83s
+processing 185: c400285, wiki0893, wiki0701, books0412, books0715, arxiv0753, stackexchange0831, origin: 447022, samples: 328811, accum_tokens: 63222M, iter_num: 159915
+step 160000, loss 2.69, lr 0.000113, consume 255.36s
+step 160100, loss 2.68, lr 0.000112, consume 249.37s
+step 160200, loss 2.68, lr 0.000112, consume 249.36s
+step 160300, loss 2.68, lr 0.000112, consume 249.37s
+step 160400, loss 2.67, lr 0.000112, consume 249.33s
+step 160500, loss 2.68, lr 0.000111, consume 249.36s
+step 160600, loss 2.67, lr 0.000111, consume 249.49s
+step 160700, loss 2.67, lr 0.000111, consume 248.87s
+processing 186: c400113, wiki0580, wiki0384, books0280, books0249, arxiv0077, stackexchange0104, origin: 447221, samples: 332365, accum_tokens: 63563M, iter_num: 160772
+step 160800, loss 2.68, lr 0.000111, consume 255.07s
+step 160900, loss 2.68, lr 0.000110, consume 249.31s
+step 161000, loss 2.68, lr 0.000110, consume 249.37s
+step 161100, loss 2.67, lr 0.000110, consume 249.34s
+step 161200, loss 2.67, lr 0.000110, consume 249.39s
+step 161300, loss 2.67, lr 0.000109, consume 249.77s
+step 161400, loss 2.66, lr 0.000109, consume 249.47s
+step 161500, loss 2.67, lr 0.000109, consume 249.27s
+step 161600, loss 2.66, lr 0.000109, consume 248.86s
+processing 187: c400168, wiki0705, wiki0684, books0904, books0517, arxiv0525, stackexchange0666, origin: 447094, samples: 331854, accum_tokens: 63902M, iter_num: 161637
+step 161700, loss 2.68, lr 0.000108, consume 255.29s
+step 161800, loss 2.68, lr 0.000108, consume 249.39s
+step 161900, loss 2.68, lr 0.000108, consume 249.43s
+step 162000, loss 2.67, lr 0.000108, consume 249.37s
+step 162100, loss 2.67, lr 0.000107, consume 249.39s
+step 162200, loss 2.67, lr 0.000107, consume 249.36s
+step 162300, loss 2.68, lr 0.000107, consume 249.51s
+step 162400, loss 2.68, lr 0.000107, consume 248.90s
+step 162500, loss 2.67, lr 0.000106, consume 248.93s
+processing 188: c400267, wiki0664, wiki0013, books0694, books0654, arxiv0727, stackexchange0621, origin: 447039, samples: 329707, accum_tokens: 64240M, iter_num: 162501
+step 162600, loss 2.66, lr 0.000106, consume 255.59s
+step 162700, loss 2.66, lr 0.000106, consume 249.34s
+step 162800, loss 2.66, lr 0.000106, consume 249.38s
+step 162900, loss 2.65, lr 0.000105, consume 249.30s
+step 163000, loss 2.65, lr 0.000105, consume 249.33s
+step 163100, loss 2.66, lr 0.000105, consume 249.38s
+step 163200, loss 2.65, lr 0.000105, consume 249.36s
+step 163300, loss 2.66, lr 0.000104, consume 248.81s
+processing 189: c400380, wiki0763, wiki0210, books0495, books1014, arxiv0695, stackexchange0303, origin: 447183, samples: 332116, accum_tokens: 64580M, iter_num: 163360
+step 163400, loss 2.67, lr 0.000104, consume 255.28s
+step 163500, loss 2.69, lr 0.000104, consume 249.36s
+step 163600, loss 2.68, lr 0.000104, consume 249.40s
+step 163700, loss 2.69, lr 0.000104, consume 249.32s
+step 163800, loss 2.68, lr 0.000103, consume 249.44s
+step 163900, loss 2.68, lr 0.000103, consume 249.39s
+step 164000, loss 2.68, lr 0.000103, consume 249.36s
+step 164100, loss 2.68, lr 0.000103, consume 248.91s
+step 164200, loss 2.67, lr 0.000102, consume 248.76s
+processing 190: c400964, wiki0304, wiki0403, books0698, books0520, arxiv0417, stackexchange0917, origin: 447047, samples: 329532, accum_tokens: 64918M, iter_num: 164225
+step 164300, loss 2.67, lr 0.000102, consume 254.39s
+step 164400, loss 2.67, lr 0.000102, consume 249.27s
+step 164500, loss 2.68, lr 0.000102, consume 249.36s
+step 164600, loss 2.67, lr 0.000101, consume 249.27s
+step 164700, loss 2.67, lr 0.000101, consume 249.28s
+step 164800, loss 2.67, lr 0.000101, consume 249.29s
+step 164900, loss 2.66, lr 0.000101, consume 249.38s
+step 165000, loss 2.66, lr 0.000101, consume 248.79s
+processing 191: c400338, wiki0824, wiki0367, books0010, books0358, arxiv0855, stackexchange0281, origin: 447009, samples: 328166, accum_tokens: 65254M, iter_num: 165083
+step 165100, loss 2.67, lr 0.000100, consume 255.38s
+step 165200, loss 2.68, lr 0.000100, consume 249.27s
+step 165300, loss 2.67, lr 0.000100, consume 249.27s
+step 165400, loss 2.67, lr 0.000100, consume 249.25s
+step 165500, loss 2.66, lr 0.000099, consume 249.23s
+step 165600, loss 2.66, lr 0.000099, consume 249.31s
+step 165700, loss 2.65, lr 0.000099, consume 249.26s
+step 165800, loss 2.67, lr 0.000099, consume 249.23s
+step 165900, loss 2.65, lr 0.000099, consume 248.79s
+processing 192: c400765, wiki0386, wiki0421, books0615, books0229, arxiv0656, stackexchange0810, origin: 447142, samples: 330845, accum_tokens: 65592M, iter_num: 165937
+step 166000, loss 2.67, lr 0.000098, consume 255.43s
+step 166100, loss 2.68, lr 0.000098, consume 249.25s
+step 166200, loss 2.69, lr 0.000098, consume 249.32s
+step 166300, loss 2.68, lr 0.000098, consume 249.26s
+step 166400, loss 2.67, lr 0.000097, consume 249.27s
+step 166500, loss 2.66, lr 0.000097, consume 249.24s
+step 166600, loss 2.67, lr 0.000097, consume 249.41s
+step 166700, loss 2.66, lr 0.000097, consume 249.02s
+processing 193: c400260, wiki0233, wiki0695, books0517, books0690, arxiv0677, stackexchange0625, origin: 447255, samples: 334035, accum_tokens: 65934M, iter_num: 166799
+step 166800, loss 2.67, lr 0.000097, consume 255.41s
+step 166900, loss 2.68, lr 0.000096, consume 249.07s
+step 167000, loss 2.68, lr 0.000096, consume 249.32s
+step 167100, loss 2.67, lr 0.000096, consume 249.63s
+step 167200, loss 2.67, lr 0.000096, consume 249.23s
+step 167300, loss 2.67, lr 0.000096, consume 249.26s
+step 167400, loss 2.67, lr 0.000095, consume 249.26s
+step 167500, loss 2.68, lr 0.000095, consume 249.33s
+step 167600, loss 2.67, lr 0.000095, consume 248.78s
+processing 194: c400025, wiki0178, wiki0112, books0059, books0917, arxiv0228, stackexchange0045, origin: 447098, samples: 331216, accum_tokens: 66274M, iter_num: 167669
+step 167700, loss 2.68, lr 0.000095, consume 255.38s
+step 167800, loss 2.68, lr 0.000094, consume 249.19s
+step 167900, loss 2.68, lr 0.000094, consume 249.39s
+step 168000, loss 2.67, lr 0.000094, consume 249.29s
+step 168100, loss 2.66, lr 0.000094, consume 249.26s
+step 168200, loss 2.66, lr 0.000094, consume 249.30s
+step 168300, loss 2.67, lr 0.000093, consume 249.37s
+step 168400, loss 2.65, lr 0.000093, consume 249.06s
+step 168500, loss 2.66, lr 0.000093, consume 248.79s
+processing 195: c400594, wiki0716, wiki0862, books0217, books0772, arxiv0466, stackexchange0789, origin: 446992, samples: 329019, accum_tokens: 66611M, iter_num: 168531
+step 168600, loss 2.67, lr 0.000093, consume 255.58s
+step 168700, loss 2.66, lr 0.000093, consume 249.24s
+step 168800, loss 2.67, lr 0.000092, consume 249.29s
+step 168900, loss 2.66, lr 0.000092, consume 249.32s
+step 169000, loss 2.66, lr 0.000092, consume 249.25s
+step 169100, loss 2.66, lr 0.000092, consume 249.32s
+step 169200, loss 2.66, lr 0.000092, consume 249.48s
+step 169300, loss 2.66, lr 0.000091, consume 248.83s
+processing 196: c400654, wiki0971, wiki0769, books0434, books0310, arxiv0237, stackexchange0610, origin: 447167, samples: 334255, accum_tokens: 66953M, iter_num: 169388
+step 169400, loss 2.66, lr 0.000091, consume 255.36s
+step 169500, loss 2.67, lr 0.000091, consume 249.18s
+step 169600, loss 2.67, lr 0.000091, consume 249.29s
+step 169700, loss 2.66, lr 0.000091, consume 249.38s
+step 169800, loss 2.67, lr 0.000090, consume 249.36s
+step 169900, loss 2.67, lr 0.000090, consume 249.37s
+step 170000, loss 2.66, lr 0.000090, consume 249.32s
+step 170100, loss 2.66, lr 0.000090, consume 249.12s
+step 170200, loss 2.65, lr 0.000090, consume 248.80s
+processing 197: c400011, wiki0374, wiki0641, books0794, books0115, arxiv0570, stackexchange0520, origin: 447006, samples: 328245, accum_tokens: 67289M, iter_num: 170258
+step 170300, loss 2.67, lr 0.000089, consume 255.54s
+step 170400, loss 2.68, lr 0.000089, consume 249.25s
+step 170500, loss 2.67, lr 0.000089, consume 249.30s
+step 170600, loss 2.67, lr 0.000089, consume 249.30s
+step 170700, loss 2.67, lr 0.000089, consume 249.29s
+step 170800, loss 2.67, lr 0.000088, consume 249.31s
+step 170900, loss 2.67, lr 0.000088, consume 249.57s
+step 171000, loss 2.67, lr 0.000088, consume 248.83s
+step 171100, loss 2.67, lr 0.000088, consume 248.83s
+processing 198: c400459, wiki0477, wiki0411, books0322, books0538, arxiv0242, stackexchange0887, origin: 447066, samples: 327776, accum_tokens: 67625M, iter_num: 171113
+step 171200, loss 2.68, lr 0.000088, consume 255.81s
+step 171300, loss 2.68, lr 0.000088, consume 249.34s
+step 171400, loss 2.67, lr 0.000087, consume 249.31s
+step 171500, loss 2.67, lr 0.000087, consume 249.33s
+step 171600, loss 2.66, lr 0.000087, consume 249.37s
+step 171700, loss 2.66, lr 0.000087, consume 249.33s
+step 171800, loss 2.66, lr 0.000087, consume 249.54s
+step 171900, loss 2.66, lr 0.000086, consume 248.78s
+processing 199: c400437, wiki0114, wiki0362, books0253, books0631, arxiv0513, stackexchange0951, origin: 447161, samples: 334414, accum_tokens: 67967M, iter_num: 171966
+step 172000, loss 2.68, lr 0.000086, consume 255.33s
+step 172100, loss 2.68, lr 0.000086, consume 249.34s
+step 172200, loss 2.68, lr 0.000086, consume 249.29s
+step 172300, loss 2.65, lr 0.000086, consume 249.31s
+step 172400, loss 2.67, lr 0.000085, consume 249.23s
+step 172500, loss 2.66, lr 0.000085, consume 249.34s
+step 172600, loss 2.66, lr 0.000085, consume 249.36s
+step 172700, loss 2.65, lr 0.000085, consume 249.29s
+step 172800, loss 2.65, lr 0.000085, consume 248.87s
+processing 200: c400386, wiki0162, wiki0264, books0907, books0691, arxiv0379, stackexchange0052, origin: 447205, samples: 333094, accum_tokens: 68308M, iter_num: 172837
+step 172900, loss 2.68, lr 0.000085, consume 253.88s
+step 173000, loss 2.68, lr 0.000084, consume 249.37s
+step 173100, loss 2.68, lr 0.000084, consume 249.46s
+step 173200, loss 2.67, lr 0.000084, consume 249.40s
+step 173300, loss 2.67, lr 0.000084, consume 249.39s
+step 173400, loss 2.67, lr 0.000084, consume 249.40s
+step 173500, loss 2.66, lr 0.000084, consume 249.47s
+step 173600, loss 2.66, lr 0.000083, consume 249.11s
+step 173700, loss 2.67, lr 0.000083, consume 248.97s
+processing 201: c400659, wiki0939, wiki0097, books0851, books0603, arxiv0532, stackexchange0323, origin: 447354, samples: 336871, accum_tokens: 68653M, iter_num: 173705
+step 173800, loss 2.66, lr 0.000083, consume 255.59s
+step 173900, loss 2.66, lr 0.000083, consume 249.51s
+step 174000, loss 2.66, lr 0.000083, consume 249.51s
+step 174100, loss 2.65, lr 0.000082, consume 249.40s
+step 174200, loss 2.64, lr 0.000082, consume 249.43s
+step 174300, loss 2.65, lr 0.000082, consume 249.44s
+step 174400, loss 2.64, lr 0.000082, consume 249.50s
+step 174500, loss 2.63, lr 0.000082, consume 248.96s
+processing 202: c400668, wiki0197, wiki0378, books0638, books0891, arxiv0560, stackexchange0566, origin: 447204, samples: 332014, accum_tokens: 68993M, iter_num: 174582
+step 174600, loss 2.65, lr 0.000082, consume 255.31s
+step 174700, loss 2.67, lr 0.000081, consume 249.36s
+step 174800, loss 2.67, lr 0.000081, consume 249.50s
+step 174900, loss 2.67, lr 0.000081, consume 249.46s
+step 175000, loss 2.67, lr 0.000081, consume 249.43s
+step 175100, loss 2.67, lr 0.000081, consume 249.45s
+step 175200, loss 2.65, lr 0.000081, consume 249.40s
+step 175300, loss 2.67, lr 0.000080, consume 249.32s
+step 175400, loss 2.66, lr 0.000080, consume 248.94s
+processing 203: c400921, wiki0261, wiki0030, books0296, books0458, arxiv0006, stackexchange0615, origin: 447092, samples: 330001, accum_tokens: 69331M, iter_num: 175446
+step 175500, loss 2.67, lr 0.000080, consume 255.54s
+step 175600, loss 2.67, lr 0.000080, consume 249.55s
+step 175700, loss 2.67, lr 0.000080, consume 249.57s
+step 175800, loss 2.67, lr 0.000080, consume 249.57s
+step 175900, loss 2.67, lr 0.000080, consume 249.57s
+step 176000, loss 2.67, lr 0.000079, consume 249.53s
+step 176100, loss 2.66, lr 0.000079, consume 250.13s
+step 176200, loss 2.65, lr 0.000079, consume 249.13s
+step 176300, loss 2.66, lr 0.000079, consume 249.09s
+processing 204: c400427, wiki1000, wiki0280, books0348, books0958, arxiv0234, stackexchange0089, origin: 447117, samples: 332527, accum_tokens: 69671M, iter_num: 176306
+step 176400, loss 2.67, lr 0.000079, consume 255.70s
+step 176500, loss 2.66, lr 0.000079, consume 249.54s
+step 176600, loss 2.66, lr 0.000078, consume 249.57s
+step 176700, loss 2.67, lr 0.000078, consume 249.54s
+step 176800, loss 2.66, lr 0.000078, consume 249.56s
+step 176900, loss 2.66, lr 0.000078, consume 249.62s
+step 177000, loss 2.65, lr 0.000078, consume 249.71s
+step 177100, loss 2.65, lr 0.000078, consume 249.36s
+processing 205: c400077, wiki0224, wiki0670, books0773, books0572, arxiv0109, stackexchange0085, origin: 447142, samples: 332704, accum_tokens: 70012M, iter_num: 177172
+step 177200, loss 2.66, lr 0.000077, consume 255.34s
+step 177300, loss 2.67, lr 0.000077, consume 249.55s
+step 177400, loss 2.68, lr 0.000077, consume 249.57s
+step 177500, loss 2.67, lr 0.000077, consume 249.59s
+step 177600, loss 2.68, lr 0.000077, consume 249.63s
+step 177700, loss 2.67, lr 0.000077, consume 249.58s
+step 177800, loss 2.68, lr 0.000077, consume 249.80s
+step 177900, loss 2.67, lr 0.000076, consume 249.16s
+step 178000, loss 2.66, lr 0.000076, consume 249.11s
+processing 206: c400891, wiki0034, wiki0666, books0633, books0167, arxiv0136, stackexchange0519, origin: 447029, samples: 328669, accum_tokens: 70349M, iter_num: 178038
+step 178100, loss 2.67, lr 0.000076, consume 255.39s
+step 178200, loss 2.66, lr 0.000076, consume 249.54s
+step 178300, loss 2.67, lr 0.000076, consume 249.63s
+step 178400, loss 2.66, lr 0.000076, consume 249.55s
+step 178500, loss 2.66, lr 0.000076, consume 252.57s
+step 178600, loss 2.65, lr 0.000075, consume 256.02s
+step 178700, loss 2.64, lr 0.000075, consume 256.51s
+step 178800, loss 2.64, lr 0.000075, consume 255.95s
+processing 207: c400996, wiki0582, wiki0492, books0982, books0468, arxiv0574, stackexchange0181, origin: 446980, samples: 329071, accum_tokens: 70686M, iter_num: 178894
+step 178900, loss 2.66, lr 0.000075, consume 266.24s
+step 179000, loss 2.67, lr 0.000075, consume 254.96s
+step 179100, loss 2.68, lr 0.000075, consume 249.43s
+step 179200, loss 2.68, lr 0.000075, consume 249.44s
+step 179300, loss 2.67, lr 0.000074, consume 249.43s
+step 179400, loss 2.67, lr 0.000074, consume 249.63s
+step 179500, loss 2.67, lr 0.000074, consume 249.62s
+step 179600, loss 2.67, lr 0.000074, consume 249.67s
+step 179700, loss 2.66, lr 0.000074, consume 249.16s
+processing 208: c400316, wiki0596, wiki0764, books0087, books0160, arxiv0806, stackexchange0322, origin: 447149, samples: 333039, accum_tokens: 71027M, iter_num: 179751
+step 179800, loss 2.67, lr 0.000074, consume 255.74s
+step 179900, loss 2.67, lr 0.000074, consume 249.63s
+step 180000, loss 2.68, lr 0.000073, consume 249.67s
+step 180100, loss 2.66, lr 0.000073, consume 249.59s
+step 180200, loss 2.66, lr 0.000073, consume 249.63s
+step 180300, loss 2.67, lr 0.000073, consume 249.61s
+step 180400, loss 2.66, lr 0.000073, consume 249.70s
+step 180500, loss 2.65, lr 0.000073, consume 249.59s
+step 180600, loss 2.65, lr 0.000073, consume 249.14s
+processing 209: c400452, wiki0106, wiki0733, books0641, books0430, arxiv0763, stackexchange0975, origin: 447338, samples: 337053, accum_tokens: 71372M, iter_num: 180618
+step 180700, loss 2.67, lr 0.000073, consume 255.94s
+step 180800, loss 2.67, lr 0.000072, consume 249.70s
+step 180900, loss 2.67, lr 0.000072, consume 249.68s
+step 181000, loss 2.67, lr 0.000072, consume 249.61s
+step 181100, loss 2.66, lr 0.000072, consume 249.66s
+step 181200, loss 2.67, lr 0.000072, consume 249.67s
+step 181300, loss 2.66, lr 0.000072, consume 249.75s
+step 181400, loss 2.66, lr 0.000072, consume 249.19s
+processing 210: c400271, wiki0468, wiki0052, books0527, books0339, arxiv0795, stackexchange0163, origin: 447034, samples: 332092, accum_tokens: 71712M, iter_num: 181496
+step 181500, loss 2.66, lr 0.000072, consume 255.50s
+step 181600, loss 2.66, lr 0.000071, consume 249.61s
+step 181700, loss 2.65, lr 0.000071, consume 249.58s
+step 181800, loss 2.64, lr 0.000071, consume 249.50s
+step 181900, loss 2.65, lr 0.000071, consume 249.53s
+step 182000, loss 2.63, lr 0.000071, consume 249.57s
+step 182100, loss 2.63, lr 0.000071, consume 249.65s
+step 182200, loss 2.64, lr 0.000071, consume 249.79s
+step 182300, loss 2.63, lr 0.000071, consume 249.18s
+processing 211: c400067, wiki0359, wiki0846, books0680, books0983, arxiv0540, stackexchange0268, origin: 447253, samples: 334229, accum_tokens: 72054M, iter_num: 182360
+step 182400, loss 2.65, lr 0.000070, consume 255.74s
+step 182500, loss 2.66, lr 0.000070, consume 249.72s
+step 182600, loss 2.66, lr 0.000070, consume 249.73s
+step 182700, loss 2.66, lr 0.000070, consume 249.75s
+step 182800, loss 2.65, lr 0.000070, consume 249.75s
+step 182900, loss 2.66, lr 0.000070, consume 249.80s
+step 183000, loss 2.65, lr 0.000070, consume 249.81s
+step 183100, loss 2.66, lr 0.000070, consume 249.66s
+step 183200, loss 2.66, lr 0.000070, consume 249.26s
+processing 212: c400089, wiki0769, wiki0946, books0174, books0696, arxiv0405, stackexchange0015, origin: 447222, samples: 335653, accum_tokens: 72398M, iter_num: 183231
+step 183300, loss 2.65, lr 0.000069, consume 255.99s
+step 183400, loss 2.66, lr 0.000069, consume 249.77s
+step 183500, loss 2.66, lr 0.000069, consume 249.77s
+step 183600, loss 2.65, lr 0.000069, consume 249.77s
+step 183700, loss 2.65, lr 0.000069, consume 249.81s
+step 183800, loss 2.66, lr 0.000069, consume 249.88s
+step 183900, loss 2.64, lr 0.000069, consume 250.08s
+step 184000, loss 2.65, lr 0.000069, consume 249.37s
+step 184100, loss 2.66, lr 0.000069, consume 249.31s
+processing 213: c400723, wiki0935, wiki0218, books0648, books0615, arxiv0207, stackexchange0598, origin: 447229, samples: 335210, accum_tokens: 72741M, iter_num: 184105
+step 184200, loss 2.66, lr 0.000068, consume 256.46s
+step 184300, loss 2.67, lr 0.000068, consume 250.48s
+step 184400, loss 2.66, lr 0.000068, consume 252.55s
+step 184500, loss 2.65, lr 0.000068, consume 253.99s
+step 184600, loss 2.65, lr 0.000068, consume 255.41s
+step 184700, loss 2.63, lr 0.000068, consume 254.19s
+step 184800, loss 2.65, lr 0.000068, consume 253.28s
+step 184900, loss 2.65, lr 0.000068, consume 253.51s
+processing 214: c400154, wiki0414, wiki0327, books0941, books0466, arxiv1023, stackexchange0683, origin: 447219, samples: 333052, accum_tokens: 73082M, iter_num: 184978
+step 185000, loss 2.66, lr 0.000068, consume 259.57s
+step 185100, loss 2.67, lr 0.000068, consume 255.07s
+step 185200, loss 2.67, lr 0.000067, consume 254.68s
+step 185300, loss 2.65, lr 0.000067, consume 255.84s
+step 185400, loss 2.64, lr 0.000067, consume 255.37s
+step 185500, loss 2.66, lr 0.000067, consume 254.30s
+step 185600, loss 2.65, lr 0.000067, consume 256.31s
+step 185700, loss 2.65, lr 0.000067, consume 256.41s
+step 185800, loss 2.66, lr 0.000067, consume 255.26s
+processing 215: c400699, wiki0653, wiki0157, books0122, books0872, arxiv0629, stackexchange0864, origin: 447116, samples: 332129, accum_tokens: 73422M, iter_num: 185845
+step 185900, loss 2.66, lr 0.000067, consume 263.26s
+step 186000, loss 2.66, lr 0.000067, consume 255.53s
+step 186100, loss 2.66, lr 0.000067, consume 254.28s
+step 186200, loss 2.65, lr 0.000066, consume 256.35s
+step 186300, loss 2.65, lr 0.000066, consume 255.43s
+step 186400, loss 2.65, lr 0.000066, consume 253.93s
+step 186500, loss 2.65, lr 0.000066, consume 256.48s
+step 186600, loss 2.63, lr 0.000066, consume 254.75s
+step 186700, loss 2.65, lr 0.000066, consume 249.70s
+processing 216: c400208, wiki0232, wiki0853, books0854, books0621, arxiv0510, stackexchange0415, origin: 447090, samples: 329721, accum_tokens: 73760M, iter_num: 186710
+step 186800, loss 2.67, lr 0.000066, consume 256.06s
+step 186900, loss 2.66, lr 0.000066, consume 249.91s
+step 187000, loss 2.65, lr 0.000066, consume 249.96s
+step 187100, loss 2.66, lr 0.000066, consume 249.94s
+step 187200, loss 2.66, lr 0.000066, consume 249.89s
+step 187300, loss 2.65, lr 0.000065, consume 249.92s
+step 187400, loss 2.66, lr 0.000065, consume 250.03s
+step 187500, loss 2.65, lr 0.000065, consume 249.53s
+processing 217: c400931, wiki0500, wiki0826, books0331, books0977, arxiv0830, stackexchange0583, origin: 447114, samples: 331129, accum_tokens: 74099M, iter_num: 187568
+step 187600, loss 2.65, lr 0.000065, consume 256.09s
+step 187700, loss 2.66, lr 0.000065, consume 250.04s
+step 187800, loss 2.66, lr 0.000065, consume 250.05s
+step 187900, loss 2.65, lr 0.000065, consume 249.75s
+step 188000, loss 2.65, lr 0.000065, consume 249.69s
+step 188100, loss 2.65, lr 0.000065, consume 249.86s
+step 188200, loss 2.65, lr 0.000065, consume 249.98s
+step 188300, loss 2.65, lr 0.000065, consume 249.68s
+step 188400, loss 2.67, lr 0.000065, consume 249.42s
+processing 218: c400530, wiki0244, wiki0521, books0079, books0779, arxiv0628, stackexchange0947, origin: 447075, samples: 329114, accum_tokens: 74436M, iter_num: 188431
+step 188500, loss 2.66, lr 0.000064, consume 255.80s
+step 188600, loss 2.66, lr 0.000064, consume 249.81s
+step 188700, loss 2.67, lr 0.000064, consume 249.72s
+step 188800, loss 2.67, lr 0.000064, consume 249.67s
+step 188900, loss 2.66, lr 0.000064, consume 249.76s
+step 189000, loss 2.67, lr 0.000064, consume 249.77s
+step 189100, loss 2.66, lr 0.000064, consume 250.08s
+step 189200, loss 2.66, lr 0.000064, consume 249.51s
+processing 219: c400438, wiki0938, wiki0511, books0375, books0242, arxiv0331, stackexchange0051, origin: 447183, samples: 332502, accum_tokens: 74777M, iter_num: 189288
+step 189300, loss 2.66, lr 0.000064, consume 255.79s
+step 189400, loss 2.67, lr 0.000064, consume 249.90s
+step 189500, loss 2.67, lr 0.000064, consume 249.98s
+step 189600, loss 2.66, lr 0.000064, consume 249.98s
+step 189700, loss 2.66, lr 0.000064, consume 249.99s
+step 189800, loss 2.67, lr 0.000064, consume 249.97s
+step 189900, loss 2.66, lr 0.000063, consume 250.00s
+step 190000, loss 2.66, lr 0.000063, consume 249.94s
+step 190100, loss 2.66, lr 0.000063, consume 249.54s
+processing 220: c400216, wiki0720, wiki0409, books0009, books0952, arxiv0427, stackexchange0420, origin: 447114, samples: 329812, accum_tokens: 75114M, iter_num: 190153
+step 190200, loss 2.66, lr 0.000063, consume 255.95s
+step 190300, loss 2.66, lr 0.000063, consume 249.98s
+step 190400, loss 2.66, lr 0.000063, consume 250.01s
+step 190500, loss 2.64, lr 0.000063, consume 249.97s
+step 190600, loss 2.67, lr 0.000063, consume 250.02s
+step 190700, loss 2.66, lr 0.000063, consume 250.00s
+step 190800, loss 2.66, lr 0.000063, consume 250.06s
+step 190900, loss 2.66, lr 0.000063, consume 249.84s
+step 191000, loss 2.66, lr 0.000063, consume 249.48s
+processing 221: c400558, wiki0994, wiki0441, books0670, books0919, arxiv0920, stackexchange0061, origin: 447163, samples: 333087, accum_tokens: 75455M, iter_num: 191012
+step 191100, loss 2.65, lr 0.000063, consume 256.30s
+step 191200, loss 2.64, lr 0.000063, consume 250.04s
+step 191300, loss 2.65, lr 0.000063, consume 250.05s
+step 191400, loss 2.65, lr 0.000063, consume 249.99s
+step 191500, loss 2.64, lr 0.000062, consume 249.99s
+step 191600, loss 2.65, lr 0.000062, consume 250.05s
+step 191700, loss 2.65, lr 0.000062, consume 250.12s
+step 191800, loss 2.64, lr 0.000062, consume 249.51s
+processing 222: c400200, wiki0897, wiki0902, books0393, books0349, arxiv0838, stackexchange0084, origin: 447197, samples: 331002, accum_tokens: 75794M, iter_num: 191880
+step 191900, loss 2.65, lr 0.000062, consume 256.08s
+step 192000, loss 2.68, lr 0.000062, consume 249.98s
+step 192100, loss 2.67, lr 0.000062, consume 250.05s
+step 192200, loss 2.67, lr 0.000062, consume 249.99s
+step 192300, loss 2.66, lr 0.000062, consume 250.03s
+step 192400, loss 2.66, lr 0.000062, consume 250.03s
+step 192500, loss 2.66, lr 0.000062, consume 250.00s
+step 192600, loss 2.66, lr 0.000062, consume 249.94s
+step 192700, loss 2.66, lr 0.000062, consume 249.48s
+processing 223: c401003, wiki0024, wiki0109, books0858, books0544, arxiv1005, stackexchange0428, origin: 447159, samples: 332695, accum_tokens: 76135M, iter_num: 192742
+step 192800, loss 2.66, lr 0.000062, consume 256.13s
+step 192900, loss 2.67, lr 0.000062, consume 250.01s
+step 193000, loss 2.67, lr 0.000062, consume 250.04s
+step 193100, loss 2.66, lr 0.000062, consume 250.04s
+step 193200, loss 2.67, lr 0.000062, consume 250.00s
+step 193300, loss 2.66, lr 0.000062, consume 250.08s
+step 193400, loss 2.65, lr 0.000061, consume 250.13s
+step 193500, loss 2.65, lr 0.000061, consume 249.51s
+step 193600, loss 2.65, lr 0.000061, consume 249.50s
+processing 224: c400199, wiki1018, wiki0270, books0906, books0491, arxiv0902, stackexchange0219, origin: 446985, samples: 329197, accum_tokens: 76472M, iter_num: 193608
+step 193700, loss 2.67, lr 0.000061, consume 256.36s
+step 193800, loss 2.66, lr 0.000061, consume 250.06s
+step 193900, loss 2.66, lr 0.000061, consume 250.06s
+step 194000, loss 2.66, lr 0.000061, consume 250.01s
+step 194100, loss 2.66, lr 0.000061, consume 250.00s
+step 194200, loss 2.66, lr 0.000061, consume 250.00s
+step 194300, loss 2.66, lr 0.000061, consume 250.02s
+step 194400, loss 2.67, lr 0.000061, consume 249.58s
+processing 225: c400935, wiki0794, wiki0397, books0720, books1017, arxiv1020, stackexchange0652, origin: 447010, samples: 331201, accum_tokens: 76811M, iter_num: 194465
+step 194500, loss 2.64, lr 0.000061, consume 256.17s
+step 194600, loss 2.66, lr 0.000061, consume 250.04s
+step 194700, loss 2.66, lr 0.000061, consume 250.14s
+step 194800, loss 2.65, lr 0.000061, consume 250.10s
+step 194900, loss 2.65, lr 0.000061, consume 250.09s
+step 195000, loss 2.66, lr 0.000061, consume 250.12s
+step 195100, loss 2.66, lr 0.000061, consume 250.15s
+step 195200, loss 2.64, lr 0.000061, consume 249.83s
+step 195300, loss 2.64, lr 0.000061, consume 249.56s
+processing 226: c400039, wiki0486, wiki0759, books0436, books0516, arxiv0105, stackexchange0804, origin: 447120, samples: 331423, accum_tokens: 77151M, iter_num: 195328
+step 195400, loss 2.66, lr 0.000061, consume 256.39s
+step 195500, loss 2.65, lr 0.000061, consume 250.10s
+step 195600, loss 2.66, lr 0.000061, consume 250.14s
+step 195700, loss 2.65, lr 0.000061, consume 250.12s
+step 195800, loss 2.65, lr 0.000061, consume 250.09s
+step 195900, loss 2.66, lr 0.000061, consume 250.04s
+step 196000, loss 2.65, lr 0.000061, consume 250.23s
+step 196100, loss 2.64, lr 0.000061, consume 249.57s
+processing 227: c400231, wiki0012, wiki0490, books0229, books0321, arxiv0716, stackexchange0264, origin: 447233, samples: 333013, accum_tokens: 77492M, iter_num: 196191
+step 196200, loss 2.66, lr 0.000060, consume 256.12s
+step 196300, loss 2.67, lr 0.000060, consume 249.94s
+step 196400, loss 2.66, lr 0.000060, consume 250.12s
+step 196500, loss 2.66, lr 0.000060, consume 250.13s
+step 196600, loss 2.66, lr 0.000060, consume 250.05s
+step 196700, loss 2.65, lr 0.000060, consume 250.06s
+step 196800, loss 2.65, lr 0.000060, consume 250.14s
+step 196900, loss 2.66, lr 0.000060, consume 250.03s
+step 197000, loss 2.65, lr 0.000060, consume 249.61s
+processing 228: c400184, wiki0915, wiki0135, books0125, books0438, arxiv0035, stackexchange0824, origin: 447102, samples: 330823, accum_tokens: 77830M, iter_num: 197058
+step 197100, loss 2.66, lr 0.000060, consume 256.20s
+step 197200, loss 2.67, lr 0.000060, consume 249.96s
+step 197300, loss 2.66, lr 0.000060, consume 250.18s
+step 197400, loss 2.65, lr 0.000060, consume 250.09s
+step 197500, loss 2.66, lr 0.000060, consume 250.05s
+step 197600, loss 2.65, lr 0.000060, consume 250.14s
+step 197700, loss 2.66, lr 0.000060, consume 250.30s
+step 197800, loss 2.64, lr 0.000060, consume 249.55s
+step 197900, loss 2.65, lr 0.000060, consume 249.53s
+processing 229: c400854, wiki0145, wiki0493, books0422, books0510, arxiv0771, stackexchange0594, origin: 447022, samples: 328101, accum_tokens: 78166M, iter_num: 197919
+step 198000, loss 2.67, lr 0.000060, consume 256.52s
+step 198100, loss 2.68, lr 0.000060, consume 250.04s
+step 198200, loss 2.65, lr 0.000060, consume 250.03s
+step 198300, loss 2.66, lr 0.000060, consume 250.05s
+step 198400, loss 2.66, lr 0.000060, consume 250.03s
+step 198500, loss 2.66, lr 0.000060, consume 250.06s
+step 198600, loss 2.66, lr 0.000060, consume 250.19s
+step 198700, loss 2.65, lr 0.000060, consume 249.59s
+processing 230: c400467, wiki0908, wiki0605, books0327, books0189, arxiv0752, stackexchange0316, origin: 447195, samples: 332517, accum_tokens: 78507M, iter_num: 198774
+step 198800, loss 2.67, lr 0.000060, consume 255.80s
+step 198900, loss 2.67, lr 0.000060, consume 250.04s
+step 199000, loss 2.66, lr 0.000060, consume 250.07s
+step 199100, loss 2.66, lr 0.000060, consume 250.09s
+step 199200, loss 2.66, lr 0.000060, consume 250.05s
+step 199300, loss 2.65, lr 0.000060, consume 250.07s
+step 199400, loss 2.65, lr 0.000060, consume 250.13s
+step 199500, loss 2.65, lr 0.000060, consume 249.99s
+step 199600, loss 2.66, lr 0.000060, consume 249.58s
+processing 231: c400698, wiki0693, wiki1012, books0632, books0394, arxiv0037, stackexchange0363, origin: 447133, samples: 330875, accum_tokens: 78846M, iter_num: 199640
+step 199700, loss 2.65, lr 0.000060, consume 255.95s
+step 199800, loss 2.65, lr 0.000060, consume 250.05s
+step 199900, loss 2.66, lr 0.000060, consume 250.11s
+step 200000, loss 2.66, lr 0.000060, consume 250.08s
+processing 232: c400744, wiki0894, wiki0747, books0216, books0536, arxiv0004, stackexchange0574, origin: 447213, samples: 333600, accum_tokens: 79187M, iter_num: 200000
+step 200100, loss 2.67, lr 0.000060, consume 721.84s
+step 200200, loss 2.65, lr 0.000060, consume 250.53s
+step 200300, loss 2.66, lr 0.000060, consume 261.45s
+step 200400, loss 2.65, lr 0.000060, consume 251.09s
+step 200500, loss 2.65, lr 0.000060, consume 253.72s
+step 200600, loss 2.65, lr 0.000060, consume 257.41s
+step 200700, loss 2.65, lr 0.000060, consume 250.36s
+step 200800, loss 2.65, lr 0.000060, consume 250.12s
+processing 233: c400343, wiki0846, wiki0617, books0898, books0676, arxiv0415, stackexchange0088, origin: 447067, samples: 328313, accum_tokens: 79523M, iter_num: 200868
+step 200900, loss 2.66, lr 0.000060, consume 256.77s
+step 201000, loss 2.67, lr 0.000060, consume 251.25s
+step 201100, loss 2.66, lr 0.000060, consume 254.16s
+step 201200, loss 2.65, lr 0.000060, consume 254.54s
+step 201300, loss 2.66, lr 0.000060, consume 253.93s
+step 201400, loss 2.67, lr 0.000060, consume 251.95s
+step 201500, loss 2.66, lr 0.000060, consume 253.09s
+step 201600, loss 2.65, lr 0.000060, consume 250.53s
+step 201700, loss 2.65, lr 0.000060, consume 251.40s
+processing 234: c400793, wiki0063, wiki0760, books0170, books0985, arxiv0210, stackexchange0527, origin: 447027, samples: 329046, accum_tokens: 79860M, iter_num: 201723
+step 201800, loss 2.68, lr 0.000060, consume 259.26s
+step 201900, loss 2.67, lr 0.000060, consume 258.39s
+step 202000, loss 2.66, lr 0.000060, consume 253.37s
+step 202100, loss 2.66, lr 0.000060, consume 251.15s
+step 202200, loss 2.66, lr 0.000060, consume 250.60s
+step 202300, loss 2.66, lr 0.000060, consume 254.13s
+step 202400, loss 2.65, lr 0.000060, consume 251.85s
+step 202500, loss 2.66, lr 0.000060, consume 250.16s
+processing 235: c400276, wiki0367, wiki0683, books0691, books0357, arxiv0961, stackexchange0156, origin: 447244, samples: 335301, accum_tokens: 80204M, iter_num: 202580
+step 202600, loss 2.66, lr 0.000060, consume 258.07s
+step 202700, loss 2.67, lr 0.000060, consume 251.16s
+step 202800, loss 2.67, lr 0.000060, consume 252.68s
+step 202900, loss 2.66, lr 0.000060, consume 250.50s
+step 203000, loss 2.66, lr 0.000060, consume 250.63s
+step 203100, loss 2.66, lr 0.000060, consume 250.53s
+step 203200, loss 2.66, lr 0.000060, consume 250.96s
+step 203300, loss 2.65, lr 0.000060, consume 250.91s
+step 203400, loss 2.66, lr 0.000060, consume 250.40s
+processing 236: c400393, wiki0852, wiki0479, books0308, books0062, arxiv0944, stackexchange0063, origin: 447157, samples: 333403, accum_tokens: 80545M, iter_num: 203453
+step 203500, loss 2.67, lr 0.000060, consume 261.08s
+step 203600, loss 2.66, lr 0.000060, consume 251.42s
+step 203700, loss 2.66, lr 0.000060, consume 251.53s
+step 203800, loss 2.66, lr 0.000060, consume 250.92s
+step 203900, loss 2.65, lr 0.000060, consume 251.03s
+step 204000, loss 2.65, lr 0.000060, consume 250.89s
+step 204100, loss 2.66, lr 0.000060, consume 251.02s
+step 204200, loss 2.65, lr 0.000060, consume 251.55s
+step 204300, loss 2.65, lr 0.000060, consume 251.79s
+processing 237: c400482, wiki0167, wiki0754, books0297, books0107, arxiv0733, stackexchange0057, origin: 447142, samples: 333138, accum_tokens: 80886M, iter_num: 204321
+step 204400, loss 2.67, lr 0.000060, consume 257.24s
+step 204500, loss 2.67, lr 0.000060, consume 251.29s
+step 204600, loss 2.67, lr 0.000060, consume 252.87s
+step 204700, loss 2.66, lr 0.000060, consume 252.69s
+step 204800, loss 2.66, lr 0.000060, consume 251.46s
+step 204900, loss 2.66, lr 0.000060, consume 253.85s
+step 205000, loss 2.66, lr 0.000060, consume 251.60s
+step 205100, loss 2.65, lr 0.000060, consume 250.31s
+processing 238: c400740, wiki0156, wiki0080, books0774, books0460, arxiv0951, stackexchange0140, origin: 447267, samples: 335242, accum_tokens: 81230M, iter_num: 205189
+step 205200, loss 2.66, lr 0.000060, consume 257.17s
+step 205300, loss 2.67, lr 0.000060, consume 250.82s
+step 205400, loss 2.67, lr 0.000060, consume 250.89s
+step 205500, loss 2.66, lr 0.000060, consume 251.21s
+step 205600, loss 2.65, lr 0.000060, consume 251.06s
+step 205700, loss 2.66, lr 0.000060, consume 250.93s
+step 205800, loss 2.67, lr 0.000060, consume 250.86s
+step 205900, loss 2.66, lr 0.000060, consume 250.72s
+step 206000, loss 2.65, lr 0.000060, consume 250.17s
+processing 239: c400284, wiki0887, wiki0444, books0115, books0559, arxiv0650, stackexchange0841, origin: 446988, samples: 328282, accum_tokens: 81566M, iter_num: 206062
+step 206100, loss 2.65, lr 0.000060, consume 256.78s
+step 206200, loss 2.66, lr 0.000060, consume 250.63s
+step 206300, loss 2.65, lr 0.000060, consume 250.64s
+step 206400, loss 2.65, lr 0.000060, consume 250.60s
+step 206500, loss 2.64, lr 0.000060, consume 250.55s
+step 206600, loss 2.65, lr 0.000060, consume 250.67s
+step 206700, loss 2.65, lr 0.000060, consume 250.76s
+step 206800, loss 2.65, lr 0.000060, consume 250.28s
+step 206900, loss 2.65, lr 0.000060, consume 250.19s
+processing 240: c400628, wiki1011, wiki0119, books0198, books0701, arxiv0917, stackexchange0861, origin: 447094, samples: 330893, accum_tokens: 81905M, iter_num: 206917
+step 207000, loss 2.66, lr 0.000060, consume 257.06s
+step 207100, loss 2.66, lr 0.000060, consume 250.69s
+step 207200, loss 2.65, lr 0.000060, consume 250.67s
+step 207300, loss 2.65, lr 0.000060, consume 250.67s
+step 207400, loss 2.65, lr 0.000060, consume 250.66s
+step 207500, loss 2.65, lr 0.000060, consume 250.67s
+step 207600, loss 2.65, lr 0.000060, consume 250.85s
+step 207700, loss 2.64, lr 0.000060, consume 250.24s
+processing 241: c400412, wiki0179, wiki0102, books0208, books0003, arxiv0682, stackexchange0304, origin: 447181, samples: 332064, accum_tokens: 82245M, iter_num: 207778
+step 207800, loss 2.65, lr 0.000060, consume 257.06s
+step 207900, loss 2.66, lr 0.000060, consume 250.74s
+step 208000, loss 2.67, lr 0.000060, consume 250.79s
+step 208100, loss 2.67, lr 0.000060, consume 250.81s
+step 208200, loss 2.66, lr 0.000060, consume 250.81s
+step 208300, loss 2.66, lr 0.000060, consume 250.79s
+step 208400, loss 2.67, lr 0.000060, consume 250.82s
+step 208500, loss 2.66, lr 0.000060, consume 250.77s
+step 208600, loss 2.64, lr 0.000060, consume 250.36s
+processing 242: c400965, wiki0878, wiki0053, books0983, books0512, arxiv0634, stackexchange0991, origin: 447215, samples: 335419, accum_tokens: 82588M, iter_num: 208643
+step 208700, loss 2.66, lr 0.000060, consume 257.28s
+step 208800, loss 2.62, lr 0.000060, consume 250.70s
+step 208900, loss 2.63, lr 0.000060, consume 250.65s
+step 209000, loss 2.63, lr 0.000060, consume 250.70s
+step 209100, loss 2.62, lr 0.000060, consume 250.65s
+step 209200, loss 2.62, lr 0.000060, consume 250.72s
+step 209300, loss 2.61, lr 0.000060, consume 250.84s
+step 209400, loss 2.62, lr 0.000060, consume 250.34s
+step 209500, loss 2.63, lr 0.000060, consume 250.18s
+processing 243: c400941, wiki0676, wiki0813, books0102, books0467, arxiv0624, stackexchange0370, origin: 447009, samples: 328295, accum_tokens: 82924M, iter_num: 209516
+step 209600, loss 2.65, lr 0.000060, consume 257.24s
+step 209700, loss 2.66, lr 0.000060, consume 250.75s
+step 209800, loss 2.66, lr 0.000060, consume 250.68s
+step 209900, loss 2.66, lr 0.000060, consume 250.69s
+step 210000, loss 2.64, lr 0.000060, consume 250.67s
+step 210100, loss 2.65, lr 0.000060, consume 250.66s
+step 210200, loss 2.64, lr 0.000060, consume 250.77s
+step 210300, loss 2.66, lr 0.000060, consume 250.19s
+processing 244: c400497, wiki0665, wiki0866, books0095, books0546, arxiv0606, stackexchange0675, origin: 447153, samples: 333364, accum_tokens: 83266M, iter_num: 210371
+step 210400, loss 2.65, lr 0.000060, consume 256.67s
+step 210500, loss 2.65, lr 0.000060, consume 250.61s
+step 210600, loss 2.65, lr 0.000060, consume 250.58s
+step 210700, loss 2.65, lr 0.000060, consume 250.60s
+step 210800, loss 2.65, lr 0.000060, consume 250.60s
+step 210900, loss 2.64, lr 0.000060, consume 250.69s
+step 211000, loss 2.63, lr 0.000060, consume 250.68s
+step 211100, loss 2.64, lr 0.000060, consume 250.63s
+step 211200, loss 2.64, lr 0.000060, consume 250.36s
+processing 245: c400336, wiki0239, wiki0366, books0716, books0771, arxiv0350, stackexchange0301, origin: 447180, samples: 334285, accum_tokens: 83608M, iter_num: 211239
+step 211300, loss 2.66, lr 0.000060, consume 256.64s
+step 211400, loss 2.66, lr 0.000060, consume 250.78s
+step 211500, loss 2.66, lr 0.000060, consume 250.77s
+step 211600, loss 2.66, lr 0.000060, consume 250.75s
+step 211700, loss 2.65, lr 0.000060, consume 250.74s
+step 211800, loss 2.66, lr 0.000060, consume 250.86s
+step 211900, loss 2.65, lr 0.000060, consume 250.90s
+step 212000, loss 2.66, lr 0.000060, consume 250.26s
+step 212100, loss 2.65, lr 0.000060, consume 250.29s
+processing 246: c400725, wiki0446, wiki0729, books0949, books0272, arxiv0845, stackexchange0848, origin: 447117, samples: 331656, accum_tokens: 83947M, iter_num: 212110
+step 212200, loss 2.67, lr 0.000060, consume 256.81s
+step 212300, loss 2.65, lr 0.000060, consume 250.73s
+step 212400, loss 2.65, lr 0.000060, consume 250.76s
+step 212500, loss 2.66, lr 0.000060, consume 250.73s
+step 212600, loss 2.64, lr 0.000060, consume 250.74s
+step 212700, loss 2.66, lr 0.000060, consume 250.75s
+step 212800, loss 2.64, lr 0.000060, consume 250.76s
+step 212900, loss 2.66, lr 0.000060, consume 250.33s
+processing 247: c400525, wiki0807, wiki1023, books0321, books0298, arxiv0904, stackexchange0865, origin: 447128, samples: 331483, accum_tokens: 84287M, iter_num: 212974
+step 213000, loss 2.65, lr 0.000060, consume 256.63s
+step 213100, loss 2.67, lr 0.000060, consume 250.70s
+step 213200, loss 2.67, lr 0.000060, consume 250.73s
+step 213300, loss 2.66, lr 0.000060, consume 250.72s
+step 213400, loss 2.66, lr 0.000060, consume 250.70s
+step 213500, loss 2.65, lr 0.000060, consume 250.65s
+step 213600, loss 2.65, lr 0.000060, consume 250.69s
+step 213700, loss 2.65, lr 0.000060, consume 250.62s
+step 213800, loss 2.65, lr 0.000060, consume 250.16s
+processing 248: c400876, wiki1022, wiki0326, books0960, books0013, arxiv0922, stackexchange0502, origin: 447207, samples: 335495, accum_tokens: 84630M, iter_num: 213837
